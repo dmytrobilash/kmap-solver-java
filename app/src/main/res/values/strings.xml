@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Karnaugh Map</string>
+    <string name="En_lang">En</string>
+    <string name="Ukr_lang">Укр</string>
+    <string name="Karnaugh_2x2">Karnaugh 2x2</string>
+    <string name="Karnaugh_3x3">Karnaugh 3x3</string>
+    <string name="Karnaugh_4x4">Karnaugh 4x4</string>
+    <string name="Karnaugh_by_formulae">Karnaugh by formulae</string>
+    <string name="calculate">Calculate</string>
+</resources>
