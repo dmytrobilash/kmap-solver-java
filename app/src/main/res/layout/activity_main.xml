@@ -6,7 +6,63 @@
     android:layout_height="match_parent"
     android:rotationX="360"
     tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="412dp"
+        android:layout_height="66dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="62dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="main_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/k_map_image"
+            tools:ignore="ImageContrastCheck" />
+
+        <Button
+            android:id="@+id/En_lang"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/En_lang"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/Ukr_lang"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/Ukr_lang"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/En_lang"
+            app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -68,53 +124,5 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="412dp"
-        android:layout_height="66dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="62dp"
-            android:layout_height="66dp"
-            android:layout_marginEnd="350dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:mipmap/sym_def_app_icon"
-            tools:ignore="ImageContrastCheck"
-            android:contentDescription="TODO" />
-
-        <Button
-            android:id="@+id/En_lang"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="1dp"
-            android:text="@string/En_lang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/Ukr_lang"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/Ukr_lang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/En_lang"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

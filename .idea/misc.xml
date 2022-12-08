@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.318" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/kmap_icon_main_background.xml" value="0.318" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_map2x2.xml" value="0.3546195652173913" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_map2x2.xml" value="0.5" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/mipmap-anydpi-v26/kmap_icon_main.xml" value="0.3635" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/mipmap-anydpi-v26/kmap_icon_main_round.xml" value="0.3635" />
       </map>
     </option>
   </component>
