@@ -3,6 +3,7 @@ package com.hfad.karnaughmap_java;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +11,11 @@ import android.widget.EditText;
 
 public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
     private Button[] buttons;
-    private EditText textpane;
+    private EditText planeText_SoP;
+    private EditText planeText_PoS;
     private Button solve;
     private Button b;
-
+    Button switchToSecondActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,8 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
             buttons[i].setOnClickListener(this);
         }
 
-        textpane = findViewById(R.id.plaheText);
+        planeText_SoP = findViewById(R.id.planeText_SoP);
+        planeText_PoS = findViewById(R.id.planeText_PoS);
         solve = findViewById(R.id.solve);
 
         solve.setOnClickListener(new View.OnClickListener() {
@@ -53,10 +56,19 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
 
                 // sets the result to text pane
                 if (soln.isEmpty()) {
-                    textpane.setText(null);
+                    planeText_SoP.setText(null);
+                    planeText_PoS.setText(null);
                 } else {
-                    new ResultTypeOptimizer(getContext(), soln, textpane);
+                    planeText_SoP.setText(soln);
+                    planeText_PoS.setText(SoPtoPoSConverter(soln));
                 }
+            }
+        });
+        switchToSecondActivity = findViewById(R.id.get_scheme);
+        switchToSecondActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchActivities();
             }
         });
     }
@@ -79,4 +91,31 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
     private Context getContext() {
         return this;
     }
+    private void switchActivities() {
+        Intent switchActivityIntent = new Intent(this, Map2x2SchemeActivity.class);
+        startActivity(switchActivityIntent);
+    }
+    private String SoPtoPoSConverter(String sop) {
+        String optimizedSolution;
+        String i1 = sop.replace(" + ", ") * (");
+        String i2 = "(" + i1.replace("'", " + ") + ")";
+        String i3 = "";
+
+        for (int i = 0; i < i2.length(); i++) {
+            String ch;
+            if (i2.charAt(i) == 'A' || i2.charAt(i) == 'B' || i2.charAt(i) == 'C' || i2.charAt(i) == 'D') {
+                if (!i2.regionMatches(i + 1, " + ", 0, 3)) {
+                    ch = i2.charAt(i) + "' + ";
+                } else {
+                    ch = Character.toString(i2.charAt(i));
+                }
+            } else {
+                ch = Character.toString(i2.charAt(i));
+            }
+            i3 += ch;
+        }
+        optimizedSolution = i3.replace(" + )", ")");
+        return optimizedSolution;
+    }
+
 }

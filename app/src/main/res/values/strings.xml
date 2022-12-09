@@ -8,7 +8,7 @@
     <string name="Karnaugh_by_formulae">Karnaugh by formulae</string>
     <string name="calculate">Calculate</string>
     <string name="zero">0</string>
-    <string name="reset">Reset</string>
+    <string name="scheme">Get scheme</string>
     <string name="solve">Solve</string>
     <string name="F">F =</string>
 </resources>

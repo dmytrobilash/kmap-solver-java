@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
+            android:name=".Map2x2SchemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".map2x2"
             android:exported="false" />
         <activity
