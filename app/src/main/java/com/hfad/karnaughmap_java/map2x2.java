@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +19,7 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
     private EditText planeText_PoS;
     private Button solve;
     private Button b;
-    Button switchToSecondActivity;
+    private Button switchToSecondActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,22 +104,30 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
         String i1 = sop.replace(" + ", ") * (");
         String i2 = "(" + i1.replace("'", " + ") + ")";
         String i3 = "";
-
-        for (int i = 0; i < i2.length(); i++) {
-            String ch;
-            if (i2.charAt(i) == 'A' || i2.charAt(i) == 'B' || i2.charAt(i) == 'C' || i2.charAt(i) == 'D') {
-                if (!i2.regionMatches(i + 1, " + ", 0, 3)) {
-                    ch = i2.charAt(i) + "' + ";
+        if(sop == "1"){
+            return "0";
+        }
+        else if(sop == "0"){
+            return "1";
+        }
+        else{
+            for (int i = 0; i < i2.length(); i++) {
+                String ch;
+                if (i2.charAt(i) == 'A' || i2.charAt(i) == 'B' || i2.charAt(i) == 'C' || i2.charAt(i) == 'D') {
+                    if (!i2.regionMatches(i + 1, " + ", 0, 3)) {
+                        ch = i2.charAt(i) + "' + ";
+                    } else {
+                        ch = Character.toString(i2.charAt(i));
+                    }
                 } else {
                     ch = Character.toString(i2.charAt(i));
                 }
-            } else {
-                ch = Character.toString(i2.charAt(i));
+                i3 += ch;
             }
-            i3 += ch;
+            optimizedSolution = i3.replace(" + )", ")");
+            return optimizedSolution;
         }
-        optimizedSolution = i3.replace(" + )", ")");
-        return optimizedSolution;
+
     }
 
 }

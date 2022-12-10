@@ -25,7 +25,11 @@ public class map2x2_solver {
         if (!check4()) {
             // reaches if all values are 1
             output = "1";
-        } else {
+        }
+        else if(A[0][0]==0&&A[0][1]==0&&A[1][0]==0&&A[1][1]==0){
+            output = "0";
+        }
+        else {
             // reaches if smaller groups are to be found rather than 4
             for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 2; j++) {
@@ -33,7 +37,6 @@ public class map2x2_solver {
                         if (check2(i, j)) {
                             nogrouping(i, j);
                         }
-
                     }
                 }
             }
@@ -127,7 +130,6 @@ public class map2x2_solver {
         } else {
             output = output + " + " + local;
         }
-
         checked[r][c] = 1;
     }
 }
