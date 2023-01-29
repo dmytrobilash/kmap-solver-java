@@ -4,10 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,35 +13,31 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
-    private Button solve;
-    private Button b;
-    private Button switchToSecondActivity;
+    private EditText planeText_grouping;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2x2);
-
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
-        for (int i = 0; i < buttons.length; i++) {
-            buttons[i].setOnClickListener(this);
+        for (Button button : buttons) {
+            button.setOnClickListener(this);
         }
-
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
-        solve = findViewById(R.id.solve);
+        planeText_grouping = findViewById(R.id.planeText_grouping);
+        Button solve = findViewById(R.id.solve);
 
         solve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int [] val;
+                int[] val;
                 String soln;
 
                 // executes when two variable is selected
                 val = new int[4];
 
                 for (int i = 0; i < val.length; i++) {
-                    // stores value from button text
                     if (buttons[i].getText().toString().matches("X")) {
                         val[i] = 2;
                     } else {
@@ -53,7 +45,6 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
                     }
                 }
 
-                // creates instance of two variable solver
                 map2x2_solver solver = new map2x2_solver(val);
                 // solves and stores result
                 soln = solver.solve();
@@ -62,13 +53,15 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
                 if (soln.isEmpty()) {
                     planeText_SoP.setText(null);
                     planeText_PoS.setText(null);
+                    planeText_grouping.setText(null);
                 } else {
                     planeText_SoP.setText(soln);
-                    planeText_PoS.setText(SoPtoPoSConverter(soln));
+                    planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
+                    planeText_grouping.setText(solver.getGroups());
                 }
             }
         });
-        switchToSecondActivity = findViewById(R.id.get_scheme);
+        Button switchToSecondActivity = findViewById(R.id.get_scheme);
         switchToSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,14 +72,13 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        b = (Button) v;
+        Button b = (Button) v;
 
         if (b.getText().toString().matches("0")) {
             b.setText("1");
-        } else if(b.getText().toString().matches("1")){
+        } else if (b.getText().toString().matches("1")) {
             b.setText("X");
-        }
-        else {
+        } else {
             b.setText("0");
 
         }
@@ -95,39 +87,10 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
     private Context getContext() {
         return this;
     }
+
     private void switchActivities() {
         Intent switchActivityIntent = new Intent(this, Map2x2SchemeActivity.class);
         startActivity(switchActivityIntent);
-    }
-    private String SoPtoPoSConverter(String sop) {
-        String optimizedSolution;
-        String i1 = sop.replace(" + ", ") * (");
-        String i2 = "(" + i1.replace("'", " + ") + ")";
-        String i3 = "";
-        if(sop == "1"){
-            return "0";
-        }
-        else if(sop == "0"){
-            return "1";
-        }
-        else{
-            for (int i = 0; i < i2.length(); i++) {
-                String ch;
-                if (i2.charAt(i) == 'A' || i2.charAt(i) == 'B' || i2.charAt(i) == 'C' || i2.charAt(i) == 'D') {
-                    if (!i2.regionMatches(i + 1, " + ", 0, 3)) {
-                        ch = i2.charAt(i) + "' + ";
-                    } else {
-                        ch = Character.toString(i2.charAt(i));
-                    }
-                } else {
-                    ch = Character.toString(i2.charAt(i));
-                }
-                i3 += ch;
-            }
-            optimizedSolution = i3.replace(" + )", ")");
-            return optimizedSolution;
-        }
-
     }
 
 }

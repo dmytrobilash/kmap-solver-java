@@ -11,4 +11,7 @@
     <string name="scheme">Get scheme</string>
     <string name="solve">Solve</string>
     <string name="F">F =</string>
+    <string name="text_main_activity">Kmap solver\nChoose operation</string>
+    <string name="grouping">Groups:</string>
+
 </resources>
