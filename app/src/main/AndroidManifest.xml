@@ -10,13 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
-            android:name=".Map2x2SchemeActivity"
+            android:name=".views.map2x2"
             android:exported="false" />
         <activity
-            android:name=".map2x2"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

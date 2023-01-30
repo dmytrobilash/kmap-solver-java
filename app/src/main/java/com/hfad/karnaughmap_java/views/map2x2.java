@@ -1,15 +1,17 @@
-package com.hfad.karnaughmap_java;
+package com.hfad.karnaughmap_java.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
+import com.hfad.karnaughmap_java.R;
+import com.hfad.karnaughmap_java.solvers.map2x2_solver;
+
+public class map2x2 extends AppCompatActivity implements View.OnClickListener {
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
@@ -61,13 +63,6 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
                 }
             }
         });
-        Button switchToSecondActivity = findViewById(R.id.get_scheme);
-        switchToSecondActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchActivities();
-            }
-        });
     }
 
     @Override
@@ -82,15 +77,6 @@ public class map2x2 extends AppCompatActivity  implements View.OnClickListener {
             b.setText("0");
 
         }
-    }
-
-    private Context getContext() {
-        return this;
-    }
-
-    private void switchActivities() {
-        Intent switchActivityIntent = new Intent(this, Map2x2SchemeActivity.class);
-        startActivity(switchActivityIntent);
     }
 
 }

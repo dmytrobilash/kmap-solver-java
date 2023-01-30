@@ -1,4 +1,4 @@
-package com.hfad.karnaughmap_java;
+package com.hfad.karnaughmap_java.solvers;
 
 
 public class map2x2_solver {
