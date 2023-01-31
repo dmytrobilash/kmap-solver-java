@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.map2x2"
+    tools:context=".views.Map2x2"
     android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"

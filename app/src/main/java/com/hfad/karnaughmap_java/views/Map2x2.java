@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.solvers.map2x2_solver;
 
-public class map2x2 extends AppCompatActivity implements View.OnClickListener {
+public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;

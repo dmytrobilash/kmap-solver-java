@@ -26,7 +26,7 @@ public class map2x2_solver {
             // reaches if smaller groups are to be found rather than 4
             for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 2; j++) {
-                    if (A[i][j] == 1 && checked[i][j] == 0) {
+                    if (A[i][j] != 2 && checked[i][j] == 0) {
                         if (check2(i, j)) {
                             nogrouping(i, j);
                         }
@@ -46,7 +46,7 @@ public class map2x2_solver {
             for (int j = 0; j < 2; j++) {
                 if (A[i][j] == 1) {
                     search_smaller_group = false;
-                } else {
+                } else if (A[i][j] != 2) {
                     // breaks outer loop and returns true to find smaller groups
                     search_smaller_group = true;
                     break outer;

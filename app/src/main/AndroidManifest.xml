@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
-            android:name=".views.map2x2"
+            android:name=".views.Map4x4"
+            android:exported="false" />
+        <activity
+            android:name=".views.Map3x2"
+            android:exported="false" />
+        <activity
+            android:name=".views.Map2x2"
             android:exported="false" />
         <activity
             android:name=".views.MainActivity"
