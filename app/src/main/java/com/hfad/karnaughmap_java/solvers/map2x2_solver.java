@@ -17,7 +17,7 @@ public class map2x2_solver {
     }
 
     public String solve() {
-        if (!check4()) {
+        if (check4()) {
             // reaches if all values are 1
             output = "1";
         } else if (A[0][0] == 0 && A[0][1] == 0 && A[1][0] == 0 && A[1][1] == 0) {
@@ -53,7 +53,7 @@ public class map2x2_solver {
                 }
             }
         }
-        return search_smaller_group;
+        return !search_smaller_group;
     }
 
     // check for 2
@@ -156,7 +156,7 @@ public class map2x2_solver {
 
     public String getGroups() {
         StringBuilder groups = new StringBuilder();
-        if (!check4()) {
+        if (check4()) {
             groups.append("[0 1 2 3]");
         } else {
             if (!check2(0, 0) && !check2(0, 1)) {
@@ -165,10 +165,10 @@ public class map2x2_solver {
             if (!check2(0, 0) && !check2(1, 0)){
                 groups.append("[0 2] ");
             }
-            if (!check2(2, 2) && !check2(0, 1)){
+            if (!check2(1, 1) && !check2(0, 1)){
                 groups.append("[1 3] ");
             }
-            if (!check2(2, 2) && !check2(1, 0)){
+            if (!check2(1, 1) && !check2(1, 0)){
                 groups.append("[2 3] ");
             }
         }
