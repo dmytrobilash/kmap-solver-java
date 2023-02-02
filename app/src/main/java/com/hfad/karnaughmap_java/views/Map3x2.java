@@ -16,8 +16,11 @@ public class Map3x2 extends AppCompatActivity {
         setContentView(R.layout.activity_map3x2);
         editText = findViewById(R.id.edit_text);
         int [] arr = new int[8];
-        for(int i = 0; i < 7; i++){
-            arr[i] = 1;
+        for(int i = 0; i < 4; i++){
+            arr[i] = 0;
+            arr[4] = 1;
+            arr[5] = 1;
+            arr[6] = 0;
             arr[7] = 0;
         }
         editText.setText(new Map3x2_solver(arr).solve());
