@@ -1,6 +1,7 @@
 package com.hfad.karnaughmap_java.solvers;
 
 public class Map3x2_solver {
+
     private String output = "";
     private final int[][] A = new int[2][4];
     private final int[][] checked = new int[2][4];
@@ -61,7 +62,7 @@ public class Map3x2_solver {
             checked[0][1] = 1;
             checked[0][2] = 1;
             checked[0][3] = 1;
-            output += "C'";
+            output += "A'";
         }
 
         //bottom
@@ -72,7 +73,10 @@ public class Map3x2_solver {
             checked[1][1] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            output += "C";
+            if(output == ""){
+                output += "A";
+            }else output += "+A";
+
         }
 
         //left
@@ -83,7 +87,9 @@ public class Map3x2_solver {
             checked[0][1] = 1;
             checked[1][0] = 1;
             checked[1][1] = 1;
-            output += "A'";
+            if(output == ""){
+                output += "B'";
+            }else output += "+B'";
         }
 
         //right
@@ -94,7 +100,9 @@ public class Map3x2_solver {
             checked[0][3] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            output += "A";
+            if(output == ""){
+                output += "B";
+            }else output += "+B";
         }
 
         //center
@@ -104,7 +112,9 @@ public class Map3x2_solver {
             checked[0][2] = 1;
             checked[1][1] = 1;
             checked[1][2] = 1;
-            output += "B";
+            if(output == ""){
+                output += "C";
+            }else output += "+C";
         }
 
         //sides
@@ -114,9 +124,10 @@ public class Map3x2_solver {
             checked[1][0] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            output += "B'";
+            if(output == ""){
+                output += "C'";
+            }else  output += "+C'";
         }
-
     }
 
     private void check2() {
@@ -124,98 +135,155 @@ public class Map3x2_solver {
         if (A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
             checked[0][0] = 1;
             checked[1][0] = 1;
-            output += "B'C'";
+            if(output == ""){
+                output += "B'C'";
+            }else output += "+B'C'";
+
 
         }
         if (A[0][1] == 1 && A[1][1] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
             checked[0][1] = 1;
             checked[1][1] = 1;
-            output += "B'C";
+            if(output == ""){
+                output += "B'C";
+            }else  output += "+B'C";
+
 
         }
         if (A[0][2] == 1 && A[1][2] == 1 && (checked[0][2] == 0 || checked[1][2] == 0)) {
             checked[0][2] = 1;
             checked[1][2] = 1;
-            output += "BC";
+            if(output == ""){
+                output += "BC";
+            }else  output += "+BC";
+
 
         }
         if (A[0][3] == 1 && A[1][3] == 1 && (checked[0][3] == 0 || checked[1][3] == 0)) {
             checked[0][3] = 1;
             checked[1][3] = 1;
-            output += "B'C'";
+            if(output == ""){
+                output += "BC'";
+            }else output += "+BC'";
+
         }
 
         if (A[0][0] == 1 && A[0][1] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
-            output += "A'B'";
-
+            if(output == ""){
+                output += "A'B'";
+            }else output += "+A'B'";
         }
+
         if (A[0][1] == 1 && A[0][2] == 1 && (checked[0][1] == 0 || checked[0][2] == 0)) {
             checked[0][1] = 1;
             checked[0][2] = 1;
-            output += "A'C";
-
+            if(output == ""){
+                output += "A'C";
+            }else output += "+A'C";
         }
+
         if (A[0][2] == 1 && A[0][3] == 1 && (checked[0][2] == 0 || checked[0][3] == 0)) {
             checked[0][2] = 1;
             checked[0][3] = 1;
-            output += "A'B";
+            if(output == ""){
+                output += "A'B";
+            }else  output += "+A'B";
 
         }
+
         if (A[0][0] == 1 && A[0][3] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][0] = 1;
             checked[0][3] = 1;
-            output += "A'C'";
+            if(output == ""){
+                output += "A'C'";
+            }else output += "+A'C'";
+
 
         }
         if (A[1][0] == 1 && A[1][1] == 1 && (checked[1][0] == 0 || checked[1][1] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
-            output += "AB'";
+            if(output == ""){
+                output += "AB'";
+            }else output += "+AB'";
+
         }
         if (A[1][1] == 1 && A[1][2] == 1 && (checked[1][1] == 0 || checked[1][2] == 0)) {
             checked[1][1] = 1;
             checked[1][2] = 1;
-            output += "AC";
+            if(output == ""){
+                output += "AC";
+            }else output += "+AC";
+
         }
         if (A[1][2] == 1 && A[1][3] == 1 && (checked[1][2] == 0 || checked[1][3] == 0)) {
             checked[1][2] = 1;
             checked[1][3] = 1;
-            output += "AB";
+            if(output == ""){
+                output += "AB";
+            }else output += "+AB";
+
         }
         if (A[1][0] == 1 && A[1][3] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][2] = 1;
             checked[0][3] = 1;
-            output += "AC'";
+            if(output == ""){
+                output += "AC'";
+            }else output += "+AC'";
+
         }
     }
 
     // no grouping
     private void nogrouping() {
         if (A[0][0] == 1 && checked[0][0] == 0) {
-            output += "A'B'C'";
+            if(output == ""){
+                output += "A'B'C'";
+            }else output += "+A'B'C'";
+
         }
         if (A[0][1] == 1 && checked[0][1] == 0) {
-            output += "A'B'C";
+            if(output == ""){
+                output += "A'B'C";
+            }else output += "+A'B'C";
+
         }
         if (A[0][2] == 1 && checked[0][2] == 0) {
-            output += "A'B C";
+            if(output == ""){
+                output += "A'BC";
+            }else output += "+A'BC";
+
         }
         if (A[0][3] == 1 && checked[0][3] == 0) {
-            output += "AB'C";
+            if(output == ""){
+                output += "A'BC'";
+            }else  output += "+A'BC'";
+
         }
         if (A[1][0] == 1 && checked[1][0] == 0) {
-            output += "A B'C'";
+            if(output == ""){
+                output += "AB'C'";
+            }else  output += "AB'C'";
+
         }
         if (A[1][1] == 1 && checked[1][1] == 0) {
-            output += "A'B'C";
+            if(output == ""){
+                output += "AB'C";
+            }else  output += "+AB'C";
+
         }
         if (A[1][2] == 1 && checked[1][2] == 0) {
-            output += "ABC";
+            if(output == ""){
+                output += "ABC";
+            }else  output += "+ABC";
+
         }
         if (A[1][3] == 1 && checked[1][3] == 0) {
-            output += "ABC'";
+            if(output == ""){
+                output += "ABC'";
+            }else output += "+ABC'";
         }
     }
 }
