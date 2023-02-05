@@ -563,52 +563,52 @@ public class Map4x4_solver {
 
     private void nogrouping() {
         if(A[0][0] == 1){
-
+            output += "A'B'C'D'";
         }
         if(A[0][1] == 1){
-
+            output += "A'B'C'D";
         }
         if(A[0][2] == 1){
-
+            output += "A'B'CD";
         }
         if(A[0][3] == 1){
-
+            output += "A'B'CD'";
         }
         if(A[1][0] == 1){
-
+            output += "A'BC'D'";
         }
         if(A[1][1] == 1){
-
+            output += "A'BCD";
         }
         if(A[1][2] == 1){
-
+            output += "A'BCD";
         }
         if(A[1][3] == 1){
-
+            output += "A'BCD'";
         }
         if(A[2][0] == 1){
-
+            output += "ABC'D'";
         }
         if(A[2][1] == 1){
-
+            output += "ABC'D";
         }
         if(A[2][2] == 1){
-
+            output += "ABCD";
         }
         if(A[2][3] == 1){
-
+            output += "ABCD'";
         }
         if(A[3][0] == 1){
-
+            output += "AB'C'D'";
         }
         if(A[3][1] == 1){
-
+            output += "AB'C'D";
         }
         if(A[3][2] == 1){
-
+            output += "AB'CD";
         }
         if(A[3][3] == 1){
-
+            output += "AB'CD'";
         }
     }
 
