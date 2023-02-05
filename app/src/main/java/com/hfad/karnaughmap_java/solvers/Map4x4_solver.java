@@ -389,176 +389,182 @@ public class Map4x4_solver {
     }
 
     private void check2() {
-
         // top (left-right)
         if (A[0][0] == 1 && A[0][1] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
+            output += "A'B'C'";
         }
-
         if (A[0][1] == 1 && A[0][2] == 1 && (checked[0][1] == 0 || checked[0][2] == 0)) {
             checked[0][1] = 1;
             checked[0][2] = 1;
+            output += "A'B'D";
         }
         if (A[0][2] == 1 && A[0][3] == 1 && (checked[0][2] == 0 || checked[0][3] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
+            output += "A'B'C";
         }
         if (A[0][3] == 1 && A[0][0] == 1 && (checked[0][3] == 0 || checked[0][0] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
+            output += "A'B'D'";
         }
 
         //top_center (left-right)
         if (A[1][0] == 1 && A[1][1] == 1 && (checked[1][0] == 0 || checked[1][1] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
+            output += "A'BC'";
         }
-
         if (A[1][1] == 1 && A[1][2] == 1 && (checked[1][1] == 0 || checked[1][2] == 0)) {
             checked[1][1] = 1;
             checked[1][2] = 1;
+            output += "A'BD";
         }
         if (A[1][2] == 1 && A[1][3] == 1 && (checked[1][2] == 0 || checked[1][3] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
+            output += "A'BC";
         }
         if (A[1][3] == 1 && A[1][0] == 1 && (checked[1][3] == 0 || checked[1][0] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
+            output += "A'BD'";
         }
 
         //bot_center (left-right)
         if (A[2][0] == 1 && A[2][1] == 1 && (checked[2][0] == 0 || checked[2][1] == 0)) {
             checked[2][0] = 1;
             checked[2][1] = 1;
+            output += "ABC'";
         }
-
         if (A[2][1] == 1 && A[2][2] == 1 && (checked[2][1] == 0 || checked[2][2] == 0)) {
             checked[2][1] = 1;
             checked[2][2] = 1;
+            output += "ABD";
         }
         if (A[2][2] == 1 && A[2][3] == 1 && (checked[2][2] == 0 || checked[2][3] == 0)) {
-            checked[2][0] = 1;
-            checked[2][1] = 1;
+            checked[2][2] = 1;
+            checked[2][3] = 1;
+            output += "ABC";
         }
         if (A[2][3] == 1 && A[2][0] == 1 && (checked[2][3] == 0 || checked[2][0] == 0)) {
+            checked[2][3] = 1;
             checked[2][0] = 1;
-            checked[2][1] = 1;
+            output += "ABD'";
         }
 
         //bot (left-right)
         if (A[3][0] == 1 && A[3][1] == 1 && (checked[3][0] == 0 || checked[3][1] == 0)) {
             checked[3][0] = 1;
             checked[3][1] = 1;
+            output += "AB'C'";
         }
-
         if (A[3][1] == 1 && A[3][2] == 1 && (checked[3][1] == 0 || checked[3][2] == 0)) {
             checked[3][1] = 1;
             checked[3][2] = 1;
+            output += "A'B'D";
         }
         if (A[3][2] == 1 && A[3][3] == 1 && (checked[3][2] == 0 || checked[3][3] == 0)) {
-            checked[3][0] = 1;
-            checked[3][1] = 1;
+            checked[3][2] = 1;
+            checked[3][3] = 1;
+            output += "AB'C";
         }
         if (A[3][3] == 1 && A[3][0] == 1 && (checked[3][3] == 0 || checked[3][0] == 0)) {
             checked[3][0] = 1;
-            checked[3][1] = 1;
+            checked[3][3] = 1;
+            output += "AB'D'";
         }
 
         //left (top-bot)
         if (A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
             checked[0][0] = 1;
             checked[1][0] = 1;
+            output += "A'C'D'";
         }
-
         if (A[1][0] == 1 && A[2][0] == 1 && (checked[1][0] == 0 || checked[2][0] == 0)) {
             checked[1][0] = 1;
             checked[2][0] = 1;
+            output += "BC'D'";
         }
         if (A[2][0] == 1 && A[3][0] == 1 && (checked[2][0] == 0 || checked[3][0] == 0)) {
             checked[2][0] = 1;
             checked[3][0] = 1;
+            output += "AC'D'";
         }
         if (A[3][0] == 1 && A[0][0] == 1 && (checked[3][0] == 0 || checked[0][0] == 0)) {
             checked[3][0] = 1;
             checked[0][0] = 1;
-        }
-
-        //left (top-bot)
-        if (A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
-            checked[0][0] = 1;
-            checked[1][0] = 1;
-        }
-
-        if (A[1][0] == 1 && A[2][0] == 1 && (checked[1][0] == 0 || checked[2][0] == 0)) {
-            checked[1][0] = 1;
-            checked[2][0] = 1;
-        }
-        if (A[2][0] == 1 && A[3][0] == 1 && (checked[2][0] == 0 || checked[3][0] == 0)) {
-            checked[2][0] = 1;
-            checked[3][0] = 1;
-        }
-        if (A[3][0] == 1 && A[0][0] == 1 && (checked[3][0] == 0 || checked[0][0] == 0)) {
-            checked[3][0] = 1;
-            checked[0][0] = 1;
+            output += "B'C'D'";
         }
 
         //left_center (top-bot)
         if (A[0][1] == 1 && A[1][1] == 1 && (checked[0][1] == 0 || checked[1][1] == 0)) {
             checked[0][1] = 1;
             checked[1][1] = 1;
+            output += "A'C'D";
         }
         if (A[1][1] == 1 && A[2][1] == 1 && (checked[1][1] == 0 || checked[2][1] == 0)) {
             checked[1][1] = 1;
             checked[2][1] = 1;
+            output += "A'B'C'";
         }
         if (A[2][1] == 1 && A[3][1] == 1 && (checked[2][1] == 0 || checked[3][1] == 0)) {
             checked[2][1] = 1;
             checked[3][1] = 1;
+            output += "BC'D";
         }
         if (A[3][1] == 1 && A[0][1] == 1 && (checked[3][1] == 0 || checked[0][1] == 0)) {
-            checked[3][0] = 1;
-            checked[0][0] = 1;
+            checked[3][1] = 1;
+            checked[0][1] = 1;
+            output += "B'C'D";
         }
 
         //right_center(top-bot)
         if (A[0][2] == 1 && A[1][2] == 1 && (checked[0][2] == 0 || checked[1][2] == 0)) {
             checked[0][2] = 1;
             checked[1][2] = 1;
+            output += "A'CD";
         }
         if (A[1][0] == 1 && A[2][0] == 1 && (checked[1][0] == 0 || checked[2][0] == 0)) {
             checked[1][2] = 1;
             checked[2][2] = 1;
+            output += "BCD";
         }
         if (A[2][0] == 1 && A[3][0] == 1 && (checked[2][0] == 0 || checked[3][0] == 0)) {
             checked[2][2] = 1;
             checked[3][2] = 1;
+            output += "ACD";
         }
         if (A[3][0] == 1 && A[0][0] == 1 && (checked[3][0] == 0 || checked[0][0] == 0)) {
             checked[3][2] = 1;
             checked[0][2] = 1;
+            output += "B'CD";
         }
 
         //right (top-bot)
         if (A[0][3] == 1 && A[1][3] == 1 && (checked[0][3] == 0 || checked[1][3] == 0)) {
             checked[0][3] = 1;
             checked[1][3] = 1;
+            output += "A'CD'";
         }
 
         if (A[1][3] == 1 && A[2][3] == 1 && (checked[1][3] == 0 || checked[2][3] == 0)) {
             checked[1][3] = 1;
             checked[2][3] = 1;
+            output += "BC'D'";
         }
         if (A[2][3] == 1 && A[3][3] == 1 && (checked[2][3] == 0 || checked[3][3] == 0)) {
             checked[2][3] = 1;
             checked[3][3] = 1;
+            output += "ACD'";
         }
         if (A[3][3] == 1 && A[0][3] == 1 && (checked[3][3] == 0 || checked[0][3] == 0)) {
             checked[3][3] = 1;
             checked[0][3] = 1;
+            output += "B'CD'";
         }
-
     }
 
     private void nogrouping() {
