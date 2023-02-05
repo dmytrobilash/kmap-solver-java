@@ -135,7 +135,6 @@ public class Map4x4_solver {
             checked[2][3] = 1;
             output += "D";
         }
-
     }
 
     private void check4() {
@@ -160,6 +159,7 @@ public class Map4x4_solver {
             checked[1][3] = 1;
             output += "A'B";
         }
+
         //center_bottom
         if (A[2][0] == 1 && A[2][1] == 1 && A[2][2] == 1 && A[2][3] == 1 &&
                 (checked[2][0] == 0 || checked[2][1] == 0 || checked[2][2] == 0 || checked[2][3] == 0)) {
@@ -172,8 +172,8 @@ public class Map4x4_solver {
         }
 
         //bottom
-        if (A[1][0] == 1 && A[1][1] == 1 && A[1][2] == 1 && A[1][3] == 1 &&
-                (checked[1][0] == 0 || checked[1][1] == 0 || checked[1][2] == 0 || checked[1][3] == 0)) {
+        if (A[3][0] == 1 && A[3][1] == 1 && A[3][2] == 1 && A[3][3] == 1 &&
+                (checked[3][0] == 0 || checked[3][1] == 0 || checked[3][2] == 0 || checked[3][3] == 0)) {
 
             checked[3][0] = 1;
             checked[3][1] = 1;
@@ -186,9 +186,9 @@ public class Map4x4_solver {
         if (A[0][0] == 1 && A[1][0] == 1 && A[2][0] == 1 && A[3][0] == 1 &&
                 (checked[0][0] == 0 || checked[1][0] == 0 || checked[2][0] == 0 || checked[3][0] == 0)) {
             checked[0][0] = 1;
-            checked[0][1] = 1;
-            checked[0][2] = 1;
-            checked[0][3] = 1;
+            checked[1][0] = 1;
+            checked[2][0] = 1;
+            checked[3][0] = 1;
             output += "C'D'";
         }
 
@@ -286,11 +286,11 @@ public class Map4x4_solver {
         //center-bottom
         if (A[2][1] == 1 && A[2][2] == 1 && A[3][1] == 1 && A[3][2] == 1 &&
                 (checked[2][1] == 0 || checked[2][2] == 0 || checked[3][1] == 0 || checked[3][2] == 0)) {
-            checked[0][1] = 1;
-            checked[0][2] = 1;
-            checked[1][1] = 1;
-            checked[1][2] = 1;
-            output += "B'D";
+            checked[2][1] = 1;
+            checked[2][2] = 1;
+            checked[3][1] = 1;
+            checked[3][2] = 1;
+            output += "AD";
         }
 
         //center-left
@@ -299,9 +299,10 @@ public class Map4x4_solver {
             checked[1][0] = 1;
             checked[2][0] = 1;
             checked[1][1] = 1;
-            checked[2][2] = 1;
+            checked[2][1] = 1;
             output += "BC'";
         }
+
         //center-right
         if (A[1][2] == 1 && A[2][2] == 1 && A[1][3] == 1 && A[2][3] == 1 &&
                 (checked[1][2] == 0 || checked[2][2] == 0 || checked[1][3] == 0 || checked[2][3] == 0)) {
@@ -311,8 +312,6 @@ public class Map4x4_solver {
             checked[2][3] = 1;
             output += "BC";
         }
-
-
 
 
         //corners
@@ -326,16 +325,13 @@ public class Map4x4_solver {
         }
 
 
-
-
-
         //left-right-top
-        if (A[1][0] == 1 && A[2][0] == 1 && A[1][3] == 1 && A[2][3] == 1 &&
-                (checked[1][0] == 0 || checked[2][0] == 0 || checked[1][3] == 0 || checked[2][3] == 0)) {
+        if (A[0][0] == 1 && A[1][0] == 1 && A[0][3] == 1 && A[1][3] == 1 &&
+                (checked[0][0] == 0 || checked[1][0] == 0 || checked[0][3] == 0 || checked[1][3] == 0)) {
+            checked[0][0] = 1;
             checked[1][0] = 1;
-            checked[2][0] = 1;
+            checked[0][3] = 1;
             checked[1][3] = 1;
-            checked[2][3] = 1;
             output += "A'D'";
         }
 
@@ -346,7 +342,7 @@ public class Map4x4_solver {
             checked[3][0] = 1;
             checked[2][3] = 1;
             checked[3][3] = 1;
-            output += "A'D";
+            output += "AD'";
         }
 
         //left-right-center
@@ -359,15 +355,6 @@ public class Map4x4_solver {
             output += "BD'";
         }
 
-        //top-bottom-center
-        if (A[0][1] == 1 && A[0][2] == 1 && A[3][1] == 1 && A[3][2] == 1 &&
-                (checked[0][1] == 0 || checked[0][2] == 0 || checked[3][1] == 0 || checked[3][2] == 0)) {
-            checked[0][1] = 1;
-            checked[0][2] = 1;
-            checked[3][1] = 1;
-            checked[3][2] = 1;
-            output += "B'D";
-        }
         //top-bottom-left
         if (A[0][0] == 1 && A[0][1] == 1 && A[3][0] == 1 && A[3][1] == 1 &&
                 (checked[0][0] == 0 || checked[0][1] == 0 || checked[3][0] == 0 || checked[3][1] == 0)) {
@@ -377,7 +364,8 @@ public class Map4x4_solver {
             checked[3][1] = 1;
             output += "B'C'";
         }
-        //top-bottom-left
+
+        //top-bottom-right
         if (A[0][2] == 1 && A[0][3] == 1 && A[3][2] == 1 && A[3][3] == 1 &&
                 (checked[0][2] == 0 || checked[0][3] == 0 || checked[3][2] == 0 || checked[3][3] == 0)) {
             checked[0][0] = 1;
@@ -387,19 +375,15 @@ public class Map4x4_solver {
             output += "B'C";
         }
 
-
-
-        //center-left
-        if (A[1][0] == 1 && A[2][0] == 1 && A[1][3] == 1 && A[2][3] == 1 &&
-                (checked[1][0] == 0 || checked[2][0] == 0 || checked[1][3] == 0 || checked[2][3] == 0)) {
-            checked[1][0] = 1;
-            checked[2][0] = 1;
-            checked[1][3] = 1;
-            checked[2][3] = 1;
-            output += "BD'";
+        //top-bottom-center
+        if (A[0][1] == 1 && A[0][2] == 1 && A[3][1] == 1 && A[3][2] == 1 &&
+                (checked[0][1] == 0 || checked[0][2] == 0 || checked[3][1] == 0 || checked[3][2] == 0)) {
+            checked[0][1] = 1;
+            checked[0][2] = 1;
+            checked[3][1] = 1;
+            checked[3][2] = 1;
+            output += "B'D";
         }
-
-        //cen
 
 
     }
