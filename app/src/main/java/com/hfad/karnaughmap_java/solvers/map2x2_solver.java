@@ -10,8 +10,9 @@ public class map2x2_solver {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                A[i][j] = val[count++];
+                A[i][j] = val[count];
                 checked[i][j] = 0;
+                count++;
             }
         }
     }
@@ -20,113 +21,86 @@ public class map2x2_solver {
         if (check4()) {
             // reaches if all values are 1
             output = "1";
+            return output;
         } else if (A[0][0] == 0 && A[0][1] == 0 && A[1][0] == 0 && A[1][1] == 0) {
             output = "0";
-        } else {
-            // reaches if smaller groups are to be found rather than 4
-            for (int i = 0; i < 2; i++) {
-                for (int j = 0; j < 2; j++) {
-                    if (A[i][j] != 2 && checked[i][j] == 0) {
-                        if (check2(i, j)) {
-                            nogrouping(i, j);
-                        }
-                    }
-                }
-            }
+            return output;
         }
+        check2();
+        nogrouping();
         return output;
     }
 
     // check for 4
     private boolean check4() {
-        boolean search_smaller_group = false;
-
-        outer:
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (A[i][j] == 1) {
-                    search_smaller_group = false;
-                } else if (A[i][j] != 2) {
-                    // breaks outer loop and returns true to find smaller groups
-                    search_smaller_group = true;
-                    break outer;
-                }
-            }
-        }
-        return !search_smaller_group;
+        return A[0][0] == 1 && A[0][1] == 1 && A[1][0] == 1 && A[1][1] == 1;
     }
 
     // check for 2
-    private boolean check2(int r, int c) {
-        boolean search_smaller_group = true;
-        String local = "";
-
-        if (A[r][c] == 1 && A[r][(c + 1) % 2] == 1) { // columns ++
-            if (r == 0) {
-                local = "A'";
+    private void check2() {
+        if(A[0][0] == 1 && A[0][1] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)){
+            checked[0][0] = 1;
+            checked[0][1] = 1;
+            if(output.equals("")){
+                output+="A'";
             }
-            if (r == 1) {
-                local = "A";
-            }
-
-            if (output.matches("")) {
-                output = output + local;
-            } else {
-                output = output + " + " + local;
-            }
-
-            search_smaller_group = false;
-            // make checked
-            checked[r][c] = 1;
-            checked[r][(c + 1) % 2] = 1;
-        } else if (A[r][c] == 1 && A[(r + 1) % 2][c] == 1) { // rows ++
-            if (c == 0) {
-                local = "B'";
-            }
-            if (c == 1) {
-                local = "B";
-            }
-
-            if (output.matches("")) {
-                output = output + local;
-            } else {
-                output = output + " + " + local;
-            }
-
-            search_smaller_group = false;
-            // make checked
-            checked[r][c] = 1;
-            checked[(r + 1) % 2][c] = 1;
+            else output+="+A'";
         }
-        return search_smaller_group;
+        if(A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)){
+            checked[0][0] = 1;
+            checked[1][0] = 1;
+            if(output.equals("")){
+                output+="B'";
+            }
+            else output+="+B'";
+        }
+        if(A[1][0] == 1 && A[1][1] == 1 && (checked[1][0] == 0 || checked[1][1] == 0)){
+            checked[1][0] = 1;
+            checked[1][1] = 1;
+            if(output.equals("")){
+                output+="A";
+            }
+            else output+="+A";
+        }
+        if(A[0][1] == 1 && A[1][1] == 1 && (checked[0][1] == 0 || checked[1][1] == 0)){
+            checked[0][1] = 1;
+            checked[1][1] = 1;
+            if(output.equals("")){
+                output+="B";
+            }
+            else output+="+B";
+        }
     }
 
     // no grouping
-    private void nogrouping(int r, int c) {
-        String local = "";
-
-        if (r == 0) {
-            local = "A'";
+    private void nogrouping() {
+        if(A[0][0] == 1 && checked[0][0] == 0){
+            if(output.equals("")){
+                output+="A'B'";
+            }
+            else output+="+A'B'";
         }
-        if (r == 1) {
-            local = "A";
+        if(A[0][1] == 1 && checked[0][1] == 0){
+            if(output.equals("")){
+                output+="A'B";
+            }
+            else output+="+A'B";
         }
-        if (c == 0) {
-            local = local + "B'";
+        if(A[1][0] == 1 && checked[1][0] == 0){
+            if(output.equals("")){
+                output+="AB'";
+            }
+            else output+="+AB'";
         }
-        if (c == 1) {
-            local = local + "B";
+        if(A[1][1] == 1 && checked[1][1] == 0){
+            if(output.equals("")){
+                output+="AB";
+            }
+            else output+="+AB";
         }
-
-        if (output.matches("")) {
-            output = output + local;
-        } else {
-            output = output + " + " + local;
-        }
-        checked[r][c] = 1;
     }
 
-    public String SoPtoPoSConverter(String sop) {
+    /*public String SoPtoPoSConverter(String sop) {
         String optimizedSolution;
         String i1 = sop.replace(" + ", ") * (");
         String i2 = "(" + i1.replace("'", " + ") + ")";
@@ -153,8 +127,8 @@ public class map2x2_solver {
             return optimizedSolution;
         }
     }
-
-    public String getGroups() {
+       */
+    /*public String getGroups() {
         StringBuilder groups = new StringBuilder();
         if (check4()) {
             groups.append("[0 1 2 3]");
@@ -173,5 +147,5 @@ public class map2x2_solver {
             }
         }
         return groups.toString();
-    }
+    }*/
 }
