@@ -1,17 +1,23 @@
 package com.hfad.karnaughmap_java.solvers;
 
 
-public class map2x2_solver {
+public class TwoVariables {
     private String output = "";
     private final int[][] A = new int[2][2];
     private final int[][] checked = new int[2][2];
 
-    public map2x2_solver(int[] val) {
+    public TwoVariables(int [] val) {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                A[i][j] = val[count];
-                checked[i][j] = 0;
+                if(val[count] == 2){
+                    A[i][j] = 1;
+                    checked[i][j] = 1;
+                }
+                else{
+                    A[i][j] = val[count];
+                    checked[i][j] = 0;
+                }
                 count++;
             }
         }

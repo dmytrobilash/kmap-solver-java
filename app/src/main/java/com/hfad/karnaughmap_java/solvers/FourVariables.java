@@ -1,16 +1,23 @@
 package com.hfad.karnaughmap_java.solvers;
 
-public class Map4x4_solver {
+public class FourVariables {
     private String output = "";
     private final int[][] A = new int[4][4];
     private final int[][] checked = new int[4][4];
 
-    public Map4x4_solver(int[] val) {
+    public FourVariables(int[] val) {
         int count = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                A[i][j] = val[count++];
-                checked[i][j] = 0;
+                if(val[count] == 2){
+                    A[i][j] = 1;
+                    checked[i][j] = 1;
+                }
+                else{
+                    A[i][j] = val[count];
+                    checked[i][j] = 0;
+                }
+                count++;
             }
         }
     }
