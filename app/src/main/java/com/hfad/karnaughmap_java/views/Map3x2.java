@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.hfad.karnaughmap_java.R;
-import com.hfad.karnaughmap_java.solvers.Map3x2_solver;
+import com.hfad.karnaughmap_java.model.TreeVariables;
 
 public class Map3x2 extends AppCompatActivity {
     EditText editText;
@@ -16,13 +16,15 @@ public class Map3x2 extends AppCompatActivity {
         setContentView(R.layout.activity_map3x2);
         editText = findViewById(R.id.edit_text);
         int [] arr = new int[8];
-        for(int i = 0; i < 4; i++){
-            arr[i] = 0;
-            arr[4] = 1;
-            arr[5] = 1;
-            arr[6] = 0;
-            arr[7] = 0;
-        }
-        editText.setText(new Map3x2_solver(arr).solve());
+        arr[0] = 1;
+        arr[1] = 1;
+        arr[2] = 0;
+        arr[3] = 0;
+        arr[4] = 0;
+        arr[5] = 0;
+        arr[6] = 0;
+        arr[7] = 1;
+
+        editText.setText(new TreeVariables(arr).solve());
     }
 }
