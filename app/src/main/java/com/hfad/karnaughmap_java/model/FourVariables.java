@@ -1,4 +1,4 @@
-package com.hfad.karnaughmap_java.solvers;
+package com.hfad.karnaughmap_java.model;
 
 public class FourVariables {
     private String output = "";
