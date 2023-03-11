@@ -10,6 +10,7 @@ import android.view.View;
 
 public class CustomView extends View {
     private Paint mPaint;
+    private Paint circlePaint;
 
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -17,6 +18,10 @@ public class CustomView extends View {
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(5);
         mPaint.setTextSize(50);
+        circlePaint = new Paint();
+        circlePaint.setColor(Color.BLACK);
+        circlePaint.setStrokeWidth(5);
+        circlePaint.setStyle(Paint.Style.STROKE);
     }
 
     public CustomView(Context context) {
@@ -29,149 +34,129 @@ public class CustomView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+        String str = "A'B'C'D'+AB+AC";
         super.onDraw(canvas);
         int width = canvas.getWidth();
         int height = canvas.getHeight();
-        int oneTenWidth = width / 10;
+        int startMeinVerticalLinesWidth = width / 20;
+        int marginTextHorizontal = width / 60;
+        int marginTextVertical = height / 40;
+        int radius = 7;
         int oneTenHeight = height / 10;
-        int halfWidth = width / 2;
-        int halfHeight = height / 2;
+        int oneTenWidth = width / 10;
 
-        String str = "A'BC+AD+AB+ABC";
 
-        String[] substrings = str.split("\\+"); // split the string into an array of substrings
-        String[] result = new String[substrings.length];
+        String[] substrings = str.split("\\+");
 
+        Log.v("AAA", String.valueOf(substrings.length));
+
+
+        drawStart(canvas, mPaint, circlePaint, str, startMeinVerticalLinesWidth, height, marginTextHorizontal, marginTextVertical, oneTenHeight, width, oneTenWidth, radius);
+
+        int gap = 40;
         for (int i = 0; i < substrings.length; i++) {
-            result[i] = substrings[i].trim(); // trim each substring and store in new array
+            int count = i + 1;
+            int y = count * oneTenHeight + 50 + i*gap; // add i*gap pixels to create a gap between the rectangles
+            canvas.drawLine(width / 2, y, width / 2, y + oneTenHeight, mPaint);
+            canvas.drawLine(width / 2, y, width / 2 + oneTenWidth, y, mPaint);
+            canvas.drawLine(width / 2 + oneTenWidth, y, width / 2 + oneTenWidth, y + oneTenHeight, mPaint);
+            canvas.drawLine(width / 2, y + oneTenHeight, width / 2 + oneTenWidth, y + oneTenHeight, mPaint);
         }
 
+
+    }
+
+
+    public void drawStart(Canvas canvas, Paint mPaint, Paint circlePaint, String str, int startMeinVerticalLinesWidth, int height, int marginTextHorizontal, int marginTextVertical, int oneTenHeight, int width, int oneTenWidth, int radius) {
         if (str.contains("A")) {
-            canvas.drawLine(width / 10, 0, width / 10, height, mPaint);
-            canvas.drawText("A", width / 10 + 2, 50, mPaint);
+            canvas.drawLine(startMeinVerticalLinesWidth, 0, startMeinVerticalLinesWidth, height, mPaint);
+            canvas.drawText("A", startMeinVerticalLinesWidth + marginTextHorizontal, marginTextVertical, mPaint);
+            if (str.contains("A'")) {
+                canvas.drawCircle(startMeinVerticalLinesWidth, oneTenHeight / 2, radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth, oneTenHeight / 2, startMeinVerticalLinesWidth + width / 60, oneTenHeight / 2, mPaint);
+
+                // rect
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + width / 60, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 - oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60, oneTenHeight / 2 + oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 - radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 + radius, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                // rect
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100, oneTenHeight / 2, radius, circlePaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + radius, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2, oneTenHeight / 2, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2, height, mPaint);
+            }
         }
         if (str.contains("B")) {
-            canvas.drawLine(width / 10 * 2, 0, width / 10 * 2, height, mPaint);
-            canvas.drawText("B", width / 10 * 2 + 2, 50, mPaint);
+            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, 0, startMeinVerticalLinesWidth + oneTenWidth, height, mPaint);
+            canvas.drawText("B", startMeinVerticalLinesWidth + marginTextHorizontal + oneTenWidth, marginTextVertical, mPaint);
+            if (str.contains("B'")) {
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, oneTenHeight / 2, radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, oneTenHeight / 2, startMeinVerticalLinesWidth + width / 60 + oneTenWidth, oneTenHeight / 2, mPaint);
+
+                //rect
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + width / 60 + oneTenWidth, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 - oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth, oneTenHeight / 2 + oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 - radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 + radius, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                //rect
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth, oneTenHeight / 2, radius, circlePaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + radius + oneTenWidth, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth, oneTenHeight / 2, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth, height, mPaint);
+            }
         }
+
         if (str.contains("C")) {
-            canvas.drawLine(width / 10 * 3, 0, width / 10 * 3, height, mPaint);
-            canvas.drawText("C", width / 10 * 3 + 2, 50, mPaint);
+            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, 0, startMeinVerticalLinesWidth + oneTenWidth * 2, height, mPaint);
+            canvas.drawText("C", startMeinVerticalLinesWidth + marginTextHorizontal + oneTenWidth * 2, marginTextVertical, mPaint);
+            if (str.contains("C'")) {
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2, oneTenHeight / 2, radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, oneTenHeight / 2, startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 2, oneTenHeight / 2, mPaint);
+
+                //rect
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 2, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 2, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 2, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 - oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 2, oneTenHeight / 2 + oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 - radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 + radius, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+
+                //rect
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 2, oneTenHeight / 2, radius, circlePaint);
+
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + radius + oneTenWidth * 2, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 2, oneTenHeight / 2, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 2, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 2, height, mPaint);
+            }
         }
         if (str.contains("D")) {
-            canvas.drawLine(width / 10 * 4, 0, width / 10 * 4, height, mPaint);
-            canvas.drawText("D", width / 10 * 4 + 2, 50, mPaint);
-        }
+            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, 0, startMeinVerticalLinesWidth + oneTenWidth * 3, height, mPaint);
+            canvas.drawText("D", startMeinVerticalLinesWidth + marginTextHorizontal + oneTenWidth * 3, marginTextVertical, mPaint);
+            if (str.contains("D'")) {
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, oneTenHeight / 2, radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, oneTenHeight / 2, startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 3, oneTenHeight / 2, mPaint);
 
-        if (str.contains("A'")){
-            //circleA
-            canvas.drawCircle(oneTenWidth,oneTenHeight/2, 10, mPaint);
-            //line to rect
-            canvas.drawLine(oneTenWidth, oneTenHeight/2, oneTenWidth+ oneTenWidth/6, oneTenHeight/2, mPaint);
+                //rect
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 3, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 3, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 3, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 - oneTenHeight / 8, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60 + oneTenWidth * 3, oneTenHeight / 2 + oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
 
-            //left
-            canvas.drawLine(oneTenWidth+oneTenWidth/6, oneTenHeight/3, oneTenWidth+ oneTenWidth/6, oneTenHeight*2/3, mPaint);
-            //right
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 - oneTenHeight / 8, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 - radius, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 + radius, startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2 + oneTenHeight / 8, mPaint);
 
-            //top
-            canvas.drawLine(oneTenWidth+oneTenWidth/6, oneTenHeight/3, oneTenWidth+ oneTenWidth/3, oneTenHeight/3, mPaint);
+                //rect
+                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + oneTenWidth * 3, oneTenHeight / 2, radius, circlePaint);
 
-            //bottom
-            canvas.drawLine(oneTenWidth+oneTenWidth/6, oneTenHeight*2/3,  oneTenWidth+ oneTenWidth/3, oneTenHeight*2/3, mPaint);
-
-            //line from rect
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.drawCircle(oneTenWidth+ oneTenWidth/3, oneTenHeight/2, 8, mPaint);
-            canvas.drawLine(oneTenWidth+ oneTenWidth/3, oneTenHeight/2, oneTenWidth+oneTenWidth/2, oneTenHeight/2, mPaint);
-            //line from rect to bottom
-            canvas.drawLine(oneTenWidth+oneTenWidth/2, oneTenHeight/2, oneTenWidth+oneTenWidth/2, height, mPaint);
-
-        }
-        if (str.contains("B'")){
-
-        }
-        if (str.contains("C'")){
-
-        }
-        if (str.contains("D'")){
-
-        }
-
-
-    }
-}
-        /*int count = 0;
-        int rectangleWidth = 200; // 3 times larger than the squareSize
-        int rectangleHeight = 300; // 4 times larger than the squareSize
-        int spaceSize = 50;
-
-        for (int i = 0; i < result.length; i++) {
-            //top
-            canvas.drawLine(halfWidth, spaceSize + rectangleHeight * count, halfWidth + rectangleWidth, spaceSize + rectangleHeight * count, mPaint);
-            //bottom
-            canvas.drawLine(halfWidth, spaceSize + rectangleHeight + rectangleHeight * count , halfWidth + rectangleWidth, spaceSize + rectangleHeight + rectangleHeight * count, mPaint);
-            //left
-            canvas.drawLine(halfWidth, spaceSize + rectangleHeight * count, halfWidth, spaceSize + rectangleHeight + rectangleHeight * count, mPaint);
-            //right
-            canvas.drawLine(halfWidth + rectangleWidth, spaceSize + rectangleHeight * count, halfWidth + rectangleWidth, spaceSize + rectangleHeight + rectangleHeight * count, mPaint);
-
-            //end and element
-            canvas.drawLine(halfWidth + rectangleWidth, spaceSize + rectangleHeight * count + rectangleHeight/2, width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2, mPaint);
-
-            if(i < result.length/2){
-                canvas.drawLine(width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2,width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2+rectangleHeight/4*3, mPaint);
-                canvas.drawLine(width-width/4,spaceSize + rectangleHeight * count +rectangleHeight/2+rectangleHeight/4*3, width-width/10, spaceSize + rectangleHeight * count +rectangleHeight/2+rectangleHeight/4*3, mPaint );
-            }else if(i >= result.length/2){
-                canvas.drawLine(width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2,width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2-rectangleHeight/4*3, mPaint);
-                canvas.drawLine(width-width/4, spaceSize + rectangleHeight * count +rectangleHeight/2-rectangleHeight/4*3, width-width/10,spaceSize + rectangleHeight * count +rectangleHeight/2-rectangleHeight/4*3, mPaint);
-            }
-            count += 2;
-        }
-
-        int spaceInRect = 100;
-        int spaceBetweenRect = 0;
-
-        char [] charArray = str.toCharArray();
-        for(int i = 0; i < charArray.length; i++){
-
-            if(charArray[i] == 'A'){
-                canvas.drawLine(width / 10, spaceInRect + spaceBetweenRect, halfWidth, spaceInRect + spaceBetweenRect, mPaint);
-                spaceInRect+=50;
-            }
-            if( charArray[i] == 'B'){
-                canvas.drawLine(width / 10 * 2, spaceInRect + spaceBetweenRect, halfWidth, spaceInRect + spaceBetweenRect, mPaint);
-                spaceInRect+=50;
-            }
-            if(charArray[i] == 'C'){
-                canvas.drawLine(width / 10 * 3, spaceInRect + spaceBetweenRect, halfWidth, spaceInRect + spaceBetweenRect, mPaint);
-                spaceInRect+=50;
-
-            }
-            if(charArray[i] == 'D'){
-                canvas.drawLine(width / 10 * 4, spaceInRect + spaceBetweenRect, halfWidth, spaceInRect + spaceBetweenRect, mPaint);
-                spaceInRect+=50;
-            }
-            if(charArray[i] == '+'){
-                spaceBetweenRect+=rectangleHeight*2;
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 - width / 100 + radius + oneTenWidth * 3, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 3, oneTenHeight / 2, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 3, oneTenHeight / 2, startMeinVerticalLinesWidth + oneTenWidth / 2 + oneTenWidth * 3, height, mPaint);
             }
         }
     }
 }
-
-
-        /*
-
-
-
-        // Draw the vertical lines
-
-
-        // Draw the horizontal lines
-
-
-        // Draw the horizontal line
-        canvas.drawLine(width / 10, height / 4, width, height / 4, mPaint);
-        canvas.drawLine(width / 10 + width / 10, height / 3, width, height / 3, mPaint);
-        // Draw the square
-        canvas.drawRect(width / 10 * 3, height / 4, width / 10 * 4, height / 3, mPaint);
-         */
