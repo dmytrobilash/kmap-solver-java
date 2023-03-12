@@ -3,12 +3,15 @@ package com.hfad.karnaughmap_java.views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.hfad.karnaughmap_java.DrawSchemeActivity;
+import com.hfad.karnaughmap_java.MainActivity;
 import com.hfad.karnaughmap_java.Presenter.TwoVariablePresenter;
 import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.model.TwoVariables;
@@ -20,6 +23,8 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
     private EditText planeText_PoS;
     private EditText planeText_grouping;
     private Button solve;
+    private Button scheme;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,15 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
         planeText_PoS = findViewById(R.id.planeText_PoS);
         planeText_grouping = findViewById(R.id.planeText_grouping);
         solve = findViewById(R.id.solve);
+        scheme = findViewById(R.id.get_scheme);
+        scheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent switchActivityIntent = new Intent(Map2x2.this, DrawSchemeActivity.class);
+                switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
+                startActivity(switchActivityIntent);
+            }
+        });
 
         solve.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +81,8 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
+
+
     @Override
     public void onClick(View v) {
         Button b = (Button) v;
@@ -77,7 +93,6 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
             b.setText("X");
         } else {
             b.setText("0");
-
         }
     }
 
