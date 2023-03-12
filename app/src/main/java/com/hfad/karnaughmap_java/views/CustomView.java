@@ -38,12 +38,12 @@ public class CustomView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 
-        String str = "AD+CD'+BD'+B'C'";
+        String str = "ABCD+B'C'DA+ACD+A'B'C'D'";
         super.onDraw(canvas);
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         int startMeinVerticalLinesWidth = width / 20;
-        int marginTextHorizontal = width / 60;
+        int marginTextHorizontal = width / 80;
         int marginTextVertical = height / 40;
         int radius = 7;
         int oneTenHeight = height / 10;
@@ -69,9 +69,9 @@ public class CustomView extends View {
             for (int j = 0; j < substrings[i].length(); j++) {
                 String withoutNor = substrings[i].chars().filter(c -> c != '\'').mapToObj(c -> Character.toString((char) c))
                         .collect(Collectors.joining());
-                int line = 0;
-                if (withoutNor.length() == 2) {
 
+                if (withoutNor.length() == 2) {
+                    int line = 0;
                     if (substrings[i].contains("A")) {
                         if (substrings[i].contains("A'")) {
                             canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
@@ -160,9 +160,154 @@ public class CustomView extends View {
 
                 if (withoutNor.length() == 3) {
 
+                    int line = 0;
+                    if (substrings[i].contains("A")) {
+                        if (substrings[i].contains("A'")) {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                            line++;
+                        } else {
+                            canvas.drawCircle(startMeinVerticalLinesWidth, y + oneTenHeight / 5, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                            line++;
+                        }
+                    }
+
+                    if (substrings[i].contains("B")) {
+                        if (line == 0) {
+                            if (substrings[i].contains("B'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            }
+                        } else {
+                            if (substrings[i].contains("B'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            }
+                        }
+                    }
+                    if (substrings[i].contains("C")) {
+                        if (line == 0) {
+                            if (substrings[i].contains("C'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            }
+
+                        } else if (line == 1) {
+                            if (substrings[i].contains("C'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            }
+                        } else {
+                            if (substrings[i].contains("C'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 5, width / 2, y + oneTenHeight - oneTenHeight / 5, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight - oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, y + oneTenHeight - oneTenHeight / 5, width / 2, y + oneTenHeight - oneTenHeight / 5, mPaint);
+                                line++;
+                            }
+                        }
+                    }
+                    if (substrings[i].contains("D")) {
+                        if (line == 0) {
+                            if (substrings[i].contains("D'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                                line++;
+                            }
+
+                        } else if (line == 1) {
+                            if (substrings[i].contains("D'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight - oneTenHeight / 2, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight - oneTenHeight / 2, width / 2, y + oneTenHeight - oneTenHeight / 2, mPaint);
+                                line++;
+                            }
+                        } else {
+                            if (substrings[i].contains("D'")) {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 5, width / 2, y + oneTenHeight - oneTenHeight / 5, mPaint);
+                                line++;
+                            } else {
+                                canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight - oneTenHeight / 5, radius, mPaint);
+                                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight - oneTenHeight / 5, width / 2, y + oneTenHeight - oneTenHeight / 5, mPaint);
+                                line++;
+                            }
+                        }
+                    }
                 }
+
                 if (withoutNor.length() == 4) {
 
+                    if (substrings[i].contains("A")) {
+                        if (substrings[i].contains("A'")) {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth / 2, y + oneTenHeight / 5, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                        } else {
+                            canvas.drawCircle(startMeinVerticalLinesWidth, y + oneTenHeight / 5, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth, y + oneTenHeight / 5, width / 2, y + oneTenHeight / 5, mPaint);
+                        }
+                    }
+
+                    if (substrings[i].contains("B")) {
+                        if (substrings[i].contains("B'")) {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight / 5 * 2, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2, y + oneTenHeight / 5 * 2, width / 2, y + oneTenHeight / 5 * 2, mPaint);
+                        } else {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5 * 2, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5 * 2, width / 2, y + oneTenHeight / 5 * 2, mPaint);
+                        }
+                    }
+                    if (substrings[i].contains("C")) {
+
+                        if (substrings[i].contains("C'")) {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y+ oneTenHeight / 5 * 3, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2 + oneTenWidth / 2, y+ oneTenHeight / 5 * 3, width / 2, y + oneTenHeight / 5 * 3, mPaint);
+                        } else {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 2, y+oneTenHeight / 5 * 3, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 2, y+oneTenHeight / 5 * 3, width / 2, y+oneTenHeight / 5 * 3, mPaint);
+                        }
+                    }
+
+                    if (substrings[i].contains("D")) {
+                        if (substrings[i].contains("D'")) {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y+oneTenHeight / 5 * 4, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2, y+oneTenHeight / 5 * 4, width / 2, y+oneTenHeight / 5 * 4, mPaint);
+                        } else {
+                            canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, y+oneTenHeight / 5 * 4, radius, mPaint);
+                            canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y+oneTenHeight / 5 * 4, width / 2, y+oneTenHeight / 5 * 4, mPaint);
+
+                        }
+                    }
                 }
             }
         }
