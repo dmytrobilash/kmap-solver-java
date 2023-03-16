@@ -39,7 +39,7 @@ public class CustomView extends View {
     protected void onDraw(Canvas canvas) {
 
         //String str = "AB+BB+AB+AB+AB+AB+AB+AB";
-        String str = "AD+AC+AB+AB+AB+AB+AB+AB";
+        String str = "AD+AC+AC+AC";
 
         super.onDraw(canvas);
         int width = canvas.getWidth();
@@ -80,17 +80,40 @@ public class CustomView extends View {
                 }
 
                 if (substrings.length % 2 == 0) {
-
-                    if (i < substrings.length / 2) {
-                        canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, mPaint);
-                        canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16 , mPaint);
-                        canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16, mPaint);
-                    } else {
-                        canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, mPaint);
-                        canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, mPaint);
-                        canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, mPaint);
+                    if(substrings.length==2){
+                        if (i < substrings.length / 2) {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/2, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/2, mPaint);
+                        } else {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/5, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/5, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/5, mPaint);
+                        }
                     }
+                    else if(substrings.length==4) {
 
+                        if (i < substrings.length / 2) {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight/2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2 , width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 5, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 5, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 5, mPaint);
+                        } else {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight/16, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight/16, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight/16, mPaint);
+                        }
+                    }
+                    else{
+                        if (i < substrings.length / 2) {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16 , mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * i, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i)+oneTenHeight/16, mPaint);
+                        } else {
+                            canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), y + oneTenHeight / 2, width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, mPaint);
+                            canvas.drawLine(width / 2 + oneTenWidth * 2 - difference * (substrings.length / 2 - 1) - difference * (substrings.length / 2 - i), (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, width / 2 + width / 4, (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2 + oneTenHeight / 2 - lineSpacing * (substrings.length / 2 - i) + oneTenHeight / 16, mPaint);
+                        }
+                    }
                 } else {
                     if (i == substrings.length / 2) {
                         canvas.drawLine(width / 2 + oneTenWidth, y + oneTenHeight / 2, width / 2 + width / 4, y + oneTenHeight / 2, mPaint);
