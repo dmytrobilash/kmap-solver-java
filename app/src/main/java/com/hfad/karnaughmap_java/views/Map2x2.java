@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hfad.karnaughmap_java.DrawSchemeActivity;
 import com.hfad.karnaughmap_java.MainActivity;
 import com.hfad.karnaughmap_java.Presenter.TwoVariablePresenter;
 import com.hfad.karnaughmap_java.R;
@@ -43,6 +42,7 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Map2x2.this, DrawSchemeActivity.class);
+                Log.v("AAAA", String.valueOf(planeText_SoP.getText()));
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
                 startActivity(switchActivityIntent);
             }
