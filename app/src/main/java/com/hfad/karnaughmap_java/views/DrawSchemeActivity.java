@@ -34,7 +34,6 @@ public class DrawSchemeActivity extends AppCompatActivity {
                 String str;
                 if (extras != null) {
                     str = extras.getString("result");
-                    // Use myValue as needed
                 } else {
                     str = "AA";
                 }

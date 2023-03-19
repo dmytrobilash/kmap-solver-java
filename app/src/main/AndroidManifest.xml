@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
+            android:name=".views.DrawSchemeActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.Map4x4"
             android:exported="false" />
         <activity

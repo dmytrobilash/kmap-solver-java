@@ -21,8 +21,6 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
     private EditText planeText_SoP;
     private EditText planeText_PoS;
     private EditText planeText_grouping;
-    private Button solve;
-    private Button scheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +34,8 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
         planeText_grouping = findViewById(R.id.planeText_grouping);
-        solve = findViewById(R.id.solve);
-        scheme = findViewById(R.id.get_scheme);
+        Button solve = findViewById(R.id.solve);
+        Button scheme = findViewById(R.id.get_scheme);
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,5 +93,4 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
             b.setText("0");
         }
     }
-
 }
