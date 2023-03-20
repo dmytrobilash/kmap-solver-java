@@ -1,7 +1,6 @@
 package com.hfad.karnaughmap_java.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hfad.karnaughmap_java.MainActivity;
 import com.hfad.karnaughmap_java.Presenter.TwoVariablePresenter;
 import com.hfad.karnaughmap_java.R;
-import com.hfad.karnaughmap_java.model.TwoVariables;
+import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
 
 public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
 

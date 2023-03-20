@@ -1,9 +1,17 @@
-package com.hfad.karnaughmap_java;
+package com.hfad.karnaughmap_java.views.drawing;
 
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.net.Uri;
+import android.util.Log;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.stream.Collectors;
 
 public class SchemeDrawing {
@@ -29,19 +37,21 @@ public class SchemeDrawing {
         circlePaint.setColor(Color.BLACK);
         circlePaint.setStrokeWidth(5);
         circlePaint.setStyle(Paint.Style.STROKE);
-        drawStart(canvas, mPaint, circlePaint, str, startMeinVerticalLinesWidth, height, marginTextHorizontal, marginTextVertical, oneTenHeight, width, oneTenWidth, radius);
-        drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint);
+        if (!str.isEmpty()) {
+            drawStart(canvas, mPaint, circlePaint, str, startMeinVerticalLinesWidth, height, marginTextHorizontal, marginTextVertical, oneTenHeight, width, oneTenWidth, radius);
+            drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint);
 
-        for (int i = 0; i < substrings.length; i++) {
-            for (int j = 0; j < substrings[i].length(); j++) {
-                String withoutNor = substrings[i].chars().filter(c -> c != '\'').mapToObj(c -> Character.toString((char) c))
-                        .collect(Collectors.joining());
-                int count = i + 1;
-                float lineSpacing = (substrings.length - 1 != 0) ? (oneTenHeight - oneTenHeight / 4f) / (substrings.length - 1) : (oneTenHeight - oneTenHeight / 4f);
-                int difference = width / 60;
-                int y = count * oneTenHeight + i * gap;
-                drawStartToMiddleConnectivity(canvas, i, startMeinVerticalLinesWidth, radius, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
-                drawMiddleRect(canvas, i, difference, lineSpacing, gap, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
+            for (int i = 0; i < substrings.length; i++) {
+                for (int j = 0; j < substrings[i].length(); j++) {
+                    String withoutNor = substrings[i].chars().filter(c -> c != '\'').mapToObj(c -> Character.toString((char) c))
+                            .collect(Collectors.joining());
+                    int count = i + 1;
+                    float lineSpacing = (substrings.length - 1 != 0) ? (oneTenHeight - oneTenHeight / 4f) / (substrings.length - 1) : (oneTenHeight - oneTenHeight / 4f);
+                    int difference = width / 60;
+                    int y = count * oneTenHeight + i * gap;
+                    drawStartToMiddleConnectivity(canvas, i, startMeinVerticalLinesWidth, radius, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
+                    drawMiddleRect(canvas, i, difference, lineSpacing, gap, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
+                }
             }
         }
     }
@@ -104,7 +114,7 @@ public class SchemeDrawing {
 
                 //rect
                 canvas.drawLine(startMeinVerticalLinesWidth + width / 60f + oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, startMeinVerticalLinesWidth + width / 60f + oneTenWidth * 2, oneTenHeight / 2f + oneTenHeight / 8f, mPaint);
-                canvas.drawLine(startMeinVerticalLinesWidth + width / 60f + oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, stopNorX+ oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + width / 60f + oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, stopNorX + oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, mPaint);
                 canvas.drawLine(startMeinVerticalLinesWidth + width / 60f + oneTenWidth * 2, oneTenHeight / 2f + oneTenHeight / 8f, stopNorX + oneTenWidth * 2, oneTenHeight / 2f + oneTenHeight / 8f, mPaint);
                 canvas.drawLine(stopNorX + oneTenWidth * 2, oneTenHeight / 2f - oneTenHeight / 8f, stopNorX + oneTenWidth * 2, oneTenHeight / 2f - radius, mPaint);
                 canvas.drawLine(stopNorX + oneTenWidth * 2, oneTenHeight / 2f + radius, stopNorX + oneTenWidth * 2, oneTenHeight / 2f + oneTenHeight / 8f, mPaint);
@@ -113,7 +123,7 @@ public class SchemeDrawing {
                 canvas.drawCircle(stopNorX + oneTenWidth * 2, oneTenHeight / 2f, radius, circlePaint);
 
                 canvas.drawLine(stopNorX + radius + oneTenWidth * 2, oneTenHeight / 2f, startMeinVerticalLinesWidth + oneTenWidth / 2f + oneTenWidth * 2, oneTenHeight / 2f, mPaint);
-                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2f+ oneTenWidth * 2, oneTenHeight / 2f, startMeinVerticalLinesWidth + oneTenWidth / 2f + oneTenWidth * 2, height, mPaint);
+                canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth / 2f + oneTenWidth * 2, oneTenHeight / 2f, startMeinVerticalLinesWidth + oneTenWidth / 2f + oneTenWidth * 2, height, mPaint);
             }
         }
 
@@ -140,7 +150,7 @@ public class SchemeDrawing {
         }
     }
 
-    private void drawStartToMiddleConnectivity(Canvas canvas, int i, int startMeinVerticalLinesWidth, int radius,  int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String [] substrings) {
+    private void drawStartToMiddleConnectivity(Canvas canvas, int i, int startMeinVerticalLinesWidth, int radius, int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String[] substrings) {
         if (withoutNor.length() == 1) {
             if (substrings[i].contains("A")) {
                 if (substrings[i].contains("A'")) {
@@ -386,17 +396,17 @@ public class SchemeDrawing {
             if (substrings[i].contains("D")) {
                 if (substrings[i].contains("D'")) {
                     canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2f, y + oneTenHeight / 5f * 4, radius, mPaint);
-                    canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2f, y + oneTenHeight / 5f * 4, width / 2f, y + oneTenHeight / 5f* 4, mPaint);
+                    canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3 + oneTenWidth / 2f, y + oneTenHeight / 5f * 4, width / 2f, y + oneTenHeight / 5f * 4, mPaint);
                 } else {
                     canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight / 5f * 4, radius, mPaint);
-                    canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight / 5f * 4, width / 2f, y + oneTenHeight / 5f* 4, mPaint);
+                    canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth * 3, y + oneTenHeight / 5f * 4, width / 2f, y + oneTenHeight / 5f * 4, mPaint);
 
                 }
             }
         }
     }
 
-    private void drawMiddleRect(Canvas canvas, int i, int difference, float lineSpacing, int gap, int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String [] substrings){
+    private void drawMiddleRect(Canvas canvas, int i, int difference, float lineSpacing, int gap, int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String[] substrings) {
 
 
         if (withoutNor.length() != 1) {
@@ -473,6 +483,7 @@ public class SchemeDrawing {
     }
 
     private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint) {
+        Log.v("AAAA", String.valueOf(substrings.length));
         int y = (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2;
         int xStart = width / 2 + width / 4;
         canvas.drawLine(xStart, y, xStart, y + oneTenHeight, mPaint);
