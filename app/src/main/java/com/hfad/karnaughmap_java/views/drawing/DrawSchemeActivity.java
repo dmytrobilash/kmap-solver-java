@@ -13,18 +13,19 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hfad.karnaughmap_java.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -55,14 +56,34 @@ public class DrawSchemeActivity extends AppCompatActivity {
         };
         layout.addView(lineView);
 
-
         ImageView share = findViewById(R.id.share);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lineView.setDrawingCacheEnabled(true);
-                lineView.buildDrawingCache();
+                layout.setDrawingCacheEnabled(true);
+                layout.buildDrawingCache();
+                Bitmap bitmap = layout.getDrawingCache();
 
+                File file = new File(getExternalFilesDir(null), "lineView.png");
+                try {
+
+                    FileOutputStream fos = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                    fos.flush();
+                    fos.close();
+                    //Toast.makeText(getApplicationContext(), "Image saved to " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                /*Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("image/png");
+
+                Uri uri = FileProvider.getUriForFile(getApplicationContext(), "com.hfad.karnaughmap_java.fileprovider", file);
+                intent.putExtra(Intent.EXTRA_STREAM, uri);
+                startActivity(Intent.createChooser(intent, "Send Image"));
+
+                layout.setDrawingCacheEnabled(false);*/
 
 
                 /*File file = new File(getCacheDir(), "image.jpeg");
@@ -79,8 +100,7 @@ public class DrawSchemeActivity extends AppCompatActivity {
                 intent.setType("image/jpeg");
                 intent.putExtra(Intent.EXTRA_STREAM, file);
                 startActivity(Intent.createChooser(intent, "Send Image"));
-
-                Bitmap bitmap = Bitmap.createBitmap(lineView.getDrawingCache());
+                 Bitmap bitmap = Bitmap.createBitmap(lineView.getDrawingCache());
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 byte[] byteArray = stream.toByteArray();

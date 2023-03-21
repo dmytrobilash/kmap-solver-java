@@ -29,6 +29,7 @@ public class SchemeDrawing {
         int oneTenWidth = width / 10;
         int gap = height / 100;
         String[] substrings = str.split("\\+");
+        canvas.drawColor(Color.WHITE);
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(5);
