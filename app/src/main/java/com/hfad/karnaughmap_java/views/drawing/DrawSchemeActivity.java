@@ -75,46 +75,16 @@ public class DrawSchemeActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("image/png");
 
-                /*Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("image/png");
+                Uri fileUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", file);
 
-                Uri uri = FileProvider.getUriForFile(getApplicationContext(), "com.hfad.karnaughmap_java.fileprovider", file);
-                intent.putExtra(Intent.EXTRA_STREAM, uri);
-                startActivity(Intent.createChooser(intent, "Send Image"));
-
-                layout.setDrawingCacheEnabled(false);*/
-
-
-                /*File file = new File(getCacheDir(), "image.jpeg");
-                try (FileOutputStream fos = new FileOutputStream(file)) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                intent.setType("image/jpeg");
-                intent.putExtra(Intent.EXTRA_STREAM, file);
-                startActivity(Intent.createChooser(intent, "Send Image"));
-                 Bitmap bitmap = Bitmap.createBitmap(lineView.getDrawingCache());
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("image/png");
-
-// Use ClipData to add the image URI to the Intent
-                Uri imageUri = Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "title", null));
-                ClipData clipData = ClipData.newUri(getContentResolver(), "image", imageUri);
-                intent.setClipData(clipData);
-                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-
-                startActivity(Intent.createChooser(intent, "Send Image"));*/
+                shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                shareIntent.putExtra(Intent.EXTRA_STREAM, fileUri);
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "F=" + str);
+                startActivity(Intent.createChooser(shareIntent, "Share image"));
             }
         });
     }
