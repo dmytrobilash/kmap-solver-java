@@ -33,14 +33,14 @@ public class SchemeDrawing {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(5);
-        mPaint.setTextSize(50);
+        mPaint.setTextSize(oneTenHeight/4f);
         Paint circlePaint = new Paint();
         circlePaint.setColor(Color.BLACK);
         circlePaint.setStrokeWidth(5);
         circlePaint.setStyle(Paint.Style.STROKE);
-        if (!str.isEmpty()) {
+        if (!str.isEmpty() && !str.contains("0") && !str.contains("1")) {
             drawStart(canvas, mPaint, circlePaint, str, startMeinVerticalLinesWidth, height, marginTextHorizontal, marginTextVertical, oneTenHeight, width, oneTenWidth, radius);
-            drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint);
+            drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint, str);
 
             for (int i = 0; i < substrings.length; i++) {
                 for (int j = 0; j < substrings[i].length(); j++) {
@@ -414,6 +414,7 @@ public class SchemeDrawing {
 
             canvas.drawLine(width / 2f, y, width / 2f, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y, width / 2f + oneTenWidth, y, mPaint);
+            canvas.drawText("&", width / 2f+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
             canvas.drawLine(width / 2f + oneTenWidth, y, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y + oneTenHeight, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
         }
@@ -483,15 +484,18 @@ public class SchemeDrawing {
         }
     }
 
-    private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint) {
-        Log.v("AAAA", String.valueOf(substrings.length));
+    private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint, String str) {
         int y = (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2;
         int xStart = width / 2 + width / 4;
-        canvas.drawLine(xStart, y, xStart, y + oneTenHeight, mPaint);
-        canvas.drawLine(xStart, y, xStart + oneTenWidth, y, mPaint);
-        canvas.drawLine(xStart + oneTenWidth, y, xStart + oneTenWidth, y + oneTenHeight, mPaint);
-        canvas.drawLine(xStart, y + oneTenHeight, xStart + oneTenWidth, y + oneTenHeight, mPaint);
-        canvas.drawLine(xStart + oneTenWidth, y + oneTenHeight / 2f, width, y + oneTenHeight / 2f, mPaint);
+        if(str.contains("+")){
+            canvas.drawLine(xStart, y, xStart, y + oneTenHeight, mPaint);
+            canvas.drawLine(xStart, y, xStart + oneTenWidth, y, mPaint);
+            canvas.drawText("1", xStart+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
+            canvas.drawLine(xStart + oneTenWidth, y, xStart + oneTenWidth, y + oneTenHeight, mPaint);
+            canvas.drawLine(xStart, y + oneTenHeight, xStart + oneTenWidth, y + oneTenHeight, mPaint);
+            canvas.drawLine(xStart + oneTenWidth, y + oneTenHeight / 2f, width, y + oneTenHeight / 2f, mPaint);
+            canvas.drawText("F", xStart + oneTenWidth+oneTenHeight/5f, y + oneTenHeight / 3f, mPaint);
+        }
     }
 }
 
