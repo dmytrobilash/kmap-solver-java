@@ -31,6 +31,12 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,7 +45,12 @@
                 android:text="B'"
                 android:textColor="@color/black"
                 android:textSize="30sp" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -94,6 +105,14 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
 
         </TableRow>
 
@@ -101,7 +120,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="90dp"
                 android:gravity="center"
                 android:text="A'"
                 android:textColor="@color/black"
@@ -112,11 +131,17 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
             <Button
                 android:id="@+id/button0"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@android:color/transparent"
                 android:text="@string/zero"
                 android:textColor="@android:color/black"
@@ -128,10 +153,18 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
             <Button
                 android:id="@+id/button1"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:background="@android:color/transparent"
                 android:text="@string/zero"
                 android:textColor="@android:color/black"
@@ -173,6 +206,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
 
         </TableRow>
 
@@ -191,7 +232,13 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
             <Button
                 android:id="@+id/button2"
                 android:layout_width="90dp"
@@ -207,6 +254,13 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
             <Button
                 android:id="@+id/button3"
                 android:layout_width="90dp"
@@ -251,6 +305,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
                 android:background="@color/black" />
         </TableRow>
     </TableLayout>
