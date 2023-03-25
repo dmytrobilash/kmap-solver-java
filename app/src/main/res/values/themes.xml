@@ -14,12 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="button_in_table_attributes">
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:text">@string/zero</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:layout_marginEnd">5dp</item>
     </style>
     <style name="textview_in_cell_attributes">
@@ -28,5 +28,20 @@
         <item name="android:gravity">top|start</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">15sp</item>
+    </style>
+    <style name="textview_for_marking_values_top">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center|bottom</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+    <style name="textview_for_marking_values_side">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">25sp</item>
     </style>
 </resources>

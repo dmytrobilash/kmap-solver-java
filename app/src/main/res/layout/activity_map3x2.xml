@@ -38,12 +38,8 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="B'C'"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="B'C'" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,12 +54,8 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="B'C"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="B'C" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -78,12 +70,8 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
             <TextView
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="BC"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="BC" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -98,12 +86,8 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
             <TextView
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="BC'"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="BC'" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -183,12 +167,9 @@
         <TableRow>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
+                style="@style/textview_for_marking_values_side"
                 android:text="A'"
-                android:textColor="@color/black"
-                android:textSize="30sp"
+
                 android:layout_marginEnd="5dp"/>
 
             <View
@@ -197,12 +178,9 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
+                style="@style/textview_in_cell_attributes"
                 android:text="0"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                 />
             <Button
                 android:id="@+id/button0"
                 style="@style/button_in_table_attributes" />
@@ -213,12 +191,8 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="1"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="1" />
 
             <Button
                 android:id="@+id/button1"
@@ -229,12 +203,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
                 android:text="3"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes" />
             <Button
                 android:id="@+id/button2"
                 style="@style/button_in_table_attributes" />
@@ -244,12 +214,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="2"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="2" />
             <Button
                 android:id="@+id/button3"
                 style="@style/button_in_table_attributes" />
@@ -332,12 +298,8 @@
         <TableRow>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center"
+                style="@style/textview_for_marking_values_side"
                 android:text="A"
-                android:textColor="@color/black"
-                android:textSize="30sp"
                 android:layout_marginEnd="5dp"/>
 
             <View
@@ -345,12 +307,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="4"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                style="@style/textview_in_cell_attributes"
+                android:text="4" />
             <Button
                 android:id="@+id/button4"
                 style="@style/button_in_table_attributes" />
@@ -361,12 +319,8 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="5"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="5" />
             <Button
                 android:id="@+id/button5"
                 style="@style/button_in_table_attributes" />
@@ -376,12 +330,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="7"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="7" />
             <Button
                 android:id="@+id/button6"
                 style="@style/button_in_table_attributes" />
@@ -391,12 +341,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="6"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="6" />
             <Button
                 android:id="@+id/button7"
                 style="@style/button_in_table_attributes" />

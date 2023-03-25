@@ -39,12 +39,9 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="B'"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="B'" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -59,12 +56,8 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="B"
-                android:textColor="@color/black"
-                android:textSize="30sp" />
+                style="@style/textview_for_marking_values_top"
+                android:text="B" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -119,12 +112,8 @@
         <TableRow>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:gravity="center"
+                style="@style/textview_for_marking_values_side"
                 android:text="A'"
-                android:textColor="@color/black"
-                android:textSize="30sp"
                 android:layout_marginEnd="5dp"/>
 
             <View
@@ -132,12 +121,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="0" />
             <Button
                 android:id="@+id/button0"
                 style="@style/button_in_table_attributes"
@@ -149,12 +134,8 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="1"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="1" />
 
             <Button
                 android:id="@+id/button1"
@@ -210,12 +191,8 @@
         <TableRow>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:gravity="center"
+                style="@style/textview_for_marking_values_side"
                 android:text="A"
-                android:textColor="@color/black"
-                android:textSize="30sp"
                 android:layout_marginEnd="5dp"/>
 
             <View
@@ -223,12 +200,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="2"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                style="@style/textview_in_cell_attributes"
+                android:text="2" />
             <Button
                 android:id="@+id/button2"
                 style="@style/button_in_table_attributes"
@@ -240,12 +213,9 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:text="3"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                style="@style/textview_in_cell_attributes"
+                android:text="3" />
+
             <Button
                 android:id="@+id/button3"
                 style="@style/button_in_table_attributes"
