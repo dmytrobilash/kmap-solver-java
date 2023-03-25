@@ -140,13 +140,8 @@
                 android:textSize="20sp" />
             <Button
                 android:id="@+id/button0"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:color/transparent"
-                android:text="@string/zero"
-                android:textColor="@android:color/black"
-                android:textSize="30sp"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                style="@style/button_in_table_attributes"
+                android:layout_marginEnd="10dp"/>
 
             <View
                 android:layout_width="2dp"
@@ -163,13 +158,8 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@android:color/transparent"
-                android:text="@string/zero"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
-
+                style="@style/button_in_table_attributes"
+                android:layout_marginEnd="10dp"/>
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
@@ -221,7 +211,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="90dp"
                 android:gravity="center"
                 android:text="A"
                 android:textColor="@color/black"
@@ -241,13 +231,8 @@
                 android:textSize="20sp"/>
             <Button
                 android:id="@+id/button2"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_weight="0"
-                android:background="@android:color/transparent"
-                android:text="@string/zero"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
+                style="@style/button_in_table_attributes"
+                android:layout_marginEnd="10dp"/>
 
             <View
                 android:layout_width="2dp"
@@ -263,12 +248,8 @@
                 android:textSize="20sp" />
             <Button
                 android:id="@+id/button3"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@android:color/transparent"
-                android:text="@string/zero"
-                android:textColor="@android:color/black"
-                android:textSize="30sp" />
+                style="@style/button_in_table_attributes"
+                android:layout_marginEnd="10dp"/>
 
             <View
                 android:layout_width="2dp"
