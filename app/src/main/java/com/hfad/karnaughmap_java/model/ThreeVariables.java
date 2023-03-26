@@ -1,12 +1,12 @@
 package com.hfad.karnaughmap_java.model;
 
-public class TreeVariables {
+public class ThreeVariables {
 
     private String output = "";
     private final int[][] A = new int[2][4];
     private final int[][] checked = new int[2][4];
 
-    public TreeVariables(int[] val) {
+    public ThreeVariables(int[] val) {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 4; j++) {
