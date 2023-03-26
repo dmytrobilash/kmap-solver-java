@@ -5,5 +5,677 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.Map4x4">
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/textview_for_marking_values_top_for4"
+                android:text="B'D'"
+                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                style="@style/textview_for_marking_values_top_for4"
+                android:text="B'D" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                style="@style/textview_for_marking_values_top_for4"
+                android:text="BD"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                style="@style/textview_for_marking_values_top_for4"
+                android:text="BD'"
+                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/textview_for_marking_values_side_for4"
+                android:text="A'B'"
+
+                android:layout_marginEnd="5dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="0"/>
+            <Button
+                android:id="@+id/button0"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="1"
+                 />
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/button_in_table_attributes_for4"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="3"
+                />
+            <Button
+                android:id="@+id/button2"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="2" />
+            <Button
+                android:id="@+id/button3"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/textview_for_marking_values_side_for4"
+                android:text="A'B"
+                android:layout_marginEnd="5dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="4" />
+            <Button
+                android:id="@+id/button4"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="5"
+                />
+            <Button
+                android:id="@+id/button5"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="7" />
+            <Button
+                android:id="@+id/button6"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                android:text="6"
+                style="@style/textview_in_cell_attributes" />
+            <Button
+                android:id="@+id/button7"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                style="@style/textview_for_marking_values_side_for4"
+                android:text="AB"
+
+                android:layout_marginEnd="5dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="12"
+                />
+            <Button
+                android:id="@+id/button8"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="13"
+                />
+            <Button
+                android:id="@+id/button9"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                android:text="15"
+                style="@style/textview_in_cell_attributes" />
+            <Button
+                android:id="@+id/button10"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="14" />
+            <Button
+                android:id="@+id/button11"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+        <TableRow>
+
+            <TextView
+                style="@style/textview_for_marking_values_side_for4"
+                android:text="AB'"
+                android:layout_marginEnd="5dp"/>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="8" />
+            <Button
+                android:id="@+id/button12"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/button13"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="11" />
+            <Button
+                android:id="@+id/button14"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <TextView
+                style="@style/textview_in_cell_attributes"
+                android:text="10" />
+
+            <Button
+                android:id="@+id/button15"
+                style="@style/button_in_table_attributes_for4" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

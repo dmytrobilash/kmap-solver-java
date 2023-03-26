@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity  {
         switchTo4x4Activity = findViewById(R.id.Karnaugh_4x4);
         setOnClickListenerFor2x2Activity();
         setOnClickListenerFor3x3Activity();
-        //setOnClickListenerFor4x4Activity();
+        setOnClickListenerFor4x4Activity();
     }
 
     private void setOnClickListenerFor2x2Activity() {
