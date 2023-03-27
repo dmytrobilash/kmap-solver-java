@@ -80,7 +80,7 @@ public class ThreeVariables {
             checked[1][1] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A";
             }else output += "+A";
 
@@ -94,7 +94,7 @@ public class ThreeVariables {
             checked[0][1] = 1;
             checked[1][0] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'";
             }else output += "+B'";
         }
@@ -107,7 +107,7 @@ public class ThreeVariables {
             checked[0][3] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B";
             }else output += "+B";
         }
@@ -119,7 +119,7 @@ public class ThreeVariables {
             checked[0][2] = 1;
             checked[1][1] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "C";
             }else output += "+C";
         }
@@ -129,9 +129,9 @@ public class ThreeVariables {
                 (checked[0][0] == 0 || checked[1][0] == 0 || checked[0][3] == 0 || checked[1][3] == 0)) {
             checked[0][0] = 1;
             checked[1][0] = 1;
-            checked[1][2] = 1;
+            checked[0][3] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "C'";
             }else  output += "+C'";
         }
@@ -142,16 +142,16 @@ public class ThreeVariables {
         if (A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
             checked[0][0] = 1;
             checked[1][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'C'";
             }else output += "+B'C'";
 
 
         }
-        if (A[0][1] == 1 && A[1][1] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
+        if (A[0][1] == 1 && A[1][1] == 1 && (checked[0][1] == 0 || checked[1][1] == 0)) {
             checked[0][1] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'C";
             }else  output += "+B'C";
 
@@ -160,7 +160,7 @@ public class ThreeVariables {
         if (A[0][2] == 1 && A[1][2] == 1 && (checked[0][2] == 0 || checked[1][2] == 0)) {
             checked[0][2] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC";
             }else  output += "+BC";
 
@@ -169,7 +169,7 @@ public class ThreeVariables {
         if (A[0][3] == 1 && A[1][3] == 1 && (checked[0][3] == 0 || checked[1][3] == 0)) {
             checked[0][3] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC'";
             }else output += "+BC'";
 
@@ -178,7 +178,7 @@ public class ThreeVariables {
         if (A[0][0] == 1 && A[0][1] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'";
             }else output += "+A'B'";
         }
@@ -186,7 +186,7 @@ public class ThreeVariables {
         if (A[0][1] == 1 && A[0][2] == 1 && (checked[0][1] == 0 || checked[0][2] == 0)) {
             checked[0][1] = 1;
             checked[0][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C";
             }else output += "+A'C";
         }
@@ -194,16 +194,16 @@ public class ThreeVariables {
         if (A[0][2] == 1 && A[0][3] == 1 && (checked[0][2] == 0 || checked[0][3] == 0)) {
             checked[0][2] = 1;
             checked[0][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B";
             }else  output += "+A'B";
 
         }
 
-        if (A[0][0] == 1 && A[0][3] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
+        if (A[0][0] == 1 && A[0][3] == 1 && (checked[0][0] == 0 || checked[0][3] == 0)) {
             checked[0][0] = 1;
             checked[0][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C'";
             }else output += "+A'C'";
 
@@ -212,7 +212,7 @@ public class ThreeVariables {
         if (A[1][0] == 1 && A[1][1] == 1 && (checked[1][0] == 0 || checked[1][1] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'";
             }else output += "+AB'";
 
@@ -220,7 +220,7 @@ public class ThreeVariables {
         if (A[1][1] == 1 && A[1][2] == 1 && (checked[1][1] == 0 || checked[1][2] == 0)) {
             checked[1][1] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AC";
             }else output += "+AC";
 
@@ -228,15 +228,15 @@ public class ThreeVariables {
         if (A[1][2] == 1 && A[1][3] == 1 && (checked[1][2] == 0 || checked[1][3] == 0)) {
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB";
             }else output += "+AB";
 
         }
-        if (A[1][0] == 1 && A[1][3] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
-            checked[0][2] = 1;
-            checked[0][3] = 1;
-            if(output == ""){
+        if (A[1][0] == 1 && A[1][3] == 1 && (checked[1][0] == 0 || checked[1][3] == 0)) {
+            checked[1][0] = 1;
+            checked[1][3] = 1;
+            if(output.equals("")){
                 output += "AC'";
             }else output += "+AC'";
 
@@ -246,49 +246,49 @@ public class ThreeVariables {
     // no grouping
     private void nogrouping() {
         if (A[0][0] == 1 && checked[0][0] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'C'";
             }else output += "+A'B'C'";
 
         }
         if (A[0][1] == 1 && checked[0][1] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'C";
             }else output += "+A'B'C";
 
         }
         if (A[0][2] == 1 && checked[0][2] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'BC";
             }else output += "+A'BC";
 
         }
         if (A[0][3] == 1 && checked[0][3] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'BC'";
             }else  output += "+A'BC'";
 
         }
         if (A[1][0] == 1 && checked[1][0] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'C'";
             }else  output += "AB'C'";
 
         }
         if (A[1][1] == 1 && checked[1][1] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'C";
             }else  output += "+AB'C";
 
         }
         if (A[1][2] == 1 && checked[1][2] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABC";
             }else  output += "+ABC";
 
         }
         if (A[1][3] == 1 && checked[1][3] == 0) {
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABC'";
             }else output += "+ABC'";
         }
