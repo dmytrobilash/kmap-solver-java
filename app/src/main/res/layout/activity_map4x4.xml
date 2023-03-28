@@ -38,7 +38,7 @@
 
             <TextView
                 style="@style/textview_for_marking_values_top_for4"
-                android:text="B'D'"
+                android:text="С'D'"
                  />
             <TextView
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
 
             <TextView
                 style="@style/textview_for_marking_values_top_for4"
-                android:text="B'D" />
+                android:text="С'D" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:textSize="20sp" />
             <TextView
                 style="@style/textview_for_marking_values_top_for4"
-                android:text="BD"
+                android:text="СD"
                 />
 
             <TextView
@@ -88,7 +88,7 @@
                 android:textSize="20sp" />
             <TextView
                 style="@style/textview_for_marking_values_top_for4"
-                android:text="BD'"
+                android:text="СD'"
                  />
 
             <TextView
@@ -572,12 +572,9 @@
                 android:background="@color/black" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
+                style="@style/textview_in_cell_attributes"
                 android:text="9"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                />
             <Button
                 android:id="@+id/button13"
                 style="@style/button_in_table_attributes_for4" />

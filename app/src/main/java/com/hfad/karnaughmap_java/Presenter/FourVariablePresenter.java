@@ -1,7 +1,6 @@
 package com.hfad.karnaughmap_java.Presenter;
 
 import com.hfad.karnaughmap_java.model.FourVariables;
-import com.hfad.karnaughmap_java.model.ThreeVariables;
 
 public class FourVariablePresenter {
     private final String res;

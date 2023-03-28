@@ -70,7 +70,7 @@ public class FourVariables {
             checked[1][1] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'";
             }else output += "+A'";
 
@@ -87,12 +87,12 @@ public class FourVariables {
             checked[3][1] = 1;
             checked[3][2] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A";
             }else output += "+A";
         }
 
-        //center
+        //center_horizontal
         if (A[1][0] == 1 && A[1][1] == 1 && A[1][2] == 1 && A[1][3] == 1 &&
                 A[2][0] == 1 && A[2][1] == 1 && A[2][2] == 1 && A[2][3] == 1) {
             checked[1][0] = 1;
@@ -103,23 +103,39 @@ public class FourVariables {
             checked[2][1] = 1;
             checked[2][2] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B";
             }else output += "+B";
         }
 
+        //sides_horizontal
+        if (A[0][0] == 1 && A[0][1] == 1 && A[0][2] == 1 && A[0][3] == 1 &&
+                A[3][0] == 1 && A[3][1] == 1 && A[3][2] == 1 && A[3][3] == 1) {
+            checked[0][0] = 1;
+            checked[0][1] = 1;
+            checked[0][2] = 1;
+            checked[0][3] = 1;
+            checked[3][0] = 1;
+            checked[3][1] = 1;
+            checked[3][2] = 1;
+            checked[3][3] = 1;
+            if(output.equals("")){
+                output += "B'";
+            }else output += "+B'";
+        }
+
         //left
         if (A[0][0] == 1 && A[1][0] == 1 && A[2][0] == 1 && A[3][0] == 1 &&
-                A[0][1] == 1 && A[1][1] == 1 && A[1][2] == 1 && A[1][3] == 1) {
+                A[0][1] == 1 && A[1][1] == 1 && A[2][1] == 1 && A[3][1] == 1) {
             checked[0][0] = 1;
             checked[1][0] = 1;
             checked[2][0] = 1;
             checked[3][0] = 1;
             checked[0][1] = 1;
             checked[1][1] = 1;
-            checked[1][2] = 1;
-            checked[1][3] = 1;
-            if(output == ""){
+            checked[2][1] = 1;
+            checked[3][1] = 1;
+            if(output.equals("")){
                 output += "C'";
             }else output += "+C'";
         }
@@ -127,33 +143,48 @@ public class FourVariables {
         //right
         if (A[0][2] == 1 && A[1][2] == 1 && A[2][2] == 1 && A[3][2] == 1 &&
                 A[0][3] == 1 && A[1][3] == 1 && A[2][3] == 1 && A[3][3] == 1) {
-            checked[2][0] = 1;
-            checked[2][1] = 1;
+            checked[0][2] = 1;
+            checked[1][2] = 1;
             checked[2][2] = 1;
-            checked[2][3] = 1;
-            checked[3][0] = 1;
-            checked[3][1] = 1;
             checked[3][2] = 1;
+            checked[0][3] = 1;
+            checked[1][3] = 1;
+            checked[2][3] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "C";
             }else output += "+C";
         }
 
-        //center
+        //center_vertical
         if (A[0][1] == 1 && A[1][1] == 1 && A[2][1] == 1 && A[3][1] == 1 &&
                 A[0][2] == 1 && A[1][2] == 1 && A[2][2] == 1 && A[3][2] == 1) {
-            checked[1][0] = 1;
+            checked[0][1] = 1;
             checked[1][1] = 1;
-            checked[1][2] = 1;
-            checked[1][3] = 1;
-            checked[2][0] = 1;
             checked[2][1] = 1;
+            checked[3][1] = 1;
+            checked[0][2] = 1;
+            checked[1][2] = 1;
             checked[2][2] = 1;
-            checked[2][3] = 1;
-            if(output == ""){
+            checked[3][2] = 1;
+            if(output.equals("")){
                 output += "D";
             }else output += "+D";
+        }
+        //sides_vertical
+        if (A[0][0] == 1 && A[1][0] == 1 && A[2][0] == 1 && A[3][0] == 1 &&
+                A[0][3] == 1 && A[1][3] == 1 && A[2][3] == 1 && A[3][3] == 1) {
+            checked[0][0] = 1;
+            checked[1][0] = 1;
+            checked[2][0] = 1;
+            checked[3][0] = 1;
+            checked[0][3] = 1;
+            checked[1][3] = 1;
+            checked[2][3] = 1;
+            checked[3][3] = 1;
+            if(output.equals("")){
+                output += "D'";
+            }else output += "+D'";
         }
     }
 
@@ -166,8 +197,8 @@ public class FourVariables {
             checked[0][1] = 1;
             checked[0][2] = 1;
             checked[0][3] = 1;
-            if(output == ""){
-                output += "A'B";
+            if(output.equals("")){
+                output += "A'B'";
             }else output += "+A'B'";
         }
 
@@ -179,7 +210,7 @@ public class FourVariables {
             checked[1][1] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B";
             }else output += "+A'B";
         }
@@ -192,7 +223,7 @@ public class FourVariables {
             checked[2][1] = 1;
             checked[2][2] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB";
             }else output += "+AB";
         }
@@ -205,8 +236,7 @@ public class FourVariables {
             checked[3][1] = 1;
             checked[3][2] = 1;
             checked[3][3] = 1;
-            output += "AB'";
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'";
             }else output += "+AB'";
         }
@@ -218,7 +248,7 @@ public class FourVariables {
             checked[1][0] = 1;
             checked[2][0] = 1;
             checked[3][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "С'D'";
             }else output += "+C'D'";
         }
@@ -231,7 +261,7 @@ public class FourVariables {
             checked[1][1] = 1;
             checked[2][1] = 1;
             checked[3][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "С'D";
             }else output += "+C'D";
         }
@@ -243,7 +273,7 @@ public class FourVariables {
             checked[1][2] = 1;
             checked[2][2] = 1;
             checked[3][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "СD";
             }else output += "+CD";
         }
@@ -255,7 +285,7 @@ public class FourVariables {
             checked[1][3] = 1;
             checked[2][3] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "СD'";
             }else output += "+CD'";
         }
@@ -267,7 +297,7 @@ public class FourVariables {
             checked[1][0] = 1;
             checked[0][1] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C'";
             }else output += "+A'C'";
         }
@@ -279,7 +309,7 @@ public class FourVariables {
             checked[0][3] = 1;
             checked[1][2] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C";
             }else output += "+A'C";
         }
@@ -291,7 +321,7 @@ public class FourVariables {
             checked[3][0] = 1;
             checked[2][1] = 1;
             checked[3][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AC'";
             }else output += "+AC'";
         }
@@ -303,7 +333,7 @@ public class FourVariables {
             checked[2][3] = 1;
             checked[3][2] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AC";
             }else output += "+AC";
         }
@@ -315,7 +345,7 @@ public class FourVariables {
             checked[1][2] = 1;
             checked[2][1] = 1;
             checked[2][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BD";
             }else output += "+BD";
         }
@@ -327,7 +357,7 @@ public class FourVariables {
             checked[0][2] = 1;
             checked[1][1] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'D";
             }else output += "+A'D";
         }
@@ -339,7 +369,7 @@ public class FourVariables {
             checked[2][2] = 1;
             checked[3][1] = 1;
             checked[3][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AD";
             }else output += "+AD";
         }
@@ -351,7 +381,7 @@ public class FourVariables {
             checked[2][0] = 1;
             checked[1][1] = 1;
             checked[2][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC'";
             }else output += "+BC'";
         }
@@ -363,19 +393,19 @@ public class FourVariables {
             checked[2][2] = 1;
             checked[1][3] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC";
             }else output += "+BC";
         }
 
         //corners
         if (A[0][0] == 1 && A[0][3] == 1 && A[3][0] == 1 && A[3][3] == 1 &&
-                (checked[0][0] == 0 || checked[0][3] == 0 || checked[2][1] == 0 || checked[2][2] == 0)) {
+                (checked[0][0] == 0 || checked[0][3] == 0 || checked[3][0] == 0 || checked[3][3] == 0)) {
             checked[0][0] = 1;
             checked[0][3] = 1;
             checked[3][0] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'D'";
             }else output += "+B'D'";
         }
@@ -387,7 +417,7 @@ public class FourVariables {
             checked[1][0] = 1;
             checked[0][3] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'D'";
             }else output += "+A'D'";
         }
@@ -399,7 +429,7 @@ public class FourVariables {
             checked[3][0] = 1;
             checked[2][3] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AD'";
             }else output += "+AD'";
         }
@@ -411,7 +441,7 @@ public class FourVariables {
             checked[2][0] = 1;
             checked[1][3] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BD'";
             }else output += "+BD'";
         }
@@ -423,20 +453,19 @@ public class FourVariables {
             checked[0][1] = 1;
             checked[3][0] = 1;
             checked[3][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'C'";
             }else output += "+B'C'";
-            output += "B'C'";
         }
 
         //top-bottom-right
         if (A[0][2] == 1 && A[0][3] == 1 && A[3][2] == 1 && A[3][3] == 1 &&
                 (checked[0][2] == 0 || checked[0][3] == 0 || checked[3][2] == 0 || checked[3][3] == 0)) {
-            checked[0][0] = 1;
-            checked[0][1] = 1;
-            checked[3][0] = 1;
-            checked[3][1] = 1;
-            if(output == ""){
+            checked[0][2] = 1;
+            checked[0][3] = 1;
+            checked[3][2] = 1;
+            checked[3][3] = 1;
+            if(output.equals("")){
                 output += "B'C";
             }else output += "+B'C";
         }
@@ -448,7 +477,7 @@ public class FourVariables {
             checked[0][2] = 1;
             checked[3][1] = 1;
             checked[3][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'D";
             }else output += "+B'D";
         }
@@ -461,28 +490,28 @@ public class FourVariables {
         if (A[0][0] == 1 && A[0][1] == 1 && (checked[0][0] == 0 || checked[0][1] == 0)) {
             checked[0][0] = 1;
             checked[0][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'C'";
             }else output += "+A'B'C'";
         }
         if (A[0][1] == 1 && A[0][2] == 1 && (checked[0][1] == 0 || checked[0][2] == 0)) {
             checked[0][1] = 1;
             checked[0][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'D";
             }else output += "+A'B'D";
         }
         if (A[0][2] == 1 && A[0][3] == 1 && (checked[0][2] == 0 || checked[0][3] == 0)) {
-            checked[0][0] = 1;
-            checked[0][1] = 1;
-            if(output == ""){
+            checked[0][2] = 1;
+            checked[0][3] = 1;
+            if(output.equals("")){
                 output += "A'B'C";
             }else output += "+A'B'C";
         }
         if (A[0][3] == 1 && A[0][0] == 1 && (checked[0][3] == 0 || checked[0][0] == 0)) {
+            checked[0][3] = 1;
             checked[0][0] = 1;
-            checked[0][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'D'";
             }else output += "+A'B'D'";
         }
@@ -491,28 +520,28 @@ public class FourVariables {
         if (A[1][0] == 1 && A[1][1] == 1 && (checked[1][0] == 0 || checked[1][1] == 0)) {
             checked[1][0] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'BC'";
             }else output += "+A'BC'";
         }
         if (A[1][1] == 1 && A[1][2] == 1 && (checked[1][1] == 0 || checked[1][2] == 0)) {
             checked[1][1] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'BD";
             }else output += "+A'BD";
         }
         if (A[1][2] == 1 && A[1][3] == 1 && (checked[1][2] == 0 || checked[1][3] == 0)) {
-            checked[1][0] = 1;
-            checked[1][1] = 1;
-            if(output == ""){
+            checked[1][2] = 1;
+            checked[1][3] = 1;
+            if(output.equals("")){
                 output += "A'BC";
             }else output += "+A'BC";
         }
         if (A[1][3] == 1 && A[1][0] == 1 && (checked[1][3] == 0 || checked[1][0] == 0)) {
+            checked[1][3] = 1;
             checked[1][0] = 1;
-            checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'BD'";
             }else output += "+A'BD'";
         }
@@ -521,28 +550,28 @@ public class FourVariables {
         if (A[2][0] == 1 && A[2][1] == 1 && (checked[2][0] == 0 || checked[2][1] == 0)) {
             checked[2][0] = 1;
             checked[2][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABC'";
             }else output += "+ABC'";
         }
         if (A[2][1] == 1 && A[2][2] == 1 && (checked[2][1] == 0 || checked[2][2] == 0)) {
             checked[2][1] = 1;
             checked[2][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABD";
             }else output += "+ABD";
         }
         if (A[2][2] == 1 && A[2][3] == 1 && (checked[2][2] == 0 || checked[2][3] == 0)) {
             checked[2][2] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABC";
             }else output += "+ABC";
         }
         if (A[2][3] == 1 && A[2][0] == 1 && (checked[2][3] == 0 || checked[2][0] == 0)) {
             checked[2][3] = 1;
             checked[2][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ABD'";
             }else output += "+ABD'";
         }
@@ -551,28 +580,28 @@ public class FourVariables {
         if (A[3][0] == 1 && A[3][1] == 1 && (checked[3][0] == 0 || checked[3][1] == 0)) {
             checked[3][0] = 1;
             checked[3][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'C'";
             }else output += "+AB'C'";
         }
         if (A[3][1] == 1 && A[3][2] == 1 && (checked[3][1] == 0 || checked[3][2] == 0)) {
             checked[3][1] = 1;
             checked[3][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'D";
             }else output += "+A'B'D";
         }
         if (A[3][2] == 1 && A[3][3] == 1 && (checked[3][2] == 0 || checked[3][3] == 0)) {
             checked[3][2] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'C";
             }else output += "+AB'C";
         }
         if (A[3][3] == 1 && A[3][0] == 1 && (checked[3][3] == 0 || checked[3][0] == 0)) {
             checked[3][0] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AB'D'";
             }else output += "+AB'D'";
         }
@@ -581,28 +610,28 @@ public class FourVariables {
         if (A[0][0] == 1 && A[1][0] == 1 && (checked[0][0] == 0 || checked[1][0] == 0)) {
             checked[0][0] = 1;
             checked[1][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C'D'";
             }else output += "+A'C'D'";
         }
         if (A[1][0] == 1 && A[2][0] == 1 && (checked[1][0] == 0 || checked[2][0] == 0)) {
             checked[1][0] = 1;
             checked[2][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC'D'";
             }else output += "+BC'D'";
         }
         if (A[2][0] == 1 && A[3][0] == 1 && (checked[2][0] == 0 || checked[3][0] == 0)) {
             checked[2][0] = 1;
             checked[3][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "AC'D'";
-            }else output += "AC'D'";;
+            }else output += "+AC'D'";
         }
         if (A[3][0] == 1 && A[0][0] == 1 && (checked[3][0] == 0 || checked[0][0] == 0)) {
             checked[3][0] = 1;
             checked[0][0] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'C'D'";
             }else output += "+B'C'D'";
         }
@@ -611,28 +640,28 @@ public class FourVariables {
         if (A[0][1] == 1 && A[1][1] == 1 && (checked[0][1] == 0 || checked[1][1] == 0)) {
             checked[0][1] = 1;
             checked[1][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'C'D";
             }else output += "+A'C'D";
         }
         if (A[1][1] == 1 && A[2][1] == 1 && (checked[1][1] == 0 || checked[2][1] == 0)) {
             checked[1][1] = 1;
             checked[2][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'B'C'";
             }else output += "+A'B'C'";
         }
         if (A[2][1] == 1 && A[3][1] == 1 && (checked[2][1] == 0 || checked[3][1] == 0)) {
             checked[2][1] = 1;
             checked[3][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC'D";
             }else output += "+BC'D";
         }
         if (A[3][1] == 1 && A[0][1] == 1 && (checked[3][1] == 0 || checked[0][1] == 0)) {
             checked[3][1] = 1;
             checked[0][1] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'C'D";
             }else output += "+B'C'D";
         }
@@ -641,28 +670,28 @@ public class FourVariables {
         if (A[0][2] == 1 && A[1][2] == 1 && (checked[0][2] == 0 || checked[1][2] == 0)) {
             checked[0][2] = 1;
             checked[1][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'CD";
             }else output += "+A'CD";
         }
-        if (A[1][0] == 1 && A[2][0] == 1 && (checked[1][0] == 0 || checked[2][0] == 0)) {
+        if (A[1][2] == 1 && A[2][2] == 1 && (checked[1][2] == 0 || checked[2][2] == 0)) {
             checked[1][2] = 1;
             checked[2][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BCD";
             }else output += "+BCD";
         }
-        if (A[2][0] == 1 && A[3][0] == 1 && (checked[2][0] == 0 || checked[3][0] == 0)) {
+        if (A[2][2] == 1 && A[3][2] == 1 && (checked[2][2] == 0 || checked[3][2] == 0)) {
             checked[2][2] = 1;
             checked[3][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ACD";
             }else output += "+ACD";
         }
-        if (A[3][0] == 1 && A[0][0] == 1 && (checked[3][0] == 0 || checked[0][0] == 0)) {
+        if (A[3][2] == 1 && A[0][2] == 1 && (checked[3][2] == 0 || checked[0][2] == 0)) {
             checked[3][2] = 1;
             checked[0][2] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'CD";
             }else output += "+B'CD";
         }
@@ -671,115 +700,115 @@ public class FourVariables {
         if (A[0][3] == 1 && A[1][3] == 1 && (checked[0][3] == 0 || checked[1][3] == 0)) {
             checked[0][3] = 1;
             checked[1][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "A'CD'";
             }else  output += "+A'CD'";
         }
         if (A[1][3] == 1 && A[2][3] == 1 && (checked[1][3] == 0 || checked[2][3] == 0)) {
             checked[1][3] = 1;
             checked[2][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "BC'D'";
             }else  output += "+BC'D'";
         }
         if (A[2][3] == 1 && A[3][3] == 1 && (checked[2][3] == 0 || checked[3][3] == 0)) {
             checked[2][3] = 1;
             checked[3][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "ACD'";
             }else  output += "+ACD'";
         }
         if (A[3][3] == 1 && A[0][3] == 1 && (checked[3][3] == 0 || checked[0][3] == 0)) {
             checked[3][3] = 1;
             checked[0][3] = 1;
-            if(output == ""){
+            if(output.equals("")){
                 output += "B'CD'";
             }else   output += "+B'CD'";
         }
     }
 
     private void nogrouping() {
-        if(A[0][0] == 1){
-            if(output == ""){
+        if(A[0][0] == 1 && checked[0][0] == 0){
+            if(output.equals("")){
                 output += "A'B'C'D'";
             }else output += "+A'B'C'D'";
         }
-        if(A[0][1] == 1){
-            if(output == ""){
+        if(A[0][1] == 1 && checked[0][1] == 0){
+            if(output.equals("")){
                 output += "A'B'C'D";
             }else output += "+A'B'C'D";
         }
-        if(A[0][2] == 1){
-            if(output == ""){
+        if(A[0][2] == 1 && checked[0][2] == 0){
+            if(output.equals("")){
                 output += "A'B'CD";
             }else output += "+A'B'CD";
         }
-        if(A[0][3] == 1){
-            if(output == ""){
+        if(A[0][3] == 1 && checked[0][3] == 0){
+            if(output.equals("")){
                 output += "A'B'CD'";
             }else output += "+A'B'CD'";;
 
         }
-        if(A[1][0] == 1){
-            if(output == ""){
+        if(A[1][0] == 1 && checked[1][0] == 0){
+            if(output.equals("")){
                 output += "A'BC'D'";
             }else output += "+A'BC'D'";
         }
-        if(A[1][1] == 1){
-            if(output == ""){
+        if(A[1][1] == 1 && checked[1][1] == 0){
+            if(output.equals("")){
                 output += "A'BCD";
             }else output += "+A'BCD";
         }
-        if(A[1][2] == 1){
-            if(output == ""){
+        if(A[1][2] == 1 && checked[1][2] == 0){
+            if(output.equals("")){
                 output += "A'BCD";
             }else output += "+A'BCD";
         }
-        if(A[1][3] == 1){
-            if(output == ""){
+        if(A[1][3] == 1 && checked[1][3] == 0){
+            if(output.equals("")){
                 output += "A'BCD'";
             }else output += "+A'BCD'";
         }
-        if(A[2][0] == 1){
-            if(output == ""){
+        if(A[2][0] == 1 && checked[2][0] == 0){
+            if(output.equals("")){
                 output += "ABC'D'";
             }else output += "+ABC'D'";
 
         }
-        if(A[2][1] == 1){
-            if(output == ""){
+        if(A[2][1] == 1 && checked[2][1] == 0){
+            if(output.equals("")){
                 output += "ABC'D";
             }else  output += "+ABC'D";
 
         }
-        if(A[2][2] == 1){
-            if(output == ""){
+        if(A[2][2] == 1 && checked[2][2] == 0){
+            if(output.equals("")){
                 output += "ABCD";
             }else output += "+ABCD";
         }
-        if(A[2][3] == 1){
-            if(output == ""){
+        if(A[2][3] == 1 && checked[2][3] == 0){
+            if(output.equals("")){
                 output += "ABCD'";
             }else  output += "+ABCD'";
 
         }
-        if(A[3][0] == 1){
-            if(output == ""){
+        if(A[3][0] == 1 && checked[3][0] == 0){
+            if(output.equals("")){
                 output += "AB'C'D'";
             }else  output += "+AB'C'D'";
         }
-        if(A[3][1] == 1){
-            if(output == ""){
+        if(A[3][1] == 1 && checked[3][1] == 0){
+            if(output.equals("")){
                 output += "AB'C'D";
             }else output += "+AB'C'D";
         }
-        if(A[3][2] == 1){
-            if(output == ""){
+        if(A[3][2] == 1 && checked[3][2] == 0){
+            if(output.equals("")){
                 output += "AB'CD";
             }else output += "+AB'CD";
         }
-        if(A[3][3] == 1){
-            if(output == ""){
+        if(A[3][3] == 1 && checked[3][3] == 0){
+            if(output.equals("")){
                 output += "AB'CD'";
             }else  output += "+AB'CD'";
         }
