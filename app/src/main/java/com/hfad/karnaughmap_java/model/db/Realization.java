@@ -1,10 +1,12 @@
 package com.hfad.karnaughmap_java.model.db;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-public class Realization implements Dao{
+public class Realization implements Repository{
     private Dao dao;
 
     public Realization(Dao dao) {
@@ -12,12 +14,13 @@ public class Realization implements Dao{
     }
 
     @Override
-    public LiveData<List<Table2>> get2(){
-        return dao.get2();
+    public String getButton() {
+        return dao.getButtons();
     }
 
     @Override
-    public String update2(String string) {
-        return null;
+    public void setButton(String buttons, Runnable onSuccess) {
+        dao.setButtons(buttons);
+        onSuccess.run();
     }
 }

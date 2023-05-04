@@ -8,9 +8,9 @@ import java.util.List;
 @androidx.room.Dao
 public interface Dao {
 
-    @Query("Select * from var2")
-    LiveData<List<Table2>> get2();
+    @Query("SELECT buttons FROM Var2")
+    String getButtons();
 
-    @Query("Update var2 SET buttons = :string")
-    String update2(String string);
+    @Query("Update Var2 SET buttons = :buttons")
+    void setButtons(String buttons);
 }

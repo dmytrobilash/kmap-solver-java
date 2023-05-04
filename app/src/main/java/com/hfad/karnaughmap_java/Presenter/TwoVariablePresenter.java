@@ -13,4 +13,7 @@ public class TwoVariablePresenter  {
     public String getRes() {
         return res;
     }
+
+
+
 }
