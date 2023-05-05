@@ -10,6 +10,9 @@ import androidx.room.Update;
 @Dao
 public interface KmapDao {
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insert(Var2 var2);
+
     @Update
     void update(Var2 var2);
 

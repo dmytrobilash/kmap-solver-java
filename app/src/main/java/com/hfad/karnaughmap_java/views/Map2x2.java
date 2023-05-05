@@ -21,8 +21,10 @@ import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var2;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
 
-public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
+import java.util.Arrays;
 
+public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
+    Var2 var2;
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
@@ -32,10 +34,13 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map2x2);
+
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
+        var2 = new Var2();
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().insert(var2);
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
         planeText_grouping = findViewById(R.id.planeText_grouping);
@@ -77,17 +82,73 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         });
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getMyData().observe(Map2x2.this, myData -> {
+            if (myData != null) {
+                // Update the text for all the buttons
+                buttons[0].setText(myData.getBtn0());
+                buttons[1].setText(myData.getBtn1());
+                buttons[2].setText(myData.getBtn2());
+                buttons[3].setText(myData.getBtn3());
+                // Update the state of the Var2 object
+                var2.setBtn0(myData.getBtn0());
+                var2.setBtn1(myData.getBtn1());
+                var2.setBtn2(myData.getBtn2());
+                var2.setBtn3(myData.getBtn3());
+            }
+        });
     }
+
 
     @Override
     public void onClick(View v) {
+
         Button b = (Button) v;
-        if (b.getText().toString().matches("0")) {
-            b.setText("1");
-        } else if (b.getText().toString().matches("1")) {
-            b.setText("X");
+        int buttonIndex = Arrays.asList(buttons).indexOf(b); // get the index of the clicked button
+        Log.v("Buttons", String.valueOf(buttonIndex));
+        if (b.getText().toString().equals("0")) {
+            if (buttonIndex == 0) {
+                var2.setBtn0("1");
+                b.setText("1");
+            } else if (buttonIndex == 1) {
+                var2.setBtn1("1");
+                b.setText("1");
+            } else if (buttonIndex == 2) {
+                var2.setBtn2("1");
+                b.setText("1");
+            } else {
+                var2.setBtn3("1");
+                b.setText("1");
+            }
+        } else if (b.getText().toString().equals("1")) {
+            if (buttonIndex == 0) {
+                var2.setBtn0("X");
+                b.setText("X");
+            } else if (buttonIndex == 1) {
+                var2.setBtn1("X");
+                b.setText("X");
+            } else if (buttonIndex == 2) {
+                var2.setBtn2("X");
+                b.setText("X");
+            } else {
+                var2.setBtn3("X");
+                b.setText("X");
+            }
         } else {
-            b.setText("0");
+            if (buttonIndex == 0) {
+                var2.setBtn0("0");
+                b.setText("0");
+            } else if (buttonIndex == 1) {
+                var2.setBtn1("0");
+                b.setText("0");
+            } else if (buttonIndex == 2) {
+                var2.setBtn2("0");
+                b.setText("0");
+            } else {
+                var2.setBtn3("0");
+                b.setText("0");
+            }
         }
+        // Update the database
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().update(var2);
     }
 }

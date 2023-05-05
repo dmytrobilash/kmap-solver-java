@@ -6,55 +6,52 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Var2")
 public class Var2 {
-
-
     @PrimaryKey
     @NonNull
     private int id = 1;
 
-
-    private int num1;
-    private int num2;
-    private int num3;
-    private int num4;
+    private String btn0 = "0";
+    private String btn1 = "0";
+    private String btn2 = "0";
+    private String btn3 = "0";
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
-
-    public void setNum3(int num3) {
-        this.num3 = num3;
-    }
-
-    public void setNum4(int num4) {
-        this.num4 = num4;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getNum1() {
-        return num1;
+    public String getBtn0() {
+        return btn0;
     }
 
-    public int getNum2() {
-        return num2;
+    public void setBtn0(String btn0) {
+        this.btn0 = btn0;
     }
 
-    public int getNum3() {
-        return num3;
+    public String getBtn1() {
+        return btn1;
     }
 
-    public int getNum4() {
-        return num4;
+    public void setBtn1(String btn1) {
+        this.btn1 = btn1;
+    }
+
+    public String getBtn2() {
+        return btn2;
+    }
+
+    public void setBtn2(String btn2) {
+        this.btn2 = btn2;
+    }
+
+    public String getBtn3() {
+        return btn3;
+    }
+
+    public void setBtn3(String btn3) {
+        this.btn3 = btn3;
     }
 }

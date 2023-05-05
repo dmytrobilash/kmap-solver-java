@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Var2.class}, version = 1, exportSchema = false)
+@Database(entities = {Var2.class}, version = 2, exportSchema = false)
 public abstract class KmapDatabase extends RoomDatabase {
     private static KmapDatabase instance;
 
