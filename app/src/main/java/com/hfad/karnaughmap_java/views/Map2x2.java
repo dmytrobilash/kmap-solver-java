@@ -1,8 +1,6 @@
 package com.hfad.karnaughmap_java.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +10,8 @@ import android.view.View;
 import android.widget.Button;
         import android.widget.EditText;
 
-        import com.hfad.karnaughmap_java.MainActivity;
-import com.hfad.karnaughmap_java.Presenter.ThreeVariablePresenter;
-import com.hfad.karnaughmap_java.Presenter.TwoVariablePresenter;
+import com.hfad.karnaughmap_java.Presenter.twoVars.TwoVariablePresenter;
         import com.hfad.karnaughmap_java.R;
-        import com.hfad.karnaughmap_java.model.TwoVariables;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var2;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
@@ -39,8 +34,7 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
-        var2 = new Var2();
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().insert(var2);
+
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
         planeText_grouping = findViewById(R.id.planeText_grouping);
@@ -82,7 +76,9 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         });
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getMyData().observe(Map2x2.this, myData -> {
+        var2 = new Var2();
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar2(var2);
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar2().observe(Map2x2.this, myData -> {
             if (myData != null) {
                 // Update the text for all the buttons
                 buttons[0].setText(myData.getBtn0());
@@ -149,6 +145,6 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
             }
         }
         // Update the database
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().update(var2);
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
     }
 }
