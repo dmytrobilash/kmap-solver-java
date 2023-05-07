@@ -6,55 +6,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
-import com.hfad.karnaughmap_java.views.Map2x2;
-import com.hfad.karnaughmap_java.views.Map3x2;
-import com.hfad.karnaughmap_java.views.Map4x4;
+import com.hfad.karnaughmap_java.views.InfoActivity;
+import com.hfad.karnaughmap_java.views.Kmap2VariablesActivity;
+import com.hfad.karnaughmap_java.views.Kmap3VariablesActivity;
+import com.hfad.karnaughmap_java.views.Kmap4VariablesActivity;
+import com.hfad.karnaughmap_java.views.Kmap5VariablesActivity;
 
-public class MainActivity extends AppCompatActivity  {
-    private  Button switchTo2x2Activity;
-    private  Button switchTo3x2Activity;
-    private  Button switchTo4x4Activity;
-
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-        switchTo2x2Activity = findViewById(R.id.Karnaugh_2x2);
-        switchTo3x2Activity = findViewById(R.id.Karnaugh_3x3);
-        switchTo4x4Activity = findViewById(R.id.Karnaugh_4x4);
-        setOnClickListenerFor2x2Activity();
-        setOnClickListenerFor3x3Activity();
-        setOnClickListenerFor4x4Activity();
+
+        Button switchTo2VarActivity = findViewById(R.id.karnaugh_2);
+        Button switchTo3VarActivity = findViewById(R.id.karnaugh_3);
+        Button switchTo4VarActivity = findViewById(R.id.karnaugh_4);
+        Button switchTo5VarActivity = findViewById(R.id.karnaugh_5);
+        ImageButton switchToInfoActivity = findViewById(R.id.info);
+
+        setOnClickListenerForActivity(switchTo2VarActivity, Kmap2VariablesActivity.class);
+        setOnClickListenerForActivity(switchTo3VarActivity, Kmap3VariablesActivity.class);
+        setOnClickListenerForActivity(switchTo4VarActivity, Kmap4VariablesActivity.class);
+        setOnClickListenerForActivity(switchTo5VarActivity, Kmap5VariablesActivity.class);
+        setOnClickListenerForActivity(switchToInfoActivity, InfoActivity.class);
     }
 
-    private void setOnClickListenerFor2x2Activity() {
-        switchTo2x2Activity.setOnClickListener(new View.OnClickListener() {
+    private void setOnClickListenerForActivity(View view, final Class<?> activityClass) {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(MainActivity.this, Map2x2.class);
-                startActivity(switchActivityIntent);
-            }
-        });
-    }
-
-    private void setOnClickListenerFor3x3Activity() {
-        switchTo3x2Activity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(MainActivity.this, Map3x2.class);
-                startActivity(switchActivityIntent);
-            }
-        });
-    }
-
-    private void setOnClickListenerFor4x4Activity() {
-        switchTo4x4Activity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(MainActivity.this, Map4x4.class);
+                Intent switchActivityIntent = new Intent(MainActivity.this, activityClass);
                 startActivity(switchActivityIntent);
             }
         });

@@ -30,40 +30,29 @@
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/k_map_image"
             tools:ignore="ImageContrastCheck" />
-
-        <Button
-            android:id="@+id/En_lang"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/En_lang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/Ukr_lang"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/Ukr_lang"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/En_lang"
-            app:layout_constraintTop_toTopOf="parent" />
         <View
             android:layout_width="match_parent"
             app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/info"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_marginEnd="16dp"
+            android:onClick="onClick"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            tools:ignore="OnClick" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:minLines="2"
@@ -76,7 +65,7 @@
         android:text="@string/text_main_activity"
         android:textColor="@color/black"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/Karnaugh_2x2"
+        app:layout_constraintBottom_toTopOf="@+id/karnaugh_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -85,49 +74,47 @@
         app:layout_constraintVertical_bias="0.528" />
 
     <Button
-        android:id="@+id/Karnaugh_2x2"
+        android:id="@+id/karnaugh_2"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/Karnaugh_2x2"
-        app:layout_constraintBottom_toTopOf="@+id/Karnaugh_3x3"
+        android:text="@string/Karnaugh_2"
+        app:layout_constraintBottom_toTopOf="@+id/karnaugh_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Karnaugh_3x3"
+        android:id="@+id/karnaugh_3"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/Karnaugh_3x3"
-        app:layout_constraintBottom_toTopOf="@+id/Karnaugh_4x4"
+        android:text="@string/Karnaugh_3"
+        app:layout_constraintBottom_toTopOf="@+id/karnaugh_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/karnaugh_4"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/Karnaugh_4"
+        app:layout_constraintBottom_toTopOf="@+id/karnaugh_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/Karnaugh_by_formulae"
+        android:id="@+id/karnaugh_5"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:text="@string/Karnaugh_by_formulae"
+        android:text="@string/Karnaugh_5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/Karnaugh_4x4"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/Karnaugh_4x4"
-        app:layout_constraintBottom_toTopOf="@+id/Karnaugh_by_formulae"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
