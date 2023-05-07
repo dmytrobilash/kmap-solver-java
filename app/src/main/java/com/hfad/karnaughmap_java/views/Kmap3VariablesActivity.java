@@ -17,7 +17,7 @@ import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
 
 import java.util.Arrays;
 
-public class Map3x2 extends AppCompatActivity implements View.OnClickListener {
+public class Kmap3VariablesActivity extends AppCompatActivity implements View.OnClickListener {
     Var3 var3;
     EditText editText;
     private Button[] buttons;
@@ -28,7 +28,7 @@ public class Map3x2 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_map3x2);
+        setContentView(R.layout.activity_kmap3_variables);
         editText = findViewById(R.id.planeText_SoP);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7)};
@@ -72,7 +72,7 @@ public class Map3x2 extends AppCompatActivity implements View.OnClickListener {
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(Map3x2.this, DrawSchemeActivity.class);
+                Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, DrawSchemeActivity.class);
                 Log.v("AAAA", String.valueOf(editText.getText()));
                 switchActivityIntent.putExtra("result", String.valueOf(editText.getText()));
                 startActivity(switchActivityIntent);
@@ -80,7 +80,7 @@ public class Map3x2 extends AppCompatActivity implements View.OnClickListener {
         });
         var3 = new Var3();
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar3(var3);
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar3().observe(Map3x2.this, myData -> {
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar3().observe(Kmap3VariablesActivity.this, myData -> {
             if (myData != null) {
                 // Update the text for all the buttons
                 buttons[0].setText(myData.getBtn0());

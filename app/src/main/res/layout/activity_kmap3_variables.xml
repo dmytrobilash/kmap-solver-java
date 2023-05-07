@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.Map3x2">
+    tools:context=".views.Kmap3VariablesActivity">
 
     <TableLayout
         android:id="@+id/table"
@@ -17,6 +17,7 @@
         app:layout_constraintVertical_bias="0.25">
 
         <TableRow>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -30,6 +31,11 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
+            <TextView
+                android:text="B'C'"
+                style="@style/textview_for_marking_values_top" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -38,24 +44,8 @@
                 android:textSize="20sp" />
 
             <TextView
-                style="@style/textview_for_marking_values_top"
-                android:text="B'C'" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <TextView
-                style="@style/textview_for_marking_values_top"
-                android:text="B'C" />
+                android:text="B'C"
+                style="@style/textview_for_marking_values_top" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -63,12 +53,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+
             <TextView
                 style="@style/textview_for_marking_values_top"
                 android:text="BC" />
@@ -79,15 +64,10 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-            <TextView
-                style="@style/textview_for_marking_values_top"
-                android:text="BC'" />
+                android:text="BC'"
+                style="@style/textview_for_marking_values_top" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -144,23 +124,6 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
 
         </TableRow>
 
@@ -169,7 +132,6 @@
             <TextView
                 style="@style/textview_for_marking_values_side"
                 android:text="A'"
-
                 android:layout_marginEnd="5dp"/>
 
             <View
@@ -177,53 +139,83 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="0"
-                 />
-            <Button
-                android:id="@+id/button0"
-                style="@style/button_in_table_attributes" />
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/zero"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button0"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="1" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button1"
-                style="@style/button_in_table_attributes"/>
+                <ImageView
+                    android:src="@drawable/one"
+                    style="@style/number_of_cell"/>
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <TextView
-                android:text="3"
-                style="@style/textview_in_cell_attributes" />
-            <Button
-                android:id="@+id/button2"
-                style="@style/button_in_table_attributes" />
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="2" />
-            <Button
-                android:id="@+id/button3"
-                style="@style/button_in_table_attributes" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/three"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/two"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@color/black" />
+
         </TableRow>
 
         <TableRow>
@@ -271,23 +263,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
@@ -306,46 +281,77 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="4" />
-            <Button
-                android:id="@+id/button4"
-                style="@style/button_in_table_attributes" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/four"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button4"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="5" />
-            <Button
-                android:id="@+id/button5"
-                style="@style/button_in_table_attributes" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/five"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button5"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="7" />
-            <Button
-                android:id="@+id/button6"
-                style="@style/button_in_table_attributes" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/seven"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button6"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="6" />
-            <Button
-                android:id="@+id/button7"
-                style="@style/button_in_table_attributes" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/six"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button7"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
@@ -400,25 +406,11 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
 
         </TableRow>
+
     </TableLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -439,6 +431,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/solve" />
+
     </LinearLayout>
 
 
@@ -495,6 +488,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             tools:ignore="LabelFor" />
+
     </LinearLayout>
 
     <LinearLayout

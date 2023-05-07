@@ -1,8 +1,10 @@
-package com.hfad.karnaughmap_java.Presenter;
+package com.hfad.karnaughmap_java.Presenter.twoVars;
 
 import com.hfad.karnaughmap_java.model.TwoVariables;
+import com.hfad.karnaughmap_java.model.db.Var2;
 
 public class TwoVariablePresenter  {
+    Var2 var2;
 
     private final String res;
 
@@ -13,7 +15,6 @@ public class TwoVariablePresenter  {
     public String getRes() {
         return res;
     }
-
 
 
 }

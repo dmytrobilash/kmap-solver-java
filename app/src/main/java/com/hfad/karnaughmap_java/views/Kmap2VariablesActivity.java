@@ -18,7 +18,7 @@ import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
 
 import java.util.Arrays;
 
-public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
+public class Kmap2VariablesActivity extends AppCompatActivity implements View.OnClickListener {
     Var2 var2;
     private Button[] buttons;
     private EditText planeText_SoP;
@@ -28,22 +28,23 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map2x2);
+        setContentView(R.layout.activity_kmap2_variables);
+        planeText_SoP = findViewById(R.id.planeText_SoP);
+        planeText_PoS = findViewById(R.id.planeText_PoS);
+        planeText_grouping = findViewById(R.id.planeText_grouping);
+        Button solve = findViewById(R.id.solve);
+        Button scheme = findViewById(R.id.get_scheme);
 
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
 
-        planeText_SoP = findViewById(R.id.planeText_SoP);
-        planeText_PoS = findViewById(R.id.planeText_PoS);
-        planeText_grouping = findViewById(R.id.planeText_grouping);
-        Button solve = findViewById(R.id.solve);
-        Button scheme = findViewById(R.id.get_scheme);
+
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(Map2x2.this, DrawSchemeActivity.class);
+                Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
                 startActivity(switchActivityIntent);
             }
@@ -78,7 +79,7 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
         });
         var2 = new Var2();
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar2(var2);
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar2().observe(Map2x2.this, myData -> {
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar2().observe(Kmap2VariablesActivity.this, myData -> {
             if (myData != null) {
                 // Update the text for all the buttons
                 buttons[0].setText(myData.getBtn0());
@@ -92,8 +93,8 @@ public class Map2x2 extends AppCompatActivity implements View.OnClickListener {
                 var2.setBtn3(myData.getBtn3());
             }
         });
-    }
 
+    }
 
     @Override
     public void onClick(View v) {

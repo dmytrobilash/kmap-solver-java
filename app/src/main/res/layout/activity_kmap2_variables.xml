@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.Map2x2"
+    tools:context=".views.Kmap2VariablesActivity"
     android:orientation="vertical">
 
     <TableLayout
@@ -31,16 +31,10 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
             <TextView
-                style="@style/textview_for_marking_values_top"
-                android:text="B'" />
+                android:text="B'"
+                style="@style/textview_for_marking_values_top"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -48,22 +42,15 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
             <TextView
-                style="@style/textview_for_marking_values_top"
-                android:text="B" />
+                android:text="B"
+                style="@style/textview_for_marking_values_top"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
                 android:textSize="20sp" />
 
         </TableRow>
@@ -94,14 +81,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
@@ -120,31 +99,45 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="0" />
-            <Button
-                android:id="@+id/button0"
-                style="@style/button_in_table_attributes"
-                android:layout_marginEnd="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/zero"
+                    style="@style/number_of_cell" />
+
+                <Button
+                    android:id="@+id/button0"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="1" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button1"
-                style="@style/button_in_table_attributes"
-                android:layout_marginEnd="10dp"/>
+                <ImageView
+                    android:src="@drawable/one"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
+
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
+
         </TableRow>
 
         <TableRow>
@@ -176,14 +169,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
                 android:background="@color/black" />
 
         </TableRow>
@@ -199,32 +184,47 @@
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="2" />
-            <Button
-                android:id="@+id/button2"
-                style="@style/button_in_table_attributes"
-                android:layout_marginEnd="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/two"
+                    style="@style/number_of_cell"/>
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <TextView
-                style="@style/textview_in_cell_attributes"
-                android:text="3" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button3"
-                style="@style/button_in_table_attributes"
-                android:layout_marginEnd="10dp"/>
+                <ImageView
+                    android:src="@drawable/three"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="5dp"/>
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/button_in_table_attributes" />
+
+            </RelativeLayout>
 
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
                 android:background="@color/black" />
+
         </TableRow>
 
         <TableRow>
@@ -257,15 +257,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
+
         </TableRow>
+
     </TableLayout>
 
     <LinearLayout
@@ -344,6 +338,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             tools:ignore="LabelFor" />
+
     </LinearLayout>
 
     <LinearLayout

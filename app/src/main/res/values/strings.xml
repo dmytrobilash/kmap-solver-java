@@ -1,17 +1,14 @@
 <resources>
     <string name="app_name">Karnaugh Map</string>
-    <string name="En_lang">En</string>
-    <string name="Ukr_lang">Укр</string>
-    <string name="Karnaugh_2x2">Karnaugh 2x2</string>
-    <string name="Karnaugh_3x3">Karnaugh 3x3</string>
-    <string name="Karnaugh_4x4">Karnaugh 4x4</string>
-    <string name="Karnaugh_by_formulae">Karnaugh by formulae</string>
+    <string name="Karnaugh_2">2 variables</string>
+    <string name="Karnaugh_3">3 variables</string>
+    <string name="Karnaugh_4">4 variables</string>
+    <string name="Karnaugh_5">5 variables</string>/string>
     <string name="calculate">Calculate</string>
     <string name="zero">0</string>
-    <string name="scheme">Get scheme</string>
+    <string name="scheme">Scheme</string>
     <string name="solve">Solve</string>
     <string name="F">F =</string>
     <string name="text_main_activity">Kmap solver\nChoose operation</string>
     <string name="grouping">Groups:</string>
-
 </resources>

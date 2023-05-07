@@ -12,13 +12,12 @@ import android.widget.EditText;
 import com.hfad.karnaughmap_java.Presenter.FourVariablePresenter;
 import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
-import com.hfad.karnaughmap_java.model.db.Var3;
 import com.hfad.karnaughmap_java.model.db.Var4;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
 
 import java.util.Arrays;
 
-public class Map4x4 extends AppCompatActivity implements View.OnClickListener {
+public class Kmap4VariablesActivity extends AppCompatActivity implements View.OnClickListener {
     Var4 var4;
     EditText editText;
     private Button[] buttons;
@@ -29,7 +28,7 @@ public class Map4x4 extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_map4x4);
+        setContentView(R.layout.activity_kmap4_variables);
         editText = findViewById(R.id.planeText_SoP);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7),
@@ -75,7 +74,7 @@ public class Map4x4 extends AppCompatActivity implements View.OnClickListener {
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(Map4x4.this, DrawSchemeActivity.class);
+                Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, DrawSchemeActivity.class);
                 Log.v("AAAA", String.valueOf(editText.getText()));
                 switchActivityIntent.putExtra("result", String.valueOf(editText.getText()));
                 startActivity(switchActivityIntent);
@@ -83,7 +82,7 @@ public class Map4x4 extends AppCompatActivity implements View.OnClickListener {
         });
         var4 = new Var4();
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar4(var4);
-        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar4().observe(Map4x4.this, myData -> {
+        KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar4().observe(Kmap4VariablesActivity.this, myData -> {
             if (myData != null) {
                 Log.v("Buttons", "Here");
                 // Update the text for all the buttons
