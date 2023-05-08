@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
-            android:name=".views.drawing.CheckUnionsActivity"
+            android:name=".views.unions.CheckUnionsActivity"
             android:exported="false" />
         <activity
             android:name=".views.InfoActivity"

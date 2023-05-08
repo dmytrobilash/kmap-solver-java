@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hfad.karnaughmap_java.Presenter.FourVariablePresenter;
+
 import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var4;
@@ -54,7 +54,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                         val[i] = Integer.parseInt(buttons[i].getText().toString());
                     }
                 }
-                FourVariablePresenter FourVariablePresenter = new FourVariablePresenter(val);
+                /*FourVariablePresenter FourVariablePresenter = new FourVariablePresenter(val);
 
                 soln = FourVariablePresenter.getRes();
 
@@ -67,7 +67,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                     editText.setText(soln);
                     //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
                     //planeText_grouping.setText(solver.getGroups());
-                }
+                }*/
             }
         });
         scheme = findViewById(R.id.get_scheme);

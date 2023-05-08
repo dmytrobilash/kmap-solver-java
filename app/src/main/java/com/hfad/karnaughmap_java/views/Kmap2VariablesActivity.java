@@ -15,6 +15,7 @@ import com.hfad.karnaughmap_java.Presenter.twoVars.TwoVariablePresenter;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var2;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
+import com.hfad.karnaughmap_java.views.unions.CheckUnionsActivity;
 
 import java.util.Arrays;
 
@@ -44,8 +45,10 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
+                /*Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
+                startActivity(switchActivityIntent);*/
+                Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, CheckUnionsActivity.class);
                 startActivity(switchActivityIntent);
             }
         });
@@ -56,6 +59,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 String soln;
                 // executes when two variable is selected
                 val = new int[4];
+
                 for (int i = 0; i < val.length; i++) {
                     if (buttons[i].getText().toString().matches("X")) {
                         val[i] = 2;
@@ -75,6 +79,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                     //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
                     //planeText_grouping.setText(solver.getGroups());
                 }
+
             }
         });
         var2 = new Var2();
