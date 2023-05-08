@@ -144,8 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/zero"
+                <TextView
+                    android:text="0"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -163,8 +163,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/one"
+                <TextView
+                    android:text="1"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -182,8 +182,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/three"
+                <TextView
+                    android:text="3"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -201,8 +201,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/two"
+                <TextView
+                    android:text="2"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -286,8 +286,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/four"
+                <TextView
+                    android:text="4"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -305,8 +305,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/five"
+                <TextView
+                    android:text="5"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -324,8 +324,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/seven"
+                <TextView
+                    android:text="7"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -343,8 +343,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/six"
+                <TextView
+                    android:text="6"
                     style="@style/number_of_cell"/>
 
                 <Button

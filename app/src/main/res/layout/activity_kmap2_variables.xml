@@ -103,10 +103,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-                <ImageView
-                    android:src="@drawable/zero"
-                    style="@style/number_of_cell" />
+                <TextView
+                    android:text="0"
+                    style="@style/number_of_cell"/>
 
                 <Button
                     android:id="@+id/button0"
@@ -123,8 +122,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/one"
+                <TextView
+                    android:text="1"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -189,8 +188,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/two"
+                <TextView
+                    android:text="2"
                     style="@style/number_of_cell"/>
 
                 <Button
@@ -208,11 +207,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:src="@drawable/three"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:padding="5dp"/>
+                <TextView
+                    android:text="3"
+                    style="@style/number_of_cell"/>
 
                 <Button
                     android:id="@+id/button3"
