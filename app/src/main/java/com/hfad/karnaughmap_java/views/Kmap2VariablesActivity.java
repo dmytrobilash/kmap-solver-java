@@ -48,7 +48,9 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 /*Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
                 startActivity(switchActivityIntent);*/
+                String groups = "[0,1] [1]";
                 Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);
             }
         });

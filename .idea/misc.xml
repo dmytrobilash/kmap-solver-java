@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.318" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/background_button.xml" value="0.1605" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/border.xml" value="0.2665" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/cells_shape.xml" value="0.1895" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.281" />
@@ -22,7 +23,7 @@
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_map2x2_scheme.xml" value="0.28802083333333334" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_map3x2.xml" value="0.33" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_map4x4.xml" value="0.5" />
-        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/kmap2_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/kmap2_item.xml" value="0.46928327645051193" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/mipmap-anydpi-v26/1.xml" value="0.243" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/mipmap-anydpi-v26/1_round.xml" value="0.243" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1795" />

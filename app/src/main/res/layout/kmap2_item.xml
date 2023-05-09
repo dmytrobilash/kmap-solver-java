@@ -100,13 +100,17 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:text="0"
-                    style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button0"
-                    style="@style/button_in_table_attributes" />
+                    style="@style/button_in_table_attributes"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:id="@+id/textView0"
+                    style="@style/number_of_cell"
+                    android:text="0"
+                    android:layout_alignTop="@id/button0"
+                    android:layout_alignStart="@id/button0"/>
 
             </RelativeLayout>
 
@@ -119,13 +123,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:text="1"
-                    style="@style/number_of_cell"/>
-
                 <Button
                     android:id="@+id/button1"
-                    style="@style/button_in_table_attributes" />
+                    style="@style/button_in_table_attributes"
+                    android:background="@android:color/transparent"
+                    app:backgroundTint="@null" />
+
+                <TextView
+                    style="@style/number_of_cell"
+                    android:text="1" />
 
             </RelativeLayout>
 
@@ -185,13 +191,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:text="2"
-                    style="@style/number_of_cell"/>
-
                 <Button
                     android:id="@+id/button2"
-                    style="@style/button_in_table_attributes" />
+                    style="@style/button_in_table_attributes"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    style="@style/number_of_cell"
+                    android:text="2" />
 
             </RelativeLayout>
 
@@ -204,13 +211,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:text="3"
-                    style="@style/number_of_cell"/>
-
                 <Button
+                    app:backgroundTint="@null"
                     android:id="@+id/button3"
-                    style="@style/button_in_table_attributes" />
+                    style="@style/button_in_table_attributes"
+                    android:background="@android:color/transparent" />
+
+                <TextView
+                    style="@style/number_of_cell"
+                    android:text="3" />
 
             </RelativeLayout>
 
@@ -233,6 +242,7 @@
                 android:background="@color/black" />
 
             <View
+                app:backgroundTint="@null"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/black" />
