@@ -35,7 +35,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 findViewById(R.id.button8), findViewById(R.id.button9), findViewById(R.id.button10), findViewById(R.id.button11),
                 findViewById(R.id.button12), findViewById(R.id.button13), findViewById(R.id.button14), findViewById(R.id.button15)};
 
-        solve = findViewById(R.id.solve);
+
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }

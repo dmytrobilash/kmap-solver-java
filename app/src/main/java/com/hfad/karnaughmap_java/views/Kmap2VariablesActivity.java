@@ -24,7 +24,6 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
-    private EditText planeText_grouping;
     TwoVariablePresenter twoVariablePresenter;
 
     @Override
@@ -33,25 +32,30 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_kmap2_variables);
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
-        planeText_grouping = findViewById(R.id.planeText_grouping);
-        Button solve = findViewById(R.id.solve);
         Button scheme = findViewById(R.id.get_scheme);
-
+        Button set0 = findViewById(R.id.set0);
+        Button set1 = findViewById(R.id.set1);
+        Button unions = findViewById(R.id.unions);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
 
-
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
+                Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
-                startActivity(switchActivityIntent);*/
+                startActivity(switchActivityIntent);
+            }
+        });
+
+        unions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 String buttonText = "";
                 for(Button button: buttons){
-                   buttonText += button.getText() + " ";
+                    buttonText += button.getText() + " ";
                 }
                 int[] val;
                 String groups;
@@ -71,39 +75,9 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);
-
             }
         });
-        solve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int[] val;
-                String soln;
-                // executes when two variable is selected
-                val = new int[4];
 
-                for (int i = 0; i < val.length; i++) {
-                    if (buttons[i].getText().toString().matches("X")) {
-                        val[i] = 2;
-                    } else {
-                        val[i] = Integer.parseInt(buttons[i].getText().toString());
-                    }
-                }
-                twoVariablePresenter = new TwoVariablePresenter(val);
-                soln = twoVariablePresenter.getRes();
-                // sets the result to text pane
-                if (soln.isEmpty()) {
-                    planeText_SoP.setText(null);
-                    planeText_PoS.setText(null);
-                    planeText_grouping.setText(null);
-                } else {
-                    planeText_SoP.setText(soln);
-                    //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
-                    //planeText_grouping.setText(solver.getGroups());
-                }
-
-            }
-        });
         var2 = new Var2();
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar2(var2);
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar2().observe(Kmap2VariablesActivity.this, myData -> {
@@ -120,12 +94,37 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 var2.setBtn3(myData.getBtn3());
             }
         });
+        set0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Button button : buttons) {
+                    button.setText("0");
+                }
+                var2.setBtn0("0");
+                var2.setBtn1("0");
+                var2.setBtn2("0");
+                var2.setBtn3("0");
+                KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
+            }
+        });
+        set1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Button button : buttons) {
+                    button.setText("1");
+                }
+                var2.setBtn0("1");
+                var2.setBtn1("1");
+                var2.setBtn2("1");
+                var2.setBtn3("1");
+                KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
+            }
+        });
 
     }
 
     @Override
     public void onClick(View v) {
-
         Button b = (Button) v;
         int buttonIndex = Arrays.asList(buttons).indexOf(b); // get the index of the clicked button
         Log.v("Buttons", String.valueOf(buttonIndex));
@@ -172,7 +171,34 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 b.setText("0");
             }
         }
+        solve();
         // Update the database
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
+    }
+
+    private void solve(){
+        int[] val;
+        String soln;
+        // executes when two variable is selected
+        val = new int[4];
+
+        for (int i = 0; i < val.length; i++) {
+            if (buttons[i].getText().toString().matches("X")) {
+                val[i] = 2;
+            } else {
+                val[i] = Integer.parseInt(buttons[i].getText().toString());
+            }
+        }
+        twoVariablePresenter = new TwoVariablePresenter(val);
+        soln = twoVariablePresenter.getRes();
+        // sets the result to text pane
+        if (soln.isEmpty()) {
+            planeText_SoP.setText(null);
+            planeText_PoS.setText(null);
+        } else {
+            planeText_SoP.setText(soln);
+            //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
+            //planeText_grouping.setText(solver.getGroups());
+        }
     }
 }

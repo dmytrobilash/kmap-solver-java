@@ -32,7 +32,6 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7)};
 
-        solve = findViewById(R.id.solve);
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }

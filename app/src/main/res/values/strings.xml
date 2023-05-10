@@ -3,11 +3,11 @@
     <string name="Karnaugh_2">2 variables</string>
     <string name="Karnaugh_3">3 variables</string>
     <string name="Karnaugh_4">4 variables</string>
-    <string name="Karnaugh_5">5 variables</string>/string>
+    <string name="Karnaugh_5">5 variables (processing)</string>/string>
     <string name="calculate">Calculate</string>
     <string name="zero">0</string>
     <string name="scheme">Scheme</string>
-    <string name="solve">Solve</string>
+    <string name="unions">Unions</string>
     <string name="F">F =</string>
     <string name="text_main_activity">Kmap solver\nChoose operation</string>
     <string name="grouping">Groups:</string>

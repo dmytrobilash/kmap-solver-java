@@ -55,38 +55,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
         <TableRow>
 
@@ -140,38 +109,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
         <TableRow>
 
@@ -225,38 +163,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
     </TableLayout>
 
@@ -267,48 +174,9 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
-            android:id="@+id/get_scheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/scheme" />
-
-        <Button
-            android:id="@+id/solve"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/solve" />
+        <include layout="@layout/layout_buttons_bottom"/>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table"
-        app:layout_constraintVertical_bias="0.10">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="@string/grouping"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/planeText_grouping"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            tools:ignore="LabelFor" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -318,7 +186,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        app:layout_constraintTop_toBottomOf="@+id/table"
         app:layout_constraintVertical_bias="0.1">
 
         <TextView
