@@ -25,6 +25,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     private EditText planeText_SoP;
     private EditText planeText_PoS;
     private EditText planeText_grouping;
+    TwoVariablePresenter twoVariablePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,29 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 /*Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
                 switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
                 startActivity(switchActivityIntent);*/
-                String groups = "[0,1] [1]";
+                String buttonText = "";
+                for(Button button: buttons){
+                   buttonText += button.getText() + " ";
+                }
+                int[] val;
+                String groups;
+                // executes when two variable is selected
+                val = new int[4];
+
+                for (int i = 0; i < val.length; i++) {
+                    if (buttons[i].getText().toString().matches("X")) {
+                        val[i] = 2;
+                    } else {
+                        val[i] = Integer.parseInt(buttons[i].getText().toString());
+                    }
+                }
+                twoVariablePresenter = new TwoVariablePresenter(val);
+                groups = twoVariablePresenter.getGroups();
                 Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);
+
             }
         });
         solve.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +89,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                         val[i] = Integer.parseInt(buttons[i].getText().toString());
                     }
                 }
-                TwoVariablePresenter twoVariablePresenter = new TwoVariablePresenter(val);
+                twoVariablePresenter = new TwoVariablePresenter(val);
                 soln = twoVariablePresenter.getRes();
                 // sets the result to text pane
                 if (soln.isEmpty()) {

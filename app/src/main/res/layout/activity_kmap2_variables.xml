@@ -100,18 +100,19 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <RelativeLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:text="0"
-                    style="@style/number_of_cell"/>
-
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button0"
-                    style="@style/button_in_table_attributes" />
+                    style="@style/button_in_table_attributes"
+                    android:stateListAnimator="@null"/>
 
-            </RelativeLayout>
+                <TextView
+                    style="@style/number_of_cell"
+                    android:text="0" />
+
+            </FrameLayout>
 
             <View
                 android:layout_width="2dp"

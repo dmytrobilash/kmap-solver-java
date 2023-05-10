@@ -97,7 +97,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/black" />
 
-            <RelativeLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -105,14 +105,14 @@
                     android:id="@+id/button0"
                     style="@style/button_in_table_attributes"
                     android:layout_centerInParent="true" />
+
                 <TextView
                     android:id="@+id/textView0"
                     style="@style/number_of_cell"
                     android:text="0"
-                    android:layout_alignTop="@id/button0"
-                    android:layout_alignStart="@id/button0"/>
+                    />
 
-            </RelativeLayout>
+            </FrameLayout>
 
             <View
                 android:layout_width="2dp"
@@ -123,11 +123,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button1"
                     style="@style/button_in_table_attributes"
-                    android:background="@android:color/transparent"
-                    app:backgroundTint="@null" />
+                    android:background="@android:color/transparent" />
 
                 <TextView
                     style="@style/number_of_cell"
@@ -191,7 +190,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button2"
                     style="@style/button_in_table_attributes"
                     android:background="@android:color/transparent" />
@@ -211,11 +210,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    app:backgroundTint="@null"
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button3"
                     style="@style/button_in_table_attributes"
-                    android:background="@android:color/transparent" />
+                    android:background="@android:color/transparent"
+                    app:backgroundTint="@null" />
 
                 <TextView
                     style="@style/number_of_cell"
