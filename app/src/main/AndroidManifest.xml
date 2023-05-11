@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hfad.karnaughmap_java">
+    package="com.dmytrobilash.karnaughmap_java">
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -18,16 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KarnaughMap_java">
         <activity
-            android:name=".views.unions.CheckUnionsActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.unions.CheckUnionsActivity"
             android:exported="false" />
         <activity
-            android:name=".views.InfoActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".views.Kmap5VariablesActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.Kmap5VariablesActivity"
             android:exported="false" />
         <activity
-            android:name=".views.drawing.DrawSchemeActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.drawing.DrawSchemeActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -38,16 +38,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.Kmap4VariablesActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.Kmap4VariablesActivity"
             android:exported="false" />
         <activity
-            android:name=".views.Kmap3VariablesActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.Kmap3VariablesActivity"
             android:exported="false" />
         <activity
-            android:name=".views.Kmap2VariablesActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.views.Kmap2VariablesActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.dmytrobilash.karnaughmap_java.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,7 +58,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.hfad.karnaughmap_java.provider"
+            android:authorities="com.dmytrobilash.karnaughmap_java.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

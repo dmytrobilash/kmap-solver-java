@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.hfad.karnaughmap_java"
+        applicationId "com.dmytrobilash.karnaughmap_java"
         minSdk 24
         targetSdk 33
         versionCode 1
