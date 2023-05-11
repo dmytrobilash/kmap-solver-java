@@ -91,7 +91,6 @@
                 android:background="@color/black" />
 
             <RelativeLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -99,7 +98,7 @@
                     android:text="0"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button0"
                     style="@style/button_in_table_attributes" />
 
@@ -118,7 +117,7 @@
                     android:text="1"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button1"
                     style="@style/button_in_table_attributes" />
 
@@ -137,7 +136,7 @@
                     android:text="3"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button2"
                     style="@style/button_in_table_attributes" />
 
@@ -156,7 +155,7 @@
                     android:text="2"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button3"
                     style="@style/button_in_table_attributes" />
 
@@ -191,7 +190,7 @@
                     android:text="4"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button4"
                     style="@style/button_in_table_attributes" />
 
@@ -210,7 +209,7 @@
                     android:text="5"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button5"
                     style="@style/button_in_table_attributes" />
 
@@ -229,7 +228,7 @@
                     android:text="7"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button6"
                     style="@style/button_in_table_attributes" />
 
@@ -248,7 +247,7 @@
                     android:text="6"
                     style="@style/number_of_cell"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button7"
                     style="@style/button_in_table_attributes" />
 

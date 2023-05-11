@@ -29,21 +29,23 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_kmap4_variables);
+
+        var4 = new Var4();
         editText = findViewById(R.id.planeText_SoP);
+        set0 = findViewById(R.id.set0);
+        set1 = findViewById(R.id.set1);
+        unions = findViewById(R.id.unions);
+        scheme = findViewById(R.id.get_scheme);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7),
                 findViewById(R.id.button8), findViewById(R.id.button9), findViewById(R.id.button10), findViewById(R.id.button11),
                 findViewById(R.id.button12), findViewById(R.id.button13), findViewById(R.id.button14), findViewById(R.id.button15)};
 
-
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
-        set0 = findViewById(R.id.set0);
-        set1 = findViewById(R.id.set1);
-        unions = findViewById(R.id.unions);
+
         unions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +55,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 }
                 int[] val;
                 String groups;
-                // executes when two variable is selected
+
                 val = new int[16];
 
                 for (int i = 0; i < val.length; i++) {
@@ -73,7 +75,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             }
         });
 
-        scheme = findViewById(R.id.get_scheme);
+
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +85,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 startActivity(switchActivityIntent);
             }
         });
-        var4 = new Var4();
+
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().insertVar4(var4);
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().getButtonsVar4().observe(Kmap4VariablesActivity.this, myData -> {
             if (myData != null) {
@@ -123,6 +125,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 var4.setBtn13(myData.getBtn13());
                 var4.setBtn14(myData.getBtn14());
                 var4.setBtn15(myData.getBtn15());
+                solve();
             }
         });
 

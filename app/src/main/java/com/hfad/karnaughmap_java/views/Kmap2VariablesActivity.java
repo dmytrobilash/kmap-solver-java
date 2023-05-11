@@ -20,26 +20,28 @@ import com.hfad.karnaughmap_java.views.unions.CheckUnionsActivity;
 import java.util.Arrays;
 
 public class Kmap2VariablesActivity extends AppCompatActivity implements View.OnClickListener {
-    Var2 var2;
+    private Var2 var2;
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
-    TwoVariablesPresenter twoVariablePresenter;
+    private TwoVariablesPresenter twoVariablePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kmap2_variables);
-        planeText_SoP = findViewById(R.id.planeText_SoP);
-        planeText_PoS = findViewById(R.id.planeText_PoS);
-        Button scheme = findViewById(R.id.get_scheme);
-        Button set0 = findViewById(R.id.set0);
-        Button set1 = findViewById(R.id.set1);
-        Button unions = findViewById(R.id.unions);
+
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
+        Button scheme = findViewById(R.id.get_scheme);
+        Button set0 = findViewById(R.id.set0);
+        Button set1 = findViewById(R.id.set1);
+        Button unions = findViewById(R.id.unions);
+
+        planeText_SoP = findViewById(R.id.planeText_SoP);
+        planeText_PoS = findViewById(R.id.planeText_PoS);
 
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +95,10 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 var2.setBtn1(myData.getBtn1());
                 var2.setBtn2(myData.getBtn2());
                 var2.setBtn3(myData.getBtn3());
+                solve();
             }
         });
+
         set0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +112,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
             }
         });
+
         set1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,7 +126,6 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar2(var2);
             }
         });
-
     }
 
     @Override

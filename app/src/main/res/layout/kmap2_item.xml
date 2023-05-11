@@ -52,38 +52,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
         <TableRow>
 
@@ -141,38 +110,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
         <TableRow>
 
@@ -229,39 +167,7 @@
 
         </TableRow>
 
-        <TableRow>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                app:backgroundTint="@null"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
-
-        </TableRow>
+        <include layout="@layout/tablerow_devider_2variables"/>
 
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

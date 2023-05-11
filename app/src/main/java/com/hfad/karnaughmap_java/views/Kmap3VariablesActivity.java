@@ -20,8 +20,8 @@ import com.hfad.karnaughmap_java.views.unions.CheckUnionsActivity;
 import java.util.Arrays;
 
 public class Kmap3VariablesActivity extends AppCompatActivity implements View.OnClickListener {
-    Var3 var3;
-    EditText editText;
+    private Var3 var3;
+    private EditText editText;
     private Button[] buttons;
     private Button scheme;
     private Button set0, set1, unions;
@@ -36,6 +36,7 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         set0 = findViewById(R.id.set0);
         set1 = findViewById(R.id.set1);
         unions = findViewById(R.id.unions);
+        scheme = findViewById(R.id.get_scheme);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7)};
 
@@ -43,7 +44,6 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
             button.setOnClickListener(this);
         }
 
-        scheme = findViewById(R.id.get_scheme);
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,11 +53,12 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                 startActivity(switchActivityIntent);
             }
         });
+
         unions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String buttonText = "";
-                for(Button button: buttons){
+                for (Button button : buttons) {
                     buttonText += button.getText() + " ";
                 }
                 int[] val;
@@ -104,8 +105,10 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                 var3.setBtn5(myData.getBtn5());
                 var3.setBtn6(myData.getBtn6());
                 var3.setBtn7(myData.getBtn7());
+                solve();
             }
         });
+
         set0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,6 +126,7 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                 KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar3(var3);
             }
         });
+
         set1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -244,19 +248,19 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                 val[i] = Integer.parseInt(buttons[i].getText().toString());
             }
         }
-                ThreeVariablesPresenter threeVariablePresenter = new ThreeVariablesPresenter(val);
+        ThreeVariablesPresenter threeVariablePresenter = new ThreeVariablesPresenter(val);
 
-                soln = threeVariablePresenter.getRes();
+        soln = threeVariablePresenter.getRes();
 
-                // sets the result to text pane
-                if (soln.isEmpty()) {
-                    editText.setText(null);
-                    editText.setText(null);
-                    //planeText_grouping.setText(null);
-                } else {
-                    editText.setText(soln);
-                    //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
-                    //planeText_grouping.setText(solver.getGroups());
-                }
+        // sets the result to text pane
+        if (soln.isEmpty()) {
+            editText.setText(null);
+            editText.setText(null);
+            //planeText_grouping.setText(null);
+        } else {
+            editText.setText(soln);
+            //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
+            //planeText_grouping.setText(solver.getGroups());
+        }
     }
 }
