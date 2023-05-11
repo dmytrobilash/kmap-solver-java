@@ -36,6 +36,7 @@ public class CheckUnionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_unions);
         Intent currentIntent = getIntent();
         String groups = currentIntent.getStringExtra("Groups");
+        String kMap = currentIntent.getStringExtra("kMap");
         groups = groups.replace("]", "] ");
         Log.v("FD",groups);
         String buttonText = currentIntent.getStringExtra("buttonText");
@@ -45,11 +46,14 @@ public class CheckUnionsActivity extends AppCompatActivity {
         unionList.addAll(Arrays.asList(arr));
 
         RecyclerView recyclerView = findViewById(R.id.rv);
-        UnionAdapter adapter = new UnionAdapter(unionList, buttonsText);
+        UnionAdapter adapter = new UnionAdapter(unionList, buttonsText, kMap);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         ImageView share = findViewById(R.id.share);
+
+
+
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

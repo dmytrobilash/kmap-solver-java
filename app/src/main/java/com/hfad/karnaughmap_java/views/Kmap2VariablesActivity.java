@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
         import android.widget.EditText;
 
-import com.hfad.karnaughmap_java.Presenter.twoVars.TwoVariablePresenter;
-        import com.hfad.karnaughmap_java.R;
+import com.hfad.karnaughmap_java.Presenter.TwoVariablesPresenter;
+import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var2;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
@@ -24,7 +24,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
-    TwoVariablePresenter twoVariablePresenter;
+    TwoVariablesPresenter twoVariablePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +69,10 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                         val[i] = Integer.parseInt(buttons[i].getText().toString());
                     }
                 }
-                twoVariablePresenter = new TwoVariablePresenter(val);
+                twoVariablePresenter = new TwoVariablesPresenter(val);
                 groups = twoVariablePresenter.getGroups();
                 Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("kMap", "2");
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);
@@ -189,7 +190,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 val[i] = Integer.parseInt(buttons[i].getText().toString());
             }
         }
-        twoVariablePresenter = new TwoVariablePresenter(val);
+        twoVariablePresenter = new TwoVariablesPresenter(val);
         soln = twoVariablePresenter.getRes();
         // sets the result to text pane
         if (soln.isEmpty()) {

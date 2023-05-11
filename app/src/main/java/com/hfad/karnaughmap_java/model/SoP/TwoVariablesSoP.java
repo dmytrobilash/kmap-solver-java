@@ -1,13 +1,13 @@
-package com.hfad.karnaughmap_java.model;
+package com.hfad.karnaughmap_java.model.SoP;
 
 
-public class TwoVariables {
+public class TwoVariablesSoP {
     private String groups = "";
     private String output = "";
     private final int[][] A = new int[2][2];
     private final int[][] checked = new int[2][2];
 
-    public TwoVariables(int [] val) {
+    public TwoVariablesSoP(int [] val) {
         int count = 0;
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {

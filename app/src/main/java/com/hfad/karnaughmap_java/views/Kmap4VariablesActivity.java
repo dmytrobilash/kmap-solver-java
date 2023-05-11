@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
+import com.hfad.karnaughmap_java.Presenter.FourVariablesPresenter;
+import com.hfad.karnaughmap_java.Presenter.ThreeVariablesPresenter;
 import com.hfad.karnaughmap_java.R;
 import com.hfad.karnaughmap_java.model.db.KmapDatabase;
 import com.hfad.karnaughmap_java.model.db.Var4;
 import com.hfad.karnaughmap_java.views.drawing.DrawSchemeActivity;
+import com.hfad.karnaughmap_java.views.unions.CheckUnionsActivity;
 
 import java.util.Arrays;
 
@@ -21,8 +24,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
     Var4 var4;
     EditText editText;
     private Button[] buttons;
-    private Button scheme;
-    private Button solve;
+    private Button scheme, set0, set1, unions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,19 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
-        solve.setOnClickListener(new View.OnClickListener() {
+        set0 = findViewById(R.id.set0);
+        set1 = findViewById(R.id.set1);
+        unions = findViewById(R.id.unions);
+        unions.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                String buttonText = "";
+                for(Button button: buttons){
+                    buttonText += button.getText() + " ";
+                }
                 int[] val;
-                String soln;
-
+                String groups;
+                // executes when two variable is selected
                 val = new int[16];
 
                 for (int i = 0; i < val.length; i++) {
@@ -54,22 +63,16 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                         val[i] = Integer.parseInt(buttons[i].getText().toString());
                     }
                 }
-                /*FourVariablePresenter FourVariablePresenter = new FourVariablePresenter(val);
-
-                soln = FourVariablePresenter.getRes();
-
-                // sets the result to text pane
-                if (soln.isEmpty()) {
-                    editText.setText(null);
-                    editText.setText(null);
-                    //planeText_grouping.setText(null);
-                } else {
-                    editText.setText(soln);
-                    //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
-                    //planeText_grouping.setText(solver.getGroups());
-                }*/
+                FourVariablesPresenter f = new FourVariablesPresenter(val);
+                groups = f.getGroups();
+                Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("buttonText", buttonText);
+                switchActivityIntent.putExtra("Groups", groups);
+                switchActivityIntent.putExtra("kMap", "4");
+                startActivity(switchActivityIntent);
             }
         });
+
         scheme = findViewById(R.id.get_scheme);
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +125,57 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 var4.setBtn15(myData.getBtn15());
             }
         });
+
+        set0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Button button : buttons) {
+                    button.setText("0");
+                }
+                var4.setBtn0("0");
+                var4.setBtn1("0");
+                var4.setBtn2("0");
+                var4.setBtn3("0");
+                var4.setBtn4("0");
+                var4.setBtn5("0");
+                var4.setBtn6("0");
+                var4.setBtn7("0");
+                var4.setBtn8("0");
+                var4.setBtn9("0");
+                var4.setBtn10("0");
+                var4.setBtn11("0");
+                var4.setBtn12("0");
+                var4.setBtn13("0");
+                var4.setBtn14("0");
+                var4.setBtn15("0");
+                KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar4(var4);
+            }
+        });
+        set1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Button button : buttons) {
+                    button.setText("1");
+                }
+                var4.setBtn0("1");
+                var4.setBtn1("1");
+                var4.setBtn2("1");
+                var4.setBtn3("1");
+                var4.setBtn4("1");
+                var4.setBtn5("1");
+                var4.setBtn6("1");
+                var4.setBtn7("1");
+                var4.setBtn8("1");
+                var4.setBtn9("1");
+                var4.setBtn10("1");
+                var4.setBtn11("1");
+                var4.setBtn12("1");
+                var4.setBtn13("1");
+                var4.setBtn14("1");
+                var4.setBtn15("1");
+                KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar4(var4);
+            }
+        });
     }
 
     @Override
@@ -139,43 +193,43 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             } else if (buttonIndex == 2) {
                 var4.setBtn2("1");
                 b.setText("1");
-            } else if (buttonIndex == 3){
+            } else if (buttonIndex == 3) {
                 var4.setBtn3("1");
                 b.setText("1");
-            }else if (buttonIndex == 4) {
+            } else if (buttonIndex == 4) {
                 var4.setBtn4("1");
                 b.setText("1");
             } else if (buttonIndex == 5) {
                 var4.setBtn5("1");
                 b.setText("1");
-            } else if (buttonIndex == 6){
+            } else if (buttonIndex == 6) {
                 var4.setBtn6("1");
                 b.setText("1");
-            } else if (buttonIndex == 7){
+            } else if (buttonIndex == 7) {
                 var4.setBtn7("1");
                 b.setText("1");
-            } else if (buttonIndex == 8){
+            } else if (buttonIndex == 8) {
                 var4.setBtn8("1");
                 b.setText("1");
-            } else if (buttonIndex == 9){
+            } else if (buttonIndex == 9) {
                 var4.setBtn9("1");
                 b.setText("1");
-            } else if (buttonIndex == 10){
+            } else if (buttonIndex == 10) {
                 var4.setBtn10("1");
                 b.setText("1");
-            } else if (buttonIndex == 11){
+            } else if (buttonIndex == 11) {
                 var4.setBtn11("1");
                 b.setText("1");
-            } else if (buttonIndex == 12){
+            } else if (buttonIndex == 12) {
                 var4.setBtn12("1");
                 b.setText("1");
-            } else if (buttonIndex == 13){
+            } else if (buttonIndex == 13) {
                 var4.setBtn13("1");
                 b.setText("1");
-            } else if (buttonIndex == 14){
+            } else if (buttonIndex == 14) {
                 var4.setBtn14("1");
                 b.setText("1");
-            } else if(buttonIndex == 15){
+            } else if (buttonIndex == 15) {
                 var4.setBtn15("1");
                 b.setText("1");
             }
@@ -225,7 +279,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             } else if (buttonIndex == 14) {
                 var4.setBtn14("X");
                 b.setText("X");
-            }else if(buttonIndex == 15) {
+            } else if (buttonIndex == 15) {
                 var4.setBtn15("X");
                 b.setText("X");
             }
@@ -254,7 +308,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             } else if (buttonIndex == 7) {
                 var4.setBtn7("0");
                 b.setText("0");
-            }else if (buttonIndex == 8) {
+            } else if (buttonIndex == 8) {
                 var4.setBtn8("0");
                 b.setText("0");
             } else if (buttonIndex == 9) {
@@ -275,12 +329,42 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             } else if (buttonIndex == 14) {
                 var4.setBtn14("0");
                 b.setText("0");
-            } else if (buttonIndex == 15){
+            } else if (buttonIndex == 15) {
                 var4.setBtn15("0");
                 b.setText("0");
             }
         }
+        solve();
         // Update the database
         KmapDatabase.getInstance(getApplicationContext()).myDataDao().updateVar4(var4);
+    }
+
+    void solve() {
+        int[] val;
+        String soln;
+
+        val = new int[16];
+
+        for (int i = 0; i < val.length; i++) {
+            if (buttons[i].getText().toString().matches("X")) {
+                val[i] = 2;
+            } else {
+                val[i] = Integer.parseInt(buttons[i].getText().toString());
+            }
+        }
+        FourVariablesPresenter fourVariablesPresenter = new FourVariablesPresenter(val);
+
+        soln = fourVariablesPresenter.getRes();
+
+        // sets the result to text pane
+        if (soln.isEmpty()) {
+            editText.setText(null);
+            editText.setText(null);
+            //planeText_grouping.setText(null);
+        } else {
+            editText.setText(soln);
+            //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
+            //planeText_grouping.setText(solver.getGroups());
+        }
     }
 }

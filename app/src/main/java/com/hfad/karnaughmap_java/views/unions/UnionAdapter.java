@@ -20,18 +20,35 @@ public class UnionAdapter extends RecyclerView.Adapter<UnionAdapter.ViewHolder> 
 
     private ArrayList<String> unionList;
     private String[] buttonsText;
-    private final int[] buttonIds = {R.id.button0, R.id.button1, R.id.button2, R.id.button3};
+    private String kMap;
+    private int[] buttonIds;
 
-    public UnionAdapter(ArrayList<String> unionList, String[] buttonsText) {
+    public UnionAdapter(ArrayList<String> unionList, String[] buttonsText, String kMap) {
         this.unionList = unionList;
         this.buttonsText = buttonsText;
+        this.kMap = kMap;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.kmap2_item, parent, false);
-        return new ViewHolder(view);
+            if(kMap.equals("2")){
+                Log.v("HERE", kMap);
+                buttonIds = new int[]{R.id.button0, R.id.button1, R.id.button2, R.id.button3};
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.kmap2_item, parent, false);
+                return new ViewHolder(view);
+            }else if(kMap.equals("3")){
+                buttonIds = new int[]{R.id.button0, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7};
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.kmap3_item, parent, false);
+                return new ViewHolder(view);
+            }else if(kMap.equals("4")){
+                buttonIds = new int[]{R.id.button0, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7,
+                        R.id.button8, R.id.button9, R.id.button10, R.id.button11, R.id.button12, R.id.button13, R.id.button14, R.id.button15};
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.kmap4_item, parent, false);
+                return new ViewHolder(view);
+            } else {
+                throw new IllegalArgumentException("Invalid kMap value: " + kMap);
+            }
     }
 
     @Override
@@ -49,7 +66,6 @@ public class UnionAdapter extends RecyclerView.Adapter<UnionAdapter.ViewHolder> 
             count++;
         }
 
-        // Apply the yellow background to the appropriate buttons
         for (int i = 0; i < unionArray.length; i++) {
             if (unionArray[i] >= 0 && unionArray[i] < buttonIds.length) {
                 Button button = holder.buttonViews[unionArray[i]];
