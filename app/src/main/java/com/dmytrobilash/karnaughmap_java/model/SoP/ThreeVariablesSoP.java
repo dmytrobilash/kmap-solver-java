@@ -286,7 +286,7 @@ public class ThreeVariablesSoP {
         if (A[1][0] == 1 && checked[1][0] == 0) {
             if (output.equals("")) {
                 output += "AB'C'";
-            } else output += "AB'C'";
+            } else output += "+AB'C'";
             groups += "[4]";
         }
         if (A[1][1] == 1 && checked[1][1] == 0) {
