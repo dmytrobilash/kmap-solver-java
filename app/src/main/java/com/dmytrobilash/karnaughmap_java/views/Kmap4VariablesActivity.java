@@ -34,8 +34,10 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
         editText = findViewById(R.id.planeText_SoP);
         set0 = findViewById(R.id.set0);
         set1 = findViewById(R.id.set1);
-        unions = findViewById(R.id.unions);
-        scheme = findViewById(R.id.get_scheme);
+        Button schemeSoP = findViewById(R.id.get_scheme_SoP);
+        Button schemePoS = findViewById(R.id.get_scheme_PoS);
+        Button unionsSoP = findViewById(R.id.unions_SoP);
+        Button unionsPoS = findViewById(R.id.unions_PoS);
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7),
                 findViewById(R.id.button8), findViewById(R.id.button9), findViewById(R.id.button10), findViewById(R.id.button11),
@@ -45,7 +47,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             button.setOnClickListener(this);
         }
 
-        unions.setOnClickListener(new View.OnClickListener() {
+        unionsSoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String buttonText = "";
@@ -65,7 +67,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                     }
                 }
                 FourVariablesPresenter f = new FourVariablesPresenter(val);
-                groups = f.getGroups();
+                groups = f.getGroupsPoS();
                 Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, CheckUnionsActivity.class);
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
@@ -75,7 +77,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
         });
 
 
-        scheme.setOnClickListener(new View.OnClickListener() {
+        schemeSoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, DrawSchemeActivity.class);

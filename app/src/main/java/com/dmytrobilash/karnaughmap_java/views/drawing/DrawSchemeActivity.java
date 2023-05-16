@@ -47,6 +47,7 @@ public class DrawSchemeActivity extends AppCompatActivity {
         };
         layout.addView(lineView);
 
+
         ImageView share = findViewById(R.id.share);
         share.setOnClickListener(new View.OnClickListener() {
             @Override

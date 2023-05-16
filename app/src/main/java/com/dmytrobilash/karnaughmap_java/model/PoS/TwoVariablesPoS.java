@@ -116,7 +116,7 @@ public class TwoVariablesPoS {
             if(output.equals("")){
                 output+="(A'+B')";
             }
-            else output+="+(A'+B')";
+            else output+="*(A'+B')";
             groups+= "[3]";
         }
     }
