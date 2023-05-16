@@ -6,11 +6,12 @@ import android.graphics.Paint;
 
 import java.util.stream.Collectors;
 
-public class SchemeDrawing {
+public class SchemeDrawingUSSR {
 
     private Paint mPaint;
 
-    public void draw(String str, Canvas canvas) {
+
+    public void draw(String str, Canvas canvas, String type) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
         int startMeinVerticalLinesWidth = width / 20;
@@ -30,9 +31,19 @@ public class SchemeDrawing {
         circlePaint.setColor(Color.BLACK);
         circlePaint.setStrokeWidth(5);
         circlePaint.setStyle(Paint.Style.STROKE);
+        String mark1, mark2;
+        if (type.equals("PoS")) {
+            mark1 = "1";
+            mark2 = "&";
+        }
+        else{
+            mark2 = "1";
+            mark1 = "&";
+        }
+
         if (!str.isEmpty() && !str.contains("0") && !str.contains("1")) {
             drawStart(canvas, mPaint, circlePaint, str, startMeinVerticalLinesWidth, height, marginTextHorizontal, marginTextVertical, oneTenHeight, width, oneTenWidth, radius);
-            drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint, str);
+            drawEndRect(canvas, width, oneTenHeight, oneTenWidth, gap, substrings, mPaint, str, mark2);
 
             for (int i = 0; i < substrings.length; i++) {
                 for (int j = 0; j < substrings[i].length(); j++) {
@@ -43,7 +54,7 @@ public class SchemeDrawing {
                     int difference = width / 60;
                     int y = count * oneTenHeight + i * gap;
                     drawStartToMiddleConnectivity(canvas, i, startMeinVerticalLinesWidth, radius, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
-                    drawMiddleRect(canvas, i, difference, lineSpacing, gap, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings);
+                    drawMiddleRect(canvas, i, difference, lineSpacing, gap, y, withoutNor, width, oneTenHeight, oneTenWidth, substrings, mark1);
                 }
             }
         }
@@ -399,14 +410,14 @@ public class SchemeDrawing {
         }
     }
 
-    private void drawMiddleRect(Canvas canvas, int i, int difference, float lineSpacing, int gap, int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String[] substrings) {
+    private void drawMiddleRect(Canvas canvas, int i, int difference, float lineSpacing, int gap, int y, String withoutNor, int width, int oneTenHeight, int oneTenWidth, String[] substrings, String mark) {
 
 
         if (withoutNor.length() != 1) {
 
             canvas.drawLine(width / 2f, y, width / 2f, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y, width / 2f + oneTenWidth, y, mPaint);
-            canvas.drawText("&", width / 2f+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
+            canvas.drawText( mark, width / 2f+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
             canvas.drawLine(width / 2f + oneTenWidth, y, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y + oneTenHeight, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
         }
@@ -476,13 +487,13 @@ public class SchemeDrawing {
         }
     }
 
-    private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint, String str) {
+    private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint, String str, String mark) {
         int y = (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2;
         int xStart = width / 2 + width / 4;
         if(str.contains("+")){
             canvas.drawLine(xStart, y, xStart, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart, y, xStart + oneTenWidth, y, mPaint);
-            canvas.drawText("1", xStart+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
+            canvas.drawText(mark, xStart+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
             canvas.drawLine(xStart + oneTenWidth, y, xStart + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart, y + oneTenHeight, xStart + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart + oneTenWidth, y + oneTenHeight / 2f, width, y + oneTenHeight / 2f, mPaint);
