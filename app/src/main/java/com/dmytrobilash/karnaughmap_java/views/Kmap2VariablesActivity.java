@@ -54,6 +54,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 startActivity(switchActivityIntent);
             }
         });
+
         schemePoS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +103,6 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 }
                 int[] val;
                 String groups;
-                // executes when two variable is selected
                 val = new int[4];
 
                 for (int i = 0; i < val.length; i++) {
@@ -224,9 +224,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
 
     private void solve(){
         int[] val;
-        // executes when two variable is selected
         val = new int[4];
-
         for (int i = 0; i < val.length; i++) {
             if (buttons[i].getText().toString().matches("X")) {
                 val[i] = 2;

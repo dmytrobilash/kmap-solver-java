@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.dmytrobilash.karnaughmap_java.Presenter.ThreeVariablesPresenter;
+import com.dmytrobilash.karnaughmap_java.Presenter.TwoVariablesPresenter;
 import com.dmytrobilash.karnaughmap_java.R;
 import com.dmytrobilash.karnaughmap_java.model.db.KmapDatabase;
 import com.dmytrobilash.karnaughmap_java.model.db.Var3;
@@ -22,7 +23,8 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
     private Var3 var3;
     private EditText editText;
     private Button[] buttons;
-    private Button scheme;
+    private EditText planeText_SoP;
+    private EditText planeText_PoS;
     private Button set0, set1, unions;
 
     @Override
@@ -30,7 +32,6 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_kmap3_variables);
-        editText = findViewById(R.id.planeText_SoP);
         Button schemeSoP = findViewById(R.id.get_scheme_SoP);
         Button schemePoS = findViewById(R.id.get_scheme_PoS);
         Button unionsSoP = findViewById(R.id.unions_SoP);
@@ -43,13 +44,24 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
-
+        planeText_SoP = findViewById(R.id.planeText_SoP);
+        planeText_PoS = findViewById(R.id.planeText_PoS);
         schemeSoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, DrawSchemeActivity.class);
-                Log.v("AAAA", String.valueOf(editText.getText()));
-                switchActivityIntent.putExtra("result", String.valueOf(editText.getText()));
+                switchActivityIntent.putExtra("type", "SoP");
+                switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
+                startActivity(switchActivityIntent);
+            }
+        });
+
+        schemePoS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, DrawSchemeActivity.class);
+                switchActivityIntent.putExtra("type", "PoS");
+                switchActivityIntent.putExtra("result", String.valueOf(planeText_PoS.getText()));
                 startActivity(switchActivityIntent);
             }
         });
@@ -74,7 +86,36 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                     }
                 }
                 ThreeVariablesPresenter th = new ThreeVariablesPresenter(val);
-                groups = th.getGroups();
+                groups = th.getGroupsSoP();
+                Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("buttonText", buttonText);
+                switchActivityIntent.putExtra("Groups", groups);
+                switchActivityIntent.putExtra("kMap", "3");
+                startActivity(switchActivityIntent);
+            }
+        });
+
+        unionsPoS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = "";
+                for (Button button : buttons) {
+                    buttonText += button.getText() + " ";
+                }
+                int[] val;
+                String groups;
+
+                val = new int[8];
+
+                for (int i = 0; i < val.length; i++) {
+                    if (buttons[i].getText().toString().matches("X")) {
+                        val[i] = 2;
+                    } else {
+                        val[i] = Integer.parseInt(buttons[i].getText().toString());
+                    }
+                }
+                ThreeVariablesPresenter th = new ThreeVariablesPresenter(val);
+                groups = th.getGroupsSoP();
                 Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, CheckUnionsActivity.class);
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
@@ -237,9 +278,9 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
 
     private void solve() {
         int[] val;
-        String soln;
-
         val = new int[8];
+
+        ThreeVariablesPresenter threeVariablePresenter = new ThreeVariablesPresenter(val);
 
         for (int i = 0; i < val.length; i++) {
             if (buttons[i].getText().toString().matches("X")) {
@@ -248,19 +289,8 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
                 val[i] = Integer.parseInt(buttons[i].getText().toString());
             }
         }
-        ThreeVariablesPresenter threeVariablePresenter = new ThreeVariablesPresenter(val);
-
-        soln = threeVariablePresenter.getRes();
-
-        // sets the result to text pane
-        if (soln.isEmpty()) {
-            editText.setText(null);
-            editText.setText(null);
-            //planeText_grouping.setText(null);
-        } else {
-            editText.setText(soln);
-            //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
-            //planeText_grouping.setText(solver.getGroups());
-        }
+        threeVariablePresenter = new ThreeVariablesPresenter(val);
+        planeText_SoP.setText(threeVariablePresenter.getResSoP());
+        planeText_PoS.setText(threeVariablePresenter.getResPoS());
     }
 }

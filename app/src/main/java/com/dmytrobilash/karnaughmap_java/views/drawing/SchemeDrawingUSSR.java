@@ -10,7 +10,6 @@ public class SchemeDrawingUSSR {
 
     private Paint mPaint;
 
-
     public void draw(String str, Canvas canvas, String type) {
         int width = canvas.getWidth();
         int height = canvas.getHeight();
@@ -26,7 +25,7 @@ public class SchemeDrawingUSSR {
         mPaint = new Paint();
         mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(5);
-        mPaint.setTextSize(oneTenHeight/4f);
+        mPaint.setTextSize(oneTenHeight / 4f);
         Paint circlePaint = new Paint();
         circlePaint.setColor(Color.BLACK);
         circlePaint.setStrokeWidth(5);
@@ -35,8 +34,7 @@ public class SchemeDrawingUSSR {
         if (type.equals("PoS")) {
             mark1 = "1";
             mark2 = "&";
-        }
-        else{
+        } else {
             mark2 = "1";
             mark1 = "&";
         }
@@ -417,7 +415,7 @@ public class SchemeDrawingUSSR {
 
             canvas.drawLine(width / 2f, y, width / 2f, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y, width / 2f + oneTenWidth, y, mPaint);
-            canvas.drawText( mark, width / 2f+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
+            canvas.drawText(mark, width / 2f + oneTenWidth / 3f, y + oneTenHeight / 3f, mPaint);
             canvas.drawLine(width / 2f + oneTenWidth, y, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(width / 2f, y + oneTenHeight, width / 2f + oneTenWidth, y + oneTenHeight, mPaint);
         }
@@ -490,14 +488,14 @@ public class SchemeDrawingUSSR {
     private void drawEndRect(Canvas canvas, int width, int oneTenHeight, int oneTenWidth, int gap, String[] substrings, Paint mPaint, String str, String mark) {
         int y = (oneTenHeight + substrings.length * oneTenHeight + (substrings.length - 1) * gap) / 2;
         int xStart = width / 2 + width / 4;
-        if(str.contains("+")){
+        if (str.contains("+")) {
             canvas.drawLine(xStart, y, xStart, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart, y, xStart + oneTenWidth, y, mPaint);
-            canvas.drawText(mark, xStart+oneTenWidth/3f, y+oneTenHeight/3f, mPaint);
+            canvas.drawText(mark, xStart + oneTenWidth / 3f, y + oneTenHeight / 3f, mPaint);
             canvas.drawLine(xStart + oneTenWidth, y, xStart + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart, y + oneTenHeight, xStart + oneTenWidth, y + oneTenHeight, mPaint);
             canvas.drawLine(xStart + oneTenWidth, y + oneTenHeight / 2f, width, y + oneTenHeight / 2f, mPaint);
-            canvas.drawText("F", xStart + oneTenWidth+oneTenHeight/5f, y + oneTenHeight / 3f, mPaint);
+            canvas.drawText("F", xStart + oneTenWidth + oneTenHeight / 5f, y + oneTenHeight / 3f, mPaint);
         }
     }
 }

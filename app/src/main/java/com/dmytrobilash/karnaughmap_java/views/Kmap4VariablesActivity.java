@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 
 import com.dmytrobilash.karnaughmap_java.Presenter.FourVariablesPresenter;
+import com.dmytrobilash.karnaughmap_java.Presenter.ThreeVariablesPresenter;
 import com.dmytrobilash.karnaughmap_java.R;
 import com.dmytrobilash.karnaughmap_java.model.db.KmapDatabase;
 import com.dmytrobilash.karnaughmap_java.model.db.Var4;
@@ -21,8 +22,10 @@ import java.util.Arrays;
 
 public class Kmap4VariablesActivity extends AppCompatActivity implements View.OnClickListener {
     Var4 var4;
-    EditText editText;
+
     private Button[] buttons;
+    private EditText planeText_SoP;
+    private EditText planeText_PoS;
     private Button scheme, set0, set1, unions;
 
     @Override
@@ -31,7 +34,6 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_kmap4_variables);
 
         var4 = new Var4();
-        editText = findViewById(R.id.planeText_SoP);
         set0 = findViewById(R.id.set0);
         set1 = findViewById(R.id.set1);
         Button schemeSoP = findViewById(R.id.get_scheme_SoP);
@@ -46,6 +48,9 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
+
+        planeText_SoP = findViewById(R.id.planeText_SoP);
+        planeText_PoS = findViewById(R.id.planeText_PoS);
 
         unionsSoP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +81,52 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             }
         });
 
+        unionsSoP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String buttonText = "";
+                for(Button button: buttons){
+                    buttonText += button.getText() + " ";
+                }
+                int[] val;
+                String groups;
+
+                val = new int[16];
+
+                for (int i = 0; i < val.length; i++) {
+                    if (buttons[i].getText().toString().matches("X")) {
+                        val[i] = 2;
+                    } else {
+                        val[i] = Integer.parseInt(buttons[i].getText().toString());
+                    }
+                }
+                FourVariablesPresenter f = new FourVariablesPresenter(val);
+                groups = f.getGroupsSoP();
+                Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, CheckUnionsActivity.class);
+                switchActivityIntent.putExtra("buttonText", buttonText);
+                switchActivityIntent.putExtra("Groups", groups);
+                switchActivityIntent.putExtra("kMap", "4");
+                startActivity(switchActivityIntent);
+            }
+        });
+
 
         schemeSoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, DrawSchemeActivity.class);
-                Log.v("AAAA", String.valueOf(editText.getText()));
-                switchActivityIntent.putExtra("result", String.valueOf(editText.getText()));
+                switchActivityIntent.putExtra("type", "SoP");
+                switchActivityIntent.putExtra("result", String.valueOf(planeText_SoP.getText()));
+                startActivity(switchActivityIntent);
+            }
+        });
+
+        schemePoS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, DrawSchemeActivity.class);
+                switchActivityIntent.putExtra("type", "PoS");
+                switchActivityIntent.putExtra("result", String.valueOf(planeText_PoS.getText()));
                 startActivity(switchActivityIntent);
             }
         });
@@ -345,9 +389,10 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
 
     void solve() {
         int[] val;
-        String soln;
 
         val = new int[16];
+
+        FourVariablesPresenter fourVariablesPresenter;
 
         for (int i = 0; i < val.length; i++) {
             if (buttons[i].getText().toString().matches("X")) {
@@ -356,19 +401,8 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 val[i] = Integer.parseInt(buttons[i].getText().toString());
             }
         }
-        FourVariablesPresenter fourVariablesPresenter = new FourVariablesPresenter(val);
-
-        soln = fourVariablesPresenter.getRes();
-
-        // sets the result to text pane
-        if (soln.isEmpty()) {
-            editText.setText(null);
-            editText.setText(null);
-            //planeText_grouping.setText(null);
-        } else {
-            editText.setText(soln);
-            //planeText_PoS.setText(solver.SoPtoPoSConverter(soln));
-            //planeText_grouping.setText(solver.getGroups());
-        }
+        fourVariablesPresenter = new FourVariablesPresenter(val);
+        planeText_SoP.setText(fourVariablesPresenter.getResSoP());
+        planeText_PoS.setText(fourVariablesPresenter.getResPoS());
     }
 }
