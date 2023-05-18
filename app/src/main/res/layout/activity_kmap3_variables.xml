@@ -281,14 +281,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/table"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintVertical_bias="0.1">
 
         <TextView
             android:id="@+id/textView4"
@@ -303,14 +303,28 @@
         <EditText
             android:id="@+id/planeText_PoS"
             android:layout_width="100dp"
+            android:layout_weight="3"
             android:layout_height="wrap_content"
             tools:ignore="LabelFor" />
 
+        <Button
+            android:id="@+id/get_scheme_PoS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scheme" />
+
+        <Button
+            android:id="@+id/unions_PoS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/unions" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
@@ -330,8 +344,23 @@
 
         <EditText
             android:id="@+id/planeText_SoP"
+            android:layout_weight="3"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/get_scheme_SoP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scheme" />
+
+        <Button
+            android:id="@+id/unions_SoP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/unions" />
 
     </LinearLayout>
 

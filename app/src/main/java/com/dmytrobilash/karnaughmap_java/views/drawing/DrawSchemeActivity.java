@@ -85,7 +85,7 @@ public class DrawSchemeActivity extends AppCompatActivity {
             protected void onDraw(Canvas canvas) {
                 super.onDraw(canvas);
                 @SuppressLint("DrawAllocation")
-                SchemeDrawingUSSR schemeDrawing = new SchemeDrawingUSSR();
+                SchemeDrawingUSA schemeDrawing = new SchemeDrawingUSA();
                 schemeDrawing.draw(finalStr, canvas, type);
             }
         };

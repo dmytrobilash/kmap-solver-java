@@ -21,7 +21,6 @@ import java.util.Arrays;
 
 public class Kmap3VariablesActivity extends AppCompatActivity implements View.OnClickListener {
     private Var3 var3;
-    private EditText editText;
     private Button[] buttons;
     private EditText planeText_SoP;
     private EditText planeText_PoS;
@@ -30,22 +29,26 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_kmap3_variables);
+
         Button schemeSoP = findViewById(R.id.get_scheme_SoP);
         Button schemePoS = findViewById(R.id.get_scheme_PoS);
         Button unionsSoP = findViewById(R.id.unions_SoP);
         Button unionsPoS = findViewById(R.id.unions_PoS);
+
         set0 = findViewById(R.id.set0);
         set1 = findViewById(R.id.set1);
+
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
                 findViewById(R.id.button4), findViewById(R.id.button5), findViewById(R.id.button6), findViewById(R.id.button7)};
 
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
+
         planeText_SoP = findViewById(R.id.planeText_SoP);
         planeText_PoS = findViewById(R.id.planeText_PoS);
+
         schemeSoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
