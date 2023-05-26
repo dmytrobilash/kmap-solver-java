@@ -24,7 +24,6 @@ public class SchemeDrawingUSA {
         int oneTenHeight = height / 10;
         int oneTenWidth = width / 10;
         int gap = height / 100;
-        str = "ABCD+A'B'+ABC+A'B'D+A'B'C'D'+ABCD+AD'";
         String[] substrings = str.split("\\+");
         canvas.drawColor(Color.WHITE);
         mPaint = new Paint();
