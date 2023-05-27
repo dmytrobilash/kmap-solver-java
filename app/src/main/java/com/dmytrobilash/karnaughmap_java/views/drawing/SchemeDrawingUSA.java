@@ -24,7 +24,6 @@ public class SchemeDrawingUSA {
         int oneTenHeight = height / 10;
         int oneTenWidth = width / 10;
         int gap = height / 100;
-        str = "ABC+A+AB+ABCD+ABD'+CD'";
         String[] substrings = str.split("\\+");
         canvas.drawColor(Color.WHITE);
         mPaint = new Paint();
@@ -664,7 +663,7 @@ public class SchemeDrawingUSA {
                 if (line == 0) {
                     if (substrings[i].contains("B'")) {
                         canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight / 5f, radius, mPaint);
-                        canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight / 5f, width / 2 - oneTenWidth / 2, y + oneTenHeight / 5f, mPaint);
+                        canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight / 5f, width / 2 - oneTenWidth / 2+diff, y + oneTenHeight / 5f, mPaint);
                     } else {
                         canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5f, radius, mPaint);
                         canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight / 5f, width / 2 - oneTenWidth / 2+diff, y + oneTenHeight / 5f, mPaint);
@@ -672,7 +671,7 @@ public class SchemeDrawingUSA {
                 } else {
                     if (substrings[i].contains("B'")) {
                         canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight - oneTenHeight / 5f, radius, mPaint);
-                        canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight - oneTenHeight / 5f, width / 2 - oneTenWidth / 2, y + oneTenHeight - oneTenHeight / 5f, mPaint);
+                        canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth + oneTenWidth / 2f, y + oneTenHeight - oneTenHeight / 5f, width / 2 - oneTenWidth / 2+diff, y + oneTenHeight - oneTenHeight / 5f, mPaint);
                     } else {
                         canvas.drawCircle(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight - oneTenHeight / 5f, radius, mPaint);
                         canvas.drawLine(startMeinVerticalLinesWidth + oneTenWidth, y + oneTenHeight - oneTenHeight / 5f, width / 2 - oneTenWidth / 2+diff, y + oneTenHeight - oneTenHeight / 5f, mPaint);

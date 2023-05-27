@@ -15,7 +15,7 @@
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_check_unions.xml" value="0.1" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_draw_scheme.xml" value="0.33" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_info.xml" value="0.28351449275362317" />
-        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_kmap2_variables.xml" value="0.5" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_kmap2_variables.xml" value="0.33" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_kmap3_variables.xml" value="0.33" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_kmap4_variables.xml" value="0.5" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/activity_kmap5_variables.xml" value="0.23697916666666666" />
@@ -27,7 +27,10 @@
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/kmap2_item.xml" value="0.46928327645051193" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/kmap3_item.xml" value="0.3072916666666667" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/kmap4_item.xml" value="0.3072916666666667" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/layout_answer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/layout_buttons_bottom.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/layout_form_functon.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/layout_get_buttons.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/tablerow_2variables.xml" value="0.3072916666666667" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/tablerow_devider_3variables.xml" value="0.3072916666666667" />
         <entry key="..\:/Users/bilas/AndroidStudioProjects/Karnaughmap_java/app/src/main/res/layout/tablerow_devider_4variables.xml" value="0.3072916666666667" />

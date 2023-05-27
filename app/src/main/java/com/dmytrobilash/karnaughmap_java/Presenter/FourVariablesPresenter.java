@@ -12,10 +12,10 @@ public class FourVariablesPresenter {
     private final String groupsPoS;
 
     public FourVariablesPresenter(int[] val){
-        this.resSoP = new TwoVariablesSoP(val).solve();
-        this.groupsSoP = new TwoVariablesSoP(val).getGroups();
-        this.resPoS = new TwoVariablesPoS(val).solve();
-        this.groupsPoS = new TwoVariablesPoS(val).getGroups();
+        this.resSoP = new FourVariablesSoP(val).solve();
+        this.groupsSoP = new FourVariablesSoP(val).getGroups();
+        this.resPoS = new FourVariablesPoS(val).solve();
+        this.groupsPoS = new FourVariablesPoS(val).getGroups();
     }
 
     public String getResSoP() {

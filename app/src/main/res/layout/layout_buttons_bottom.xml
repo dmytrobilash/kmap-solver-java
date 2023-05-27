@@ -1,17 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
-    <Button
-        android:id="@+id/set0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="set 0 "/>
 
     <Button
-        android:id="@+id/set1"
-        android:layout_width="wrap_content"
+        android:id="@+id/set0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="set 1"/>
+        android:text="set 0"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:textSize="13sp"
+        android:layout_weight="1" />
+
+    <Button
+    android:id="@+id/set1"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="set 1"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+        android:textSize="13sp"
+    android:layout_weight="1" />
+
+    <Button
+    android:id="@+id/scheme"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/scheme"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+        android:textSize="13sp"
+    android:layout_weight="1" />
+
+    <Button
+    android:id="@+id/unions"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="@string/unions"
+    android:layout_marginStart="4dp"
+        android:textSize="13sp"
+    android:layout_marginEnd="4dp"
+    android:layout_weight="1" />
 </LinearLayout>

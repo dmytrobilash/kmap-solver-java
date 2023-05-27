@@ -283,7 +283,7 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         int[] val;
         val = new int[8];
 
-        ThreeVariablesPresenter threeVariablePresenter = new ThreeVariablesPresenter(val);
+        ThreeVariablesPresenter threeVariablePresenter;
 
         for (int i = 0; i < val.length; i++) {
             if (buttons[i].getText().toString().matches("X")) {
