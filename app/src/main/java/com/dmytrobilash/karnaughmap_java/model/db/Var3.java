@@ -18,6 +18,15 @@ public class Var3 {
     private String btn5 = "0";
     private String btn6 = "0";
     private String btn7 = "0";
+    private String lastResult = "";
+
+    public String getLastResult() {
+        return lastResult;
+    }
+
+    public void setLastResult(String lastResult) {
+        this.lastResult = lastResult;
+    }
 
     public int getId() {
         return id;

@@ -14,6 +14,15 @@ public class Var2 {
     private String btn1 = "0";
     private String btn2 = "0";
     private String btn3 = "0";
+    private String lastResult = "";
+
+    public String getLastResult() {
+        return lastResult;
+    }
+
+    public void setLastResult(String lastResult) {
+        this.lastResult = lastResult;
+    }
 
     public void setId(int id) {
         this.id = id;
