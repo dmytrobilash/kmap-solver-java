@@ -31,13 +31,13 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kmap2_variables);
-
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         result = findViewById(R.id.result);
         Button scheme = findViewById(R.id.scheme);
         Button unions = findViewById(R.id.unions);
         Button set0 = findViewById(R.id.set0), set1 = findViewById(R.id.set1);
         Button changeForm = findViewById(R.id.change_form);
+
         twoVariablePresenter = new TwoVariablesPresenter(buttons, changeForm, getApplicationContext());
         twoVariablePresenter.initButtonsValues(buttons, result);
         formFlag = changeForm.getText().equals("SoP");
@@ -61,6 +61,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                 twoVariablePresenter.updateForm(changeForm);
             }
         });
+
         scheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
