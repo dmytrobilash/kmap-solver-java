@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Karnaugh Map</string>
+    <string name="Karnaugh_2">2 Змінних</string>
+    <string name="Karnaugh_3">3 Змінних</string>
+    <string name="Karnaugh_4">4 Змінних</string>
+    <string name="Karnaugh_5">5 Змінних (в процесі)</string>/string>
+    <string name="calculate">Обчислити</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="scheme">Схема</string>
+    <string name="unions">Групи</string>
+    <string name="F" translatable="false">F =</string>
+    <string name="text_main_activity">Калькулятор карт Карно\nВиберіть змінні</string>
+    <string name="grouping">Groups:</string>
+</resources>

@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Karnaugh Map</string>
-    <string name="Karnaugh_2">2 variables</string>
-    <string name="Karnaugh_3">3 variables</string>
-    <string name="Karnaugh_4">4 variables</string>
-    <string name="Karnaugh_5">5 variables (processing)</string>/string>
-    <string name="calculate">Calculate</string>
-    <string name="zero">0</string>
-    <string name="scheme">Scheme</string>
-    <string name="unions">Unions</string>
-    <string name="F">F =</string>
-    <string name="text_main_activity">Kmap solver\nChoose operation</string>
-    <string name="grouping">Groups:</string>
+    <string name="app_name" translatable="false">Karnaugh Map</string>
+    <string name="Karnaugh_2" translatable="false">2 variables</string>
+    <string name="Karnaugh_3" translatable="false">3 variables</string>
+    <string name="Karnaugh_4" translatable="false">4 variables</string>
+    <string name="Karnaugh_5" translatable="false">5 variables (processing)</string>/string>
+    <string name="calculate" translatable="false">Calculate</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="scheme" translatable="false">Scheme</string>
+    <string name="unions" translatable="false">Unions</string>
+    <string name="F" translatable="false">F =</string>
+    <string name="text_main_activity" translatable="false">Kmap solver\nChoose operation</string>
+    <string name="grouping" translatable="false">Groups:</string>
 </resources>
