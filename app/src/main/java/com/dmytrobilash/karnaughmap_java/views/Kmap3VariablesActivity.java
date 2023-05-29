@@ -19,7 +19,7 @@ import com.dmytrobilash.karnaughmap_java.views.unions.CheckUnionsActivity;
 
 import java.util.Arrays;
 
-public class Kmap3VariablesActivity extends AppCompatActivity implements View.OnClickListener {
+public class Kmap3VariablesActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
     private Var3 var3;
     private Button[] buttons;
     private EditText planeText_SoP;
@@ -30,13 +30,10 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kmap3_variables);
+    }
+}
 
-        Button schemeSoP = findViewById(R.id.get_scheme_SoP);
-        Button schemePoS = findViewById(R.id.get_scheme_PoS);
-        Button unionsSoP = findViewById(R.id.unions_SoP);
-        Button unionsPoS = findViewById(R.id.unions_PoS);
-
-        set0 = findViewById(R.id.set0);
+       /* set0 = findViewById(R.id.set0);
         set1 = findViewById(R.id.set1);
 
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3),
@@ -45,9 +42,6 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
-
-        planeText_SoP = findViewById(R.id.planeText_SoP);
-        planeText_PoS = findViewById(R.id.planeText_PoS);
 
         schemeSoP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -296,4 +290,4 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
         planeText_SoP.setText(threeVariablePresenter.getResSoP());
         planeText_PoS.setText(threeVariablePresenter.getResPoS());
     }
-}
+}*/

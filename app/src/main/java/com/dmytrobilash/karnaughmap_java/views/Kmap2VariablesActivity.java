@@ -25,7 +25,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     private Button[] buttons;
     private TwoVariablesPresenter twoVariablePresenter;
     private EditText result;
-    private Boolean formFlag = true; //means SoP was created
+    private Boolean formFlag; //means SoP was created
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +34,15 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
 
         buttons = new Button[]{findViewById(R.id.button0), findViewById(R.id.button1), findViewById(R.id.button2), findViewById(R.id.button3)};
         result = findViewById(R.id.result);
-        twoVariablePresenter = new TwoVariablesPresenter(buttons, getApplicationContext());
-        twoVariablePresenter.initButtonsValues(buttons, result);
-        solve();
         Button scheme = findViewById(R.id.scheme);
         Button unions = findViewById(R.id.unions);
         Button set0 = findViewById(R.id.set0), set1 = findViewById(R.id.set1);
         Button changeForm = findViewById(R.id.change_form);
-        ;
+        twoVariablePresenter = new TwoVariablesPresenter(buttons, changeForm, getApplicationContext());
+        twoVariablePresenter.initButtonsValues(buttons, result);
+        formFlag = changeForm.getText().equals("SoP");
+        solve();
+
         for (Button button : buttons) {
             button.setOnClickListener(this);
         }
@@ -57,6 +58,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                     formFlag = true;
                 }
                 solve();
+                twoVariablePresenter.updateForm(changeForm);
             }
         });
         scheme.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +94,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
                     }
                 }
 
-                twoVariablePresenter = new TwoVariablesPresenter(buttons, getApplicationContext());
+                //twoVariablePresenter = new TwoVariablesPresenter(buttons,  getApplicationContext());
 
                 if(formFlag){
                     groups = twoVariablePresenter.getGroupsSoP();

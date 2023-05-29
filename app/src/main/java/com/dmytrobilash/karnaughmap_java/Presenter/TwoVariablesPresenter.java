@@ -19,17 +19,18 @@ public class TwoVariablesPresenter {
     private Var2 var2 = new Var2();
     private Context context;
     private Button[] buttons;
+    private Button changeForm;
     int[] val;
 
-    public TwoVariablesPresenter(Button[] buttons, Context context) {
+    public TwoVariablesPresenter(Button[] buttons, Button changeForm, Context context) {
         this.context = context;
         this.buttons = buttons;
+        this.changeForm = changeForm;
     }
 
     private void buttonsToInt() {
 
         val = new int[4];
-
         for (int i = 0; i < val.length; i++) {
             if (buttons[i].getText().toString().matches("X")) {
                 val[i] = 2;
@@ -85,17 +86,19 @@ public class TwoVariablesPresenter {
                 b[2].setText(myData.getBtn2());
                 b[3].setText(myData.getBtn3());
                 editText.setText(myData.getLastResult());
+                changeForm.setText(myData.getForm());
                 var2.setBtn0(myData.getBtn0());
                 var2.setBtn1(myData.getBtn1());
                 var2.setBtn2(myData.getBtn2());
                 var2.setBtn3(myData.getBtn3());
                 var2.setLastResult(myData.getLastResult());
+                var2.setForm(myData.getForm());
             }
         });
     }
 
     public void updateButtonValues(Button b) {
-        int buttonIndex = Arrays.asList(buttons).indexOf(b); // get the index of the clicked button
+        int buttonIndex = Arrays.asList(buttons).indexOf(b);
         Log.v("Buttons", String.valueOf(buttonIndex));
         if (b.getText().toString().equals("0")) {
             if (buttonIndex == 0) {
@@ -140,9 +143,17 @@ public class TwoVariablesPresenter {
                 b.setText("0");
             }
         }
+        updateForm(changeForm);
 
-        var2.setLastResult(getResSoP());
-        // Update the database
+    }
+
+    public void updateForm(Button changeForm){
+        if(changeForm.getText().toString().equals("SoP")){
+            var2.setLastResult(getResSoP());
+        }else{
+            var2.setLastResult(getResPoS());
+        }
+        var2.setForm(changeForm.getText().toString());
         KmapDatabase.getInstance(context).myDataDao().updateVar2(var2);
     }
 }
