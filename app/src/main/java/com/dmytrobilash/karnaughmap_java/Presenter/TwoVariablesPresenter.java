@@ -66,6 +66,7 @@ public class TwoVariablesPresenter {
         var2.setBtn2("0");
         var2.setBtn3("0");
         KmapDatabase.getInstance(context).myDataDao().updateVar2(var2);
+        updateForm(changeForm);
     }
 
     public void set1() {
@@ -73,6 +74,7 @@ public class TwoVariablesPresenter {
         var2.setBtn1("1");
         var2.setBtn2("1");
         var2.setBtn3("1");
+        updateForm(changeForm);
         KmapDatabase.getInstance(context).myDataDao().updateVar2(var2);
     }
 

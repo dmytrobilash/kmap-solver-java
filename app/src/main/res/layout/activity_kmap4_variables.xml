@@ -26,8 +26,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
-        app:layout_constraintVertical_bias="0.10">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
 
         <TableRow>
 
@@ -81,8 +81,7 @@
 
             <TextView
                 style="@style/textview_for_marking_values_top"
-                android:text="СD'"
-                 />
+                android:text="СD'" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -93,14 +92,13 @@
 
         </TableRow>
 
-        <include layout="@layout/tablerow_devider_4variables"/>
+        <include layout="@layout/tablerow_devider_4variables" />
 
         <TableRow>
 
             <TextView
                 style="@style/textview_for_marking_values_side"
-                android:text="A'B'"
-                android:layout_marginEnd="0dp" />
+                android:text="A'B'" />
 
             <View
                 android:layout_width="2dp"
@@ -112,8 +110,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="0"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="0" />
 
                 <Button
                     android:id="@+id/button0"
@@ -131,8 +129,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="1"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="1" />
 
                 <Button
                     android:id="@+id/button1"
@@ -150,8 +148,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="3"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="3" />
 
                 <Button
                     android:id="@+id/button2"
@@ -169,8 +167,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="2"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="2" />
 
                 <Button
                     android:id="@+id/button3"
@@ -185,14 +183,13 @@
 
         </TableRow>
 
-        <include layout="@layout/tablerow_devider_4variables"/>
+        <include layout="@layout/tablerow_devider_4variables" />
 
         <TableRow>
 
             <TextView
                 style="@style/textview_for_marking_values_side"
-                android:text="A'B"
-                android:layout_marginEnd="5dp"/>
+                android:text="A'B" />
 
             <View
                 android:layout_width="2dp"
@@ -204,8 +201,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="4"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="4" />
 
                 <Button
                     android:id="@+id/button4"
@@ -223,8 +220,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="5"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="5" />
 
                 <Button
                     android:id="@+id/button5"
@@ -242,8 +239,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="7"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="7" />
 
                 <Button
                     android:id="@+id/button6"
@@ -261,8 +258,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="6"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="6" />
 
                 <Button
                     android:id="@+id/button7"
@@ -277,14 +274,13 @@
 
         </TableRow>
 
-        <include layout="@layout/tablerow_devider_4variables"/>
+        <include layout="@layout/tablerow_devider_4variables" />
 
         <TableRow>
 
             <TextView
                 style="@style/textview_for_marking_values_side"
-                android:text="AB"
-                android:layout_marginEnd="5dp"/>
+                android:text="AB" />
 
             <View
                 android:layout_width="2dp"
@@ -296,8 +292,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="8"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="8" />
 
                 <Button
                     android:id="@+id/button8"
@@ -315,8 +311,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="9"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="9" />
 
                 <Button
                     android:id="@+id/button9"
@@ -334,8 +330,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="11"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="11" />
 
                 <Button
                     android:id="@+id/button10"
@@ -353,8 +349,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="10"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="10" />
 
                 <Button
                     android:id="@+id/button11"
@@ -369,14 +365,13 @@
 
         </TableRow>
 
-        <include layout="@layout/tablerow_devider_4variables"/>
+        <include layout="@layout/tablerow_devider_4variables" />
 
         <TableRow>
 
             <TextView
                 style="@style/textview_for_marking_values_side"
-                android:text="AB'"
-                android:layout_marginEnd="5dp"/>
+                android:text="AB'" />
 
             <View
                 android:layout_width="2dp"
@@ -388,8 +383,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="12"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="12" />
 
                 <Button
                     android:id="@+id/button12"
@@ -404,9 +399,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
-                    android:text="13"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="13" />
 
                 <Button
                     android:id="@+id/button13"
@@ -423,8 +419,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="15"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="15" />
 
                 <Button
                     android:id="@+id/button14"
@@ -442,8 +438,8 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="14"
-                    style="@style/number_of_cell"/>
+                    style="@style/number_of_cell"
+                    android:text="14" />
 
                 <Button
                     android:id="@+id/button15"
@@ -457,7 +453,7 @@
 
         </TableRow>
 
-        <include layout="@layout/tablerow_devider_4variables"/>
+        <include layout="@layout/tablerow_devider_4variables" />
     </TableLayout>
     <LinearLayout
         android:id="@+id/linearLayout1"

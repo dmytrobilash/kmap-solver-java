@@ -70,6 +70,7 @@ public class ThreeVariablesPresenter {
         var3.setBtn5("0");
         var3.setBtn6("0");
         var3.setBtn7("0");
+        updateForm(changeForm);
         KmapDatabase.getInstance(context).myDataDao().updateVar3(var3);
     }
 
@@ -82,6 +83,7 @@ public class ThreeVariablesPresenter {
         var3.setBtn5("1");
         var3.setBtn6("1");
         var3.setBtn7("1");
+        updateForm(changeForm);
         KmapDatabase.getInstance(context).myDataDao().updateVar3(var3);
     }
 

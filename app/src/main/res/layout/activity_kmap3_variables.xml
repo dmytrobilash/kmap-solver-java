@@ -308,6 +308,4 @@
         <include layout="@layout/layout_buttons_bottom" />
     </LinearLayout>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,6 +79,7 @@ public class FourVariablesPresenter {
         var4.setBtn13("0");
         var4.setBtn14("0");
         var4.setBtn15("0");
+        updateForm(changeForm);
         KmapDatabase.getInstance(context).myDataDao().updateVar4(var4);
     }
 
@@ -99,6 +100,7 @@ public class FourVariablesPresenter {
         var4.setBtn13("1");
         var4.setBtn14("1");
         var4.setBtn15("1");
+        updateForm(changeForm);
         KmapDatabase.getInstance(context).myDataDao().updateVar4(var4);
     }
 
