@@ -25,7 +25,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
     private Button[] buttons;
     private TwoVariablesPresenter twoVariablePresenter;
     private EditText result;
-    private Boolean formFlag; //means SoP was created
+    private Boolean formFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap2VariablesActivity.this, DrawSchemeActivity.class);
-                if(formFlag){
+                if(!formFlag){
                     switchActivityIntent.putExtra("type", "SoP");
                 }else{
                     switchActivityIntent.putExtra("type", "PoS");
@@ -97,7 +97,7 @@ public class Kmap2VariablesActivity extends AppCompatActivity implements View.On
 
                 //twoVariablePresenter = new TwoVariablesPresenter(buttons,  getApplicationContext());
 
-                if(formFlag){
+                if(!formFlag){
                     groups = twoVariablePresenter.getGroupsSoP();
                 }
                 else{

@@ -66,7 +66,7 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, DrawSchemeActivity.class);
-                if (formFlag) {
+                if (!formFlag) {
                     switchActivityIntent.putExtra("type", "SoP");
                 } else {
                     switchActivityIntent.putExtra("type", "PoS");
@@ -97,13 +97,13 @@ public class Kmap3VariablesActivity extends AppCompatActivity implements View.On
 
                 //twoVariablePresenter = new TwoVariablesPresenter(buttons,  getApplicationContext());
 
-                if (formFlag) {
+                if (!formFlag) {
                     groups = threeVariablesPresenter.getGroupsSoP();
                 } else {
                     groups = threeVariablesPresenter.getGroupsPoS();
                 }
                 Intent switchActivityIntent = new Intent(Kmap3VariablesActivity.this, CheckUnionsActivity.class);
-                switchActivityIntent.putExtra("kMap", "2");
+                switchActivityIntent.putExtra("kMap", "3");
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);

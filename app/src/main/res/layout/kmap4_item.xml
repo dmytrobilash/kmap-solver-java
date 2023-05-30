@@ -281,7 +281,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="8"
+                    android:text="12"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -300,7 +300,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="9"
+                    android:text="13"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -319,7 +319,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="11"
+                    android:text="15"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -338,7 +338,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="10"
+                    android:text="14"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -373,7 +373,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="12"
+                    android:text="8"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -390,7 +390,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:text="13"
+                    android:text="9"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -408,7 +408,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="15"
+                    android:text="11"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -427,7 +427,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:text="14"
+                    android:text="10"
                     style="@style/number_of_cell"/>
 
                 <androidx.appcompat.widget.AppCompatButton

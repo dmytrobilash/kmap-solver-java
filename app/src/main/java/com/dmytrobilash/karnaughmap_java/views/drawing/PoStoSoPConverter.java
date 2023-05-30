@@ -6,34 +6,36 @@ public class PoStoSoPConverter {
         str = "";
 
         for(int i = 0; i < chars.length; i++){
-            if(chars[i] == ')' || chars[i] == '(');
+            if(chars[i] == ')' || chars[i] == '('){
+                str +="";
+            }
             else if(chars[i] == 'A' && chars[i+1] !='\''){
-                str+="A'";
+                str+="A";
             }
             else if(chars[i] == 'B' && chars[i+1] !='\''){
-                str+="B'";
+                str+="B";
             }
             else if(chars[i] == 'C' && chars[i+1] !='\''){
-                str+="C'";
+                str+="C";
             }
             else if(chars[i] == 'D' && chars[i+1] !='\''){
-                str+="D'";
+                str+="D";
             }
             else if(chars[i] == '+');
             else if(chars[i] == '*'){
                 str+="+";
             }
             else if(chars[i] == 'A' && chars[i+1] =='\''){
-                str+="A";
+                str+="A'";
             }
             else if(chars[i] == 'B' && chars[i+1] =='\''){
-                str+="B";
+                str+="B'";
             }
             else if(chars[i] == 'C' && chars[i+1] =='\''){
-                str+="C";
+                str+="C'";
             }
             else if(chars[i] == 'D' && chars[i+1] =='\''){
-                str+="D";
+                str+="D'";
             }
         }
         return str;

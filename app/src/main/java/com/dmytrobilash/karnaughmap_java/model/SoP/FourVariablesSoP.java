@@ -132,7 +132,7 @@ public class FourVariablesSoP {
             if(output.equals("")){
                 output += "B'";
             }else output += "+B'";
-            groups+="[1,2,3,4,12,13,14,15]";
+            groups+="[0,1,2,3,12,13,14,15]";
         }
 
         //left

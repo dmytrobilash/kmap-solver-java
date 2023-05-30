@@ -25,7 +25,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
     private Button[] buttons;
     private FourVariablesPresenter fourVariablesPresenter;
     private EditText result;
-    private Boolean formFlag; //means SoP was created
+    private Boolean formFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(View view) {
                 Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, DrawSchemeActivity.class);
-                if (formFlag) {
+                if (!formFlag) {
                     switchActivityIntent.putExtra("type", "SoP");
                 } else {
                     switchActivityIntent.putExtra("type", "PoS");
@@ -87,27 +87,16 @@ public class Kmap4VariablesActivity extends AppCompatActivity implements View.On
                 for (Button button : buttons) {
                     buttonText += button.getText() + " ";
                 }
-                int[] val;
                 String groups;
-                val = new int[4];
 
-                for (int i = 0; i < val.length; i++) {
-                    if (buttons[i].getText().toString().matches("X")) {
-                        val[i] = 2;
-                    } else {
-                        val[i] = Integer.parseInt(buttons[i].getText().toString());
-                    }
-                }
-
-                //twoVariablePresenter = new TwoVariablesPresenter(buttons,  getApplicationContext());
-
-                if (formFlag) {
+                if (!formFlag) {
                     groups = fourVariablesPresenter.getGroupsSoP();
                 } else {
                     groups = fourVariablesPresenter.getGroupsPoS();
                 }
+
                 Intent switchActivityIntent = new Intent(Kmap4VariablesActivity.this, CheckUnionsActivity.class);
-                switchActivityIntent.putExtra("kMap", "2");
+                switchActivityIntent.putExtra("kMap", "4");
                 switchActivityIntent.putExtra("buttonText", buttonText);
                 switchActivityIntent.putExtra("Groups", groups);
                 startActivity(switchActivityIntent);

@@ -255,50 +255,50 @@ public class ThreeVariablesPoS {
 
     // no grouping
     private void nogrouping() {
-        if (A[0][0] == 1 && checked[0][0] == 0) {
+        if (A[0][0] == 0 && checked[0][0] == 0) {
             if (output.equals("")) {
                 output += "(A+B+C)";
             } else output += "*(A+B+C)";
             groups += "[0]";
         }
-        if (A[0][1] == 1 && checked[0][1] == 0) {
+        if (A[0][1] == 0 && checked[0][1] == 0) {
             if (output.equals("")) {
                 output += "(A+B+C')";
             } else output += "*(A+B+C')";
             groups += "[1]";
 
         }
-        if (A[0][2] == 1 && checked[0][2] == 0) {
+        if (A[0][2] == 0 && checked[0][2] == 0) {
             if (output.equals("")) {
                 output += "(A+B'+C')";
             } else output += "*(A+B'+C')";
             groups += "[2]";
         }
-        if (A[0][3] == 1 && checked[0][3] == 0) {
+        if (A[0][3] == 0 && checked[0][3] == 0) {
             if (output.equals("")) {
                 output += "(A+B'+C)";
             } else output += "*(A+B'+C)";
             groups += "[3]";
         }
-        if (A[1][0] == 1 && checked[1][0] == 0) {
+        if (A[1][0] == 0 && checked[1][0] == 0) {
             if (output.equals("")) {
                 output += "(A'+B+C)";
             } else output += "*(A'+B+C)";
             groups += "[4]";
         }
-        if (A[1][1] == 1 && checked[1][1] == 0) {
+        if (A[1][1] == 0 && checked[1][1] == 0) {
             if (output.equals("")) {
                 output += "(A'+B+C')";
             } else output += "*(A'+B+C')";
             groups += "[5]";
         }
-        if (A[1][2] == 1 && checked[1][2] == 0) {
+        if (A[1][2] == 0 && checked[1][2] == 0) {
             if (output.equals("")) {
                 output += "(A'+B'+C')";
             } else output += "*(A'+B'+C')";
             groups += "[6]";
         }
-        if (A[1][3] == 1 && checked[1][3] == 0) {
+        if (A[1][3] == 0 && checked[1][3] == 0) {
             if (output.equals("")) {
                 output += "(A'+B'+C)";
             } else output += "*(A'+B'+C)";

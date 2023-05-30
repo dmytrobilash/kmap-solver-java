@@ -15,7 +15,7 @@ public class Var2 {
     private String btn2 = "0";
     private String btn3 = "0";
     private String lastResult = "";
-    private String form = "SoP";
+    private String form = "";
 
     public String getForm() {
         return form;

@@ -293,7 +293,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="8" />
+                    android:text="12" />
 
                 <Button
                     android:id="@+id/button8"
@@ -312,7 +312,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="9" />
+                    android:text="13" />
 
                 <Button
                     android:id="@+id/button9"
@@ -331,7 +331,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="11" />
+                    android:text="15" />
 
                 <Button
                     android:id="@+id/button10"
@@ -350,7 +350,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="10" />
+                    android:text="14" />
 
                 <Button
                     android:id="@+id/button11"
@@ -384,7 +384,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="12" />
+                    android:text="9" />
 
                 <Button
                     android:id="@+id/button12"
@@ -420,7 +420,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="15" />
+                    android:text="11" />
 
                 <Button
                     android:id="@+id/button14"
@@ -439,7 +439,7 @@
 
                 <TextView
                     style="@style/number_of_cell"
-                    android:text="14" />
+                    android:text="10" />
 
                 <Button
                     android:id="@+id/button15"

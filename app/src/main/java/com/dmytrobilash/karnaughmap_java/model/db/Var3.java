@@ -19,7 +19,7 @@ public class Var3 {
     private String btn6 = "0";
     private String btn7 = "0";
     private String lastResult = "";
-    private String form = "SoP";
+    private String form = "";
 
     public String getForm() {
         return form;
